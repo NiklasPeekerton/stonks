@@ -20,7 +20,7 @@ def init_connection():
 
 @st.cache(hash_funcs={MongoClient: id})
 def get_client():
-    return MongoClient(**st.secrets.mongo.host)
+    return MongoClient(**st.secrets["mongo"].host)
 
 client = get_client()
 db = client.stonks
