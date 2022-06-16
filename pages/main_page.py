@@ -21,7 +21,7 @@ client = init_connection()
 @st.experimental_memo(ttl=600)
 def get_data():
     db = client.stonks
-    items = db.stonks.find()
+    items = db.overall.find()
     items = list(items)  # make hashable for st.experimental_memo
     return items
 
