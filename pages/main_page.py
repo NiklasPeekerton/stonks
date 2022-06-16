@@ -2,6 +2,7 @@
 import streamlit as st
 import pandas as pd
 import pymongo
+import pymongo['srv']
 from pymongo import MongoClient
 
 st.markdown("# Stonkmeizter 🎈")
