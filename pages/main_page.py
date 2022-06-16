@@ -40,7 +40,7 @@ collection = db.overall
 
 #data = pd.DataFrame(list(collection.find()))
 st.secrets.mongo.host
-st.secrets.host
+
 
 #st.write("DB username:", st.secrets["mongo"]["host"])
 #st.write("DB password:", st.secrets["mongo"]["password"])
