@@ -21,7 +21,7 @@ client = init_connection()
 print(client)
 
 db = client.stonks
-print(db)
+st.markdown(db)
 #collection = db.overall
 #data = pd.DataFrame(list(collection.find()))
 #st.data
