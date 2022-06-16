@@ -18,11 +18,12 @@ def init_connection():
 
 client = init_connection()
 
+print(client)
 
-db = client.stonks
-collection = db.overall
-data = pd.DataFrame(list(collection.find()))
-st.data
+#db = client.stonks
+#collection = db.overall
+#data = pd.DataFrame(list(collection.find()))
+#st.data
 
 #st.write("DB username:", st.secrets["mongo"]["host"])
 #st.write("DB password:", st.secrets["mongo"]["password"])
