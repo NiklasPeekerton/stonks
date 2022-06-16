@@ -26,14 +26,14 @@ client = get_client()
 db = client.stonks
 collection = db.overall
 
-st.write(collection.find()[0])
+st.write(collection.find())
 
 #print(client)
 
 db = client.stonks
-st.markdown(db)
+#st.markdown(db)
 collection = db.overall
-st.markdown(collection)
+#st.markdown(collection)
 
 items = db.overall.find()
 items = list(items)
