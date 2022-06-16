@@ -28,7 +28,7 @@ collection = db.overall
 
 #st.write(collection.find())
 
-st.client
+#st.client
 
 #db = client.stonks
 #st.markdown(db)
