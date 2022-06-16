@@ -22,7 +22,8 @@ print(client)
 
 db = client.stonks
 st.markdown(db)
-#collection = db.overall
+collection = db.overall
+st.markdown(collection)
 #data = pd.DataFrame(list(collection.find()))
 #st.data
 
