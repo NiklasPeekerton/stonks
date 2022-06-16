@@ -18,8 +18,6 @@ def init_connection():
 
 #client = init_connection()
 
-my_db.connect(**st.secrets.mongo)
-
 @st.cache(hash_funcs={MongoClient: id})
 def get_client():
     return MongoClient(**st.secrets["mongo"]['host'])
