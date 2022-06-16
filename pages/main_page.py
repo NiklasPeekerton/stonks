@@ -1,8 +1,8 @@
 # Contents of ~/my_app/main_page.py
 import streamlit as st
 import pandas as pd
-from pymongo 
-import MongoClient
+import pymongo
+from pymongo import MongoClient
 
 st.markdown("# Stonkmeizter 🎈")
 st.sidebar.markdown("# Stonkomeizter 🎈")
