@@ -1,0 +1,12 @@
+altair
+pandas
+streamlit
+yahoo_fin
+tqdm
+datetime
+numpy
+streamlit_option_menu
+click==8
+plotly
+requests
+pymongo
