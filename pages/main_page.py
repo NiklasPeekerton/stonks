@@ -38,7 +38,8 @@ collection = db.overall
 #items = list(items)
 #items
 
-#data = pd.DataFrame(list(collection.find()))
+data = pd.DataFrame(list(collection.find()))
+data
 st.secrets.mongo.host
 
 
