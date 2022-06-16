@@ -20,13 +20,13 @@ def init_connection():
 
 @st.cache(hash_funcs={MongoClient: id})
 def get_client():
-    return MongoClient(**st.secrets["mongo"].host)
+    return MongoClient(**st.secrets["mongo"])
 
 client = get_client()
 db = client.stonks
 collection = db.overall
 
-#st.write(collection.find())
+st.write(collection.find()[0])
 
 #st.client
 
@@ -38,9 +38,9 @@ collection = db.overall
 #items = list(items)
 #items
 
-data = pd.DataFrame(list(collection.find()))
-data
-st.secrets.mongo.host
+#data = pd.DataFrame(list(collection.find()))
+#data
+#st.secrets.mongo.host
 
 
 #st.write("DB username:", st.secrets["mongo"]["host"])
