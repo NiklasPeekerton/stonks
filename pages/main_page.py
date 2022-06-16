@@ -26,21 +26,20 @@ client = get_client()
 db = client.stonks
 collection = db.overall
 
-st.write(collection.find())
+#st.write(collection.find())
 
 #print(client)
 
-db = client.stonks
+#db = client.stonks
 #st.markdown(db)
-collection = db.overall
 #st.markdown(collection)
 
-items = db.overall.find()
-items = list(items)
+#items = db.overall.find()
+#items = list(items)
 #items
 
-#data = pd.DataFrame(list(collection.find()))
-#st.data
+data = pd.DataFrame(list(collection.find()))
+st.data
 
 #st.write("DB username:", st.secrets["mongo"]["host"])
 #st.write("DB password:", st.secrets["mongo"]["password"])
