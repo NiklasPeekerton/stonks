@@ -9,4 +9,4 @@ streamlit_option_menu
 click==8
 plotly
 requests
-pymongo
+pymongo[srv]
