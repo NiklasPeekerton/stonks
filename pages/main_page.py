@@ -16,13 +16,13 @@ st.sidebar.markdown("# Stonkomeizter 🎈")
 def init_connection():
     return pymongo.MongoClient(**st.secrets["mongo"])
 
-#client = init_connection()
+client = init_connection()
 
 
-#db = client.stonks
-#collection = db.overall
-#data = pd.DataFrame(list(collection.find()))
-#st.data
+db = client.stonks
+collection = db.overall
+data = pd.DataFrame(list(collection.find()))
+st.data
 
-st.write("DB username:", st.secrets["mongo"]["host"])
-st.write("DB password:", st.secrets["mongo"]["password"])
+#st.write("DB username:", st.secrets["mongo"]["host"])
+#st.write("DB password:", st.secrets["mongo"]["password"])
