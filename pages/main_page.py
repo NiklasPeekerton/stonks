@@ -24,5 +24,5 @@ def init_connection():
 #data = pd.DataFrame(list(collection.find()))
 #st.data
 
-st.write("DB username:", st.secrets["username"])
-st.write("DB password:", st.secrets["password"])
+st.write("DB username:", st.secrets["mongo"]["username"])
+st.write("DB password:", st.secrets["mongo"]["password"])
