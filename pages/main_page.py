@@ -24,6 +24,11 @@ db = client.stonks
 st.markdown(db)
 collection = db.overall
 st.markdown(collection)
+
+items = db.overall.find()
+items = list(items)
+items
+
 #data = pd.DataFrame(list(collection.find()))
 #st.data
 
