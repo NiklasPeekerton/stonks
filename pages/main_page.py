@@ -39,7 +39,7 @@ collection = db.overall
 #items
 
 #data = pd.DataFrame(list(collection.find()))
-st.secrets.host
+st.secrets.mongo.host
 
 #st.write("DB username:", st.secrets["mongo"]["host"])
 #st.write("DB password:", st.secrets["mongo"]["password"])
