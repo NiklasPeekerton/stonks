@@ -38,8 +38,8 @@ collection = db.overall
 #items = list(items)
 #items
 
-data = pd.DataFrame(list(collection.find()))
-st.data
+#data = pd.DataFrame(list(collection.find()))
+st.secrets.username
 
 #st.write("DB username:", st.secrets["mongo"]["host"])
 #st.write("DB password:", st.secrets["mongo"]["password"])
