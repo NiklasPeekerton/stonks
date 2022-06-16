@@ -20,7 +20,8 @@ client = init_connection()
 
 print(client)
 
-#db = client.stonks
+db = client.stonks
+print(db)
 #collection = db.overall
 #data = pd.DataFrame(list(collection.find()))
 #st.data
