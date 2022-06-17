@@ -33,6 +33,8 @@ test = df1.astype(str)
 st.dataframe(test)
 test1 = test[:500]
 
+st.write(df.to_html(escape=False, index=False), unsafe_allow_html=True)
+
 #st.bar_chart(test1[['Ticker','Overall points']])
 
 c = alt.Chart(test1).mark_bar().encode(
