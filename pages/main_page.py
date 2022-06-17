@@ -15,7 +15,7 @@ st.sidebar.markdown("# Stonkomeizter 🎈")
 # Uses st.experimental_singleton to only run once.
 @st.experimental_singleton
 def init_connection():
-    return pymongo.MongoClient(**st.secrets["mongo"])
+    return MongoClient(**st.secrets["mongo"])
 
 
 
