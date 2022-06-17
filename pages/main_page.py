@@ -39,5 +39,13 @@ test1 = test[:500]
 
 c = alt.Chart(test1).mark_bar().encode(
     alt.X('Overall points:Q'),
-    alt.Y('Ticker:O', sort='-x'))
+    alt.Y('Name:O', sort='-x'))
 st.altair_chart(c, use_container_width=True)
+
+#source = data.barley()
+
+#alt.Chart(source).mark_bar().encode(
+#    x='sum(yield)',
+#    y='variety',
+#    color='site'
+#)
