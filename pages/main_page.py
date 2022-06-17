@@ -31,4 +31,4 @@ st.dataframe(df1, width=1500, height=None)
 test = df1.astype(str)
 st.dataframe(test)
 
-st.bar_chart(test)
+st.bar_chart(test[['Ticker','Overall points']])
