@@ -30,7 +30,7 @@ client1 = init_connection()
 
 #st.write(collection.find()[0])
 
-st.write(client)
+#st.write(client)
 st.write(client1)
 
 #db = client.stonks
