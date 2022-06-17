@@ -24,12 +24,12 @@ def get_client():
     return MongoClient(**st.secrets["mongo"])
 
 client = get_client()
-db = client.stonks
-collection = db.overall
+#db = client.stonks
+#collection = db.overall
 
-st.write(collection.find()[0])
+#st.write(collection.find()[0])
 
-#st.client
+st.write(client)
 
 #db = client.stonks
 #st.markdown(db)
