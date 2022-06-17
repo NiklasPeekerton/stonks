@@ -46,7 +46,7 @@ st.write(data1)
 #items
 
 data = pd.DataFrame(list(collection.find()))
-data
+st.data
 #st.secrets.mongo.host
 
 
