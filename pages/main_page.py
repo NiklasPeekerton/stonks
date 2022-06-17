@@ -20,7 +20,7 @@ client = get_client()
 db = client.stonks
 collection = db.overall
 data = collection.find()
-data1 = data.index += 1 
+data1 = (data.index += 1 )
 
 df = pd.DataFrame(data1)
 df = df.astype({"_id": str})
