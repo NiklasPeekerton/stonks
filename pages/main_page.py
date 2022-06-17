@@ -6,6 +6,7 @@ import pymongo
 from pymongo import MongoClient
 import matplotlib.pyplot as plt
 import numpy as np
+import altair as alt
 
 st.markdown("# Stonkomeizter 🚀🚀🚀")
 #st.sidebar.markdown("# Stonkomeizter 🚀🚀🚀")
