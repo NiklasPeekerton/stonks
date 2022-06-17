@@ -35,9 +35,9 @@ st.write(client)
 
 db = client.stonks
 collection = db.overall
-data1 = collection.find()[0]
+data1 = collection.find()#[0]
 st.write(db)
-st.write(data1)
+#st.write(data1)
 #st.markdown(db)
 #st.markdown(collection)
 
@@ -45,8 +45,12 @@ st.write(data1)
 #items = list(items)
 #items
 
-data = pd.DataFrame(list(data1))
-st.dataframe(data)
+df = pd.DataFrame(data1)
+df = df.astype({"_id": str})
+st.write(df)
+
+#data = pd.DataFrame(list(data1))
+#st.dataframe(data)
 #st.secrets.mongo.host
 
 
