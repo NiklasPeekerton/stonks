@@ -25,5 +25,5 @@ data = collection.find()
 df = pd.DataFrame(data)
 df = df.astype({"_id": str})
 df1 = df.drop(columns=['_id'])
-st.dataframe(df1, width=1000, height=None)
+st.dataframe(df1, width=1500, height=None)
 
