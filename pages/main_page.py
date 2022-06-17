@@ -24,7 +24,7 @@ def get_client():
     return MongoClient(**st.secrets["mongo"])
 
 client = get_client()
-client1 = init_connection()
+#client1 = init_connection()
 #db = client.stonks
 #collection = db.overall
 
