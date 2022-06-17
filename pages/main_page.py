@@ -32,4 +32,9 @@ test = df1.astype(str)
 st.dataframe(test)
 test1 = test[:100]
 
-st.bar_chart(test1[['Ticker','Overall points']])
+#st.bar_chart(test1[['Ticker','Overall points']])
+
+c = alt.Chart(test1).mark_bar().encode(
+    alt.X('Overall points:Q'),
+    alt.Y('Ticker:O', sort='-x'))
+st.altair_chart(c, use_container_width=True)
