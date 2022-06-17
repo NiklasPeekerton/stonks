@@ -30,7 +30,7 @@ df = df.astype({"_id": str})
 df1 = df.drop(columns=['_id'])
 #st.dataframe(df1, width=1500, height=None)
 test = df1.astype(str)
-st.dataframe(test, unsafe_allow_html=True)
+st.dataframe(test)
 test1 = test[:500]
 
 #st.write(df.to_html(escape=False, index=False), unsafe_allow_html=True)
