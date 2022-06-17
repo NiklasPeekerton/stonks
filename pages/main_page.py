@@ -17,19 +17,21 @@ st.sidebar.markdown("# Stonkomeizter 🎈")
 def init_connection():
     return pymongo.MongoClient(**st.secrets["mongo"])
 
-#client = init_connection()
+
 
 @st.cache(hash_funcs={MongoClient: id})
 def get_client():
     return MongoClient(**st.secrets["mongo"])
 
 client = get_client()
+client1 = init_connection()
 #db = client.stonks
 #collection = db.overall
 
 #st.write(collection.find()[0])
 
 st.write(client)
+st.write(client1)
 
 #db = client.stonks
 #st.markdown(db)
