@@ -35,6 +35,7 @@ st.write(client)
 
 db = client.stonks
 st.write(db)
+st.write(db.overall)
 #st.markdown(db)
 #st.markdown(collection)
 
