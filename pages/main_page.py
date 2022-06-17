@@ -30,5 +30,6 @@ df1 = df.drop(columns=['_id'])
 st.dataframe(df1, width=1500, height=None)
 test = df1.astype(str)
 st.dataframe(test)
+test1 = test[:100]
 
-st.bar_chart(test[['Ticker','Overall points']])
+st.bar_chart(test1[['Ticker','Overall points']])
