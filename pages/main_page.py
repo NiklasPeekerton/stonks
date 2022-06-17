@@ -10,49 +10,19 @@ st.sidebar.markdown("# Stonkomeizter 🎈")
 
 # streamlit_app.py
 
-
-# Initialize connection.
-# Uses st.experimental_singleton to only run once.
-@st.experimental_singleton
-def init_connection():
-    return pymongo.MongoClient(**st.secrets["mongo"])
-
-
-
 @st.cache(hash_funcs={MongoClient: id})
 def get_client():
     return MongoClient(**st.secrets["mongo"])
 
 client = get_client()
-#client1 = init_connection()
-#db = client.stonks
-#collection = db.overall
 
-#st.write(collection.find()[0])
-
-st.write(client)
-#st.write(client1)
 
 db = client.stonks
 collection = db.overall
-data1 = collection.find()#[0]
-st.write(db)
-#st.write(data1)
-#st.markdown(db)
-#st.markdown(collection)
+data1 = collection.find()
 
-#items = db.overall.find()
-#items = list(items)
-#items
 
 df = pd.DataFrame(data1)
 df = df.astype({"_id": str})
-st.write(df)
+st.dataframe(df)
 
-#data = pd.DataFrame(list(data1))
-#st.dataframe(data)
-#st.secrets.mongo.host
-
-
-#st.write("DB username:", st.secrets["mongo"]["host"])
-#st.write("DB password:", st.secrets["mongo"]["password"])
