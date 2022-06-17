@@ -33,7 +33,8 @@ client = get_client()
 st.write(client)
 #st.write(client1)
 
-#db = client.stonks
+db = client.stonks
+st.write(db)
 #st.markdown(db)
 #st.markdown(collection)
 
