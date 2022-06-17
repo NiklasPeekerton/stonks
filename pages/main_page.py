@@ -45,7 +45,7 @@ st.write(data1)
 #items = list(items)
 #items
 
-data = pd.DataFrame(list(data1))
+data = pd.DataFrame(dict(data1))
 st.dataframe(data)
 #st.secrets.mongo.host
 
