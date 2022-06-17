@@ -35,7 +35,7 @@ st.write(client)
 
 db = client.stonks
 collection = db.overall
-data1 = collection.find()[0]
+data1 = collection.find()#[0]
 st.write(db)
 st.write(data1)
 #st.markdown(db)
