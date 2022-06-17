@@ -19,10 +19,11 @@ client = get_client()
 
 db = client.stonks
 collection = db.overall
-data1 = collection.find()
-
+data = collection.find()
+data1 = data.index += 1 
 
 df = pd.DataFrame(data1)
 df = df.astype({"_id": str})
-st.dataframe(df)
+df1 = df.drop(columns=['_id'])
+st.dataframe(df1)
 
