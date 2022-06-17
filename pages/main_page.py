@@ -5,8 +5,8 @@ import pymongo
 #import pymongo[srv]
 from pymongo import MongoClient
 
-st.markdown("# Stonkmeizter 🎈")
-st.sidebar.markdown("# Stonkomeizter 🎈")
+st.markdown("# Stonkomeizter ")
+#st.sidebar.markdown("# Stonkomeizter 🚀🚀🚀")
 
 # streamlit_app.py
 
@@ -25,5 +25,5 @@ data = collection.find()
 df = pd.DataFrame(data)
 df = df.astype({"_id": str})
 df1 = df.drop(columns=['_id'])
-st.dataframe(df1)
+st.dataframe(df1, width=400, height=None)
 
