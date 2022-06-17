@@ -10,4 +10,4 @@ click==8
 plotly
 requests
 pymongo
-'pymongo[srv]'
+pymongo[srv]
