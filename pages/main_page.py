@@ -29,4 +29,4 @@ df = df.astype({"_id": str})
 df1 = df.drop(columns=['_id'])
 st.dataframe(df1, width=1500, height=None)
 
-st.pyplot(df1[:100])
+st.bar_chart(df1)
