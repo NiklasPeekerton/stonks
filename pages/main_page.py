@@ -124,7 +124,7 @@ df4 = df4.sort_values(by=['Points^2/Market cap points'], ascending=False)
 df4 = df4.reset_index(drop=True)
 st.dataframe(df4)
 
-fig = px.scatter(x=df4['Overall points'], y=df4['Points^2/Market cap points'], color=" Industry",
+fig = px.scatter(x=df4['Overall points'], y=df4['Points^2/Market cap points'], color=df4[' Industry'],
                  #size=df3['Overall points'], 
                  #hover_data=df3['Ticker']
                  #mode='markers',
