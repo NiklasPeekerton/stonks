@@ -99,5 +99,5 @@ st.dataframe(df3)
 import plotly.express as px
 fig = px.scatter(x=df3['Overall points'], y=df3['Points^2/Market cap points'], #color="species",
                  #size='petal_length', 
-                 hover_data=df3['Ticker']))
+                 hover_data=df3['Ticker'])
 st.plotly_chart(fig, use_container_width=True)
