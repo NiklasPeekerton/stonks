@@ -109,6 +109,6 @@ collection2 = db.overall2
 data2 = collection2.find()
 df4 = pd.DataFrame(data2)
 df4 = df4.astype({"_id": str})
-df4 = df4.astype({"Company Name": str})
+df4 = df4.astype({" Company Name": str})
 df4 = df4.drop(columns=['_id'])
 st.dataframe(df4)
