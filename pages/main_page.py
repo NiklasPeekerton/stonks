@@ -66,3 +66,12 @@ st.dataframe(df3)
 #    y='variety',
 #    color='site'
 #)
+
+
+st.subheader("# Testsection 🚀💩🔞🚭☠︎🤯💥")
+
+age = st.slider('Weight for Revenue', 1, 10, 1)
+
+weight = df3['Revenues points normal']*age
+
+st.dataframe(weight)
