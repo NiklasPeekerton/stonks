@@ -9,7 +9,7 @@ import numpy as np
 import altair as alt
 
 st.markdown("# Stonkomeizter 🚀🚀🚀")
-#st.sidebar.markdown("# Stonkomeizter 🚀🚀🚀")
+st.sidebar.markdown("# Stonkomeizter 🚀🚀🚀")
 
 # streamlit_app.py
 
