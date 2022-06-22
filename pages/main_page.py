@@ -114,6 +114,10 @@ df4 = pd.DataFrame(data2)
 #df4 = df4.astype({" Country": str})
 df4 = df4.astype(str)
 df4 = df4.drop(columns=['_id'])
+df4=df4[df4!=0].dropna()
+df4['Points^2/Market cap points'] = df4['Points/Market cap']*df4['Overall points']
+df4 = df4.sort_values(by=['Points^2/Market cap points'], ascending=False)
+df4 = df4.reset_index(drop=True)
 st.dataframe(df4)
 
 fig = px.scatter(x=df4['Overall points'], y=df4['Points^2/Market cap points'], color=" Industry",
