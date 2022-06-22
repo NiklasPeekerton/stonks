@@ -114,8 +114,8 @@ df4 = pd.DataFrame(data2)
 #df4 = df4.astype({" Country": str})
 df4 = df4.astype(str)
 
-df4 = df4.astype({"Overall points": int})
-df4 = df4.astype({"Points/Market cap": int})
+df4 = df4.astype({"Overall points": float})
+df4 = df4.astype({"Points/Market cap": float})
 
 df4 = df4.drop(columns=['_id'])
 df4=df4[df4!=0].dropna()
