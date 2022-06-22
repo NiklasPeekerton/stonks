@@ -39,7 +39,7 @@ test1 = test[:500]
 collection1 = db.overall1
 data1 = collection1.find()
 
-df2=df2[df2!=0].dropna()
+
 df2 = pd.DataFrame(data1)
 
 df3 = df2.astype({"_id": str})
