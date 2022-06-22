@@ -30,6 +30,8 @@ df = df.astype({"_id": str})
 df1 = df.drop(columns=['_id'])
 #st.dataframe(df1, width=1500, height=None)
 test = df1.astype(str)
+
+st.subheader("'Old' scores", anchor=None)
 st.dataframe(test)
 test1 = test[:500]
 
@@ -37,11 +39,14 @@ test1 = test[:500]
 collection1 = db.overall1
 data1 = collection1.find()
 
+
 df2 = pd.DataFrame(data1)
 df3 = df2.astype({"_id": str})
 df3 = df2.drop(columns=['_id'])
 #st.dataframe(df1, width=1500, height=None)
 #test = df2.astype(str)
+
+st.subheader("'New' scores", anchor=None)
 st.dataframe(df3)
 #test1 = test[:500]
 
