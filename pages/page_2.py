@@ -8,8 +8,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import altair as alt
 
-st.markdown("# Stonkomeizter 🚀🚀🚀")
-#st.sidebar.markdown("# Stonkomeizter 🚀🚀🚀")
+st.markdown("# Testsite 🚀💩🔞🚭☠︎🤯💥")
+st.sidebar.markdown("# Testsite 🚀💩🔞🚭☠︎🤯💥")
 
 # streamlit_app.py
 
