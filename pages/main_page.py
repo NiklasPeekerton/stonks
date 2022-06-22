@@ -33,14 +33,26 @@ test = df1.astype(str)
 st.dataframe(test)
 test1 = test[:500]
 
+
+collection1 = db.overall1
+data1 = collection1.find()
+
+df2 = pd.DataFrame(data1)
+df3 = df2.astype({"_id": str})
+df3 = df2.drop(columns=['_id'])
+#st.dataframe(df1, width=1500, height=None)
+#test = df2.astype(str)
+st.dataframe(df3)
+#test1 = test[:500]
+
 #st.write(df.to_html(escape=False, index=False), unsafe_allow_html=True)
 
 #st.bar_chart(test1[['Ticker','Overall points']])
 
-c = alt.Chart(test1).mark_bar().encode(
-    alt.X('Overall points:Q'),
-    alt.Y('Ticker:O', sort='-x'))
-st.altair_chart(c, use_container_width=True)
+#c = alt.Chart(test1).mark_bar().encode(
+#    alt.X('Overall points:Q'),
+#    alt.Y('Ticker:O', sort='-x'))
+#st.altair_chart(c, use_container_width=True)
 
 #source = data.barley()
 
