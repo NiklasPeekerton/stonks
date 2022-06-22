@@ -84,3 +84,9 @@ df3 = df3.reset_index(drop=True)
 #+ df3['Weighted Average Shares (Diluted) points normal'] + df3['Payout Ratio points normal']
 
 st.dataframe(df3)
+
+
+
+df3=df3[df3!=0].dropna()
+
+st.dataframe(df3)
