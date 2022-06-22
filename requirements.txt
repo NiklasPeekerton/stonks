@@ -10,3 +10,4 @@ click==8
 plotly
 requests
 pymongo
+matplotlib
