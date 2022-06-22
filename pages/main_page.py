@@ -68,7 +68,7 @@ st.dataframe(df3)
 #)
 
 
-st.subheader("# Testsection 🚀💩🔞🚭☠︎🤯💥")
+st.subheader("# Testsection")#🚀💩🔞🚭☠︎🤯💥")
 
 age = st.slider('Weight for Revenue', 1, 10, 1)
 
