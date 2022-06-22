@@ -70,9 +70,9 @@ st.dataframe(df3)
 
 st.subheader("# Testsection")#🚀💩🔞🚭☠︎🤯💥")
 
-age = st.slider('Weight for Revenue', 1, 10, 1)
+weight = st.slider('Weight for Revenue', 1, 10, 1)
 
-df3['Revenues points normal'] = df3['Revenues points normal']*age
+df3['Revenues points normal'] = df3['Revenues points normal']*weight
 
 #df3['Overall points'] = df3['Revenues points normal'] + df3['Revenues points normal']
-st.dataframe(weight)
+st.dataframe(df3)
