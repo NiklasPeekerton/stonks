@@ -74,7 +74,8 @@ weight = st.slider('Weight for Revenue', 1, 10, 1)
 
 df3['Revenues points normal'] = df3['Revenues points normal']*weight
 
-df3['Overall points'] = df3['Revenues points normal'] + df3['Dividend points normal'] 
+df3['Overall points2'] = df3['Revenues points normal'] + df3['Dividend points normal'] 
 + df3['Free Cash Flow points normal'] + df3['Net Income points normal'] + df3['Net Income Margin points normal'] + df3['Current Ratio points normal']
 + df3['Weighted Average Shares (Diluted) points normal'] + df3['Payout Ratio points normal']
+
 st.dataframe(df3)
