@@ -76,6 +76,9 @@ df3['Revenues points normal'] = df3['Revenues points normal']*weight
 
 df3['Overall points'] = df3['Overall points'] + (df3['Revenues points normal']-(df3['Revenues points normal']/weight))
 
+df3 = df3.sort_values(by=['Overall points'], ascending=False)
+df3 = df3.reset_index(drop=True)
+
 #df3['Overall points2'] = df3['Revenues points normal'] + df3['Dividend points normal'] 
 #+ df3['Free Cash Flow points normal'] + df3['Net Income points normal'] + df3['Net Income Margin points normal'] + df3['Current Ratio points normal']
 #+ df3['Weighted Average Shares (Diluted) points normal'] + df3['Payout Ratio points normal']
