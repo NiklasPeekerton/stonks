@@ -126,8 +126,8 @@ st.dataframe(df4)
 
 fig = px.scatter(x=df4['Overall points'], y=df4['Points^2/Market cap points'], color=df4[' Industry'],
                  #size=df3['Overall points'], 
-                 #hover_data=df3['Ticker']
+                 hover_data=df4['Ticker']
                  #mode='markers',
-                 text=df4['Ticker']
+                 #text=df4['Ticker']
                 )
 st.plotly_chart(fig, use_container_width=True)
