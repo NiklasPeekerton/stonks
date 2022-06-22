@@ -97,5 +97,5 @@ st.dataframe(df3)
 
 
 import plotly.express as px
-fig = px.scatter(x=[0, 1, 2, 3, 4], y=[0, 1, 4, 9, 16])
+fig = px.scatter(x=df3['Overall points'], y=df3['Points^2/Market cap points'])
 st.plotly_chart(fig, use_container_width=True)
