@@ -94,3 +94,8 @@ df3['Points^2/Market cap points'] = df3['Points/Market cap']*df3['Overall points
 df3 = df3.sort_values(by=['Points^2/Market cap points'], ascending=False)
 df3 = df3.reset_index(drop=True)
 st.dataframe(df3)
+
+
+import plotly.express as px
+fig = px.scatter(x=[0, 1, 2, 3, 4], y=[0, 1, 4, 9, 16])
+st.plotly_chart(fig, use_container_width=True)
