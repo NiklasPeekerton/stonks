@@ -155,3 +155,10 @@ fig = px.scatter(x=df4['Overall points'], y=df4['Points^2/Market cap points'], c
                  #text=df4['Ticker']
                 )
 st.plotly_chart(fig, use_container_width=True)
+
+group_labels = ['Group 1', 'Group 2', 'Group 3']
+
+# Create distplot with custom bin_size
+fig = ff.create_distplot(
+         df4['Overall points'], bin_size=[1, 300, 700])
+st.plotly_chart(fig, use_container_width=True)
