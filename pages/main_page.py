@@ -128,6 +128,6 @@ fig = px.scatter(x=df4['Overall points'], y=df4['Points^2/Market cap points'], c
                  #size=df3['Overall points'], 
                  #hover_data=df3['Ticker']
                  #mode='markers',
-                 #text=df4['Ticker']
+                 text=df4['Ticker']
                 )
 st.plotly_chart(fig, use_container_width=True)
