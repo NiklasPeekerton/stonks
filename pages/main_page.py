@@ -113,6 +113,10 @@ df4 = pd.DataFrame(data2)
 #df4 = df4.astype({" Exchange": str})
 #df4 = df4.astype({" Country": str})
 df4 = df4.astype(str)
+
+df4 = df4.astype({"Overall points": int})
+df4 = df4.astype({"Points/Market cap": int})
+
 df4 = df4.drop(columns=['_id'])
 df4=df4[df4!=0].dropna()
 df4['Points^2/Market cap points'] = df4['Points/Market cap']*df4['Overall points']
