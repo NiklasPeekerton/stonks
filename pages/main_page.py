@@ -104,3 +104,10 @@ fig = px.scatter(x=df3['Overall points'], y=df3['Points^2/Market cap points'], #
                  text=df3['Ticker']
                 )
 st.plotly_chart(fig, use_container_width=True)
+
+collection2 = db.overall2
+data2 = collection2.find()
+df4 = pd.DataFrame(data2)
+
+df4 = df4.drop(columns=['_id'])
+st.dataframe(df4)
