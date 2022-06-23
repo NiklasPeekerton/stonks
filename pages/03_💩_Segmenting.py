@@ -20,7 +20,7 @@ client = get_client()
 
 
 db = client.stonks
-collection = db.sectormean
+collection = db.sectorsmean
 data = collection.find()
 df = pd.DataFrame(data)
 st.dataframe(df)
