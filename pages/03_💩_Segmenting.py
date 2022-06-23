@@ -66,7 +66,7 @@ df = pd.DataFrame(data)
 df = df.drop(columns=['_id'])
 df = df.astype({" Sector": str})
 df = df.sort_values(by=['Overall points'], ascending=False)
-df = df[['Overall points', 'Ticker', ' Sector','Dividend points normal', 'Revenues points normal', 'Free Cash Flow points normal', 'Net Income points normal',
+df = df[['Overall points', 'Name', 'Ticker', ' Sector','Dividend points normal', 'Revenues points normal', 'Free Cash Flow points normal', 'Net Income points normal',
      'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 'Payout Ratio points normal'
         ]]
 
