@@ -12,3 +12,4 @@ requests
 pymongo
 matplotlib
 pymongo[srv]
+plost
