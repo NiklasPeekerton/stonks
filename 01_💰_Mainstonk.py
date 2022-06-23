@@ -50,8 +50,12 @@ df1 = df.drop(columns=['_id'])
 test = df1.astype(str)
 
 st.subheader("'New' scores", anchor=None)
-df3=df3[df3!=0].dropna()
-st.dataframe(df3)
+df4 = pd.DataFrame(data1)
+df4 = df4.astype({"_id": str})
+df4 = df4.drop(columns=['_id'])
+
+df4=df4[df4!=0].dropna()
+st.dataframe(df4)
 
 st.subheader("'Old' scores", anchor=None)
 st.dataframe(test)
