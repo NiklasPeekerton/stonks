@@ -26,10 +26,10 @@ data = collection.find()
 df = pd.DataFrame(data)
 df = df.drop(columns=['_id'])
 df = df.astype({" Sector": str})
-df = df.sort_values(by=['Overall points'], ascending=False)
+df = df.sort_values(by=['Overall points'], ascending=True)
 st.dataframe(df)
 
-fig = px.bar(df, x=["Dividend points normal", "Revenues points normal", "Free Cash Flow points normal", 'Net Income points normal', 'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 'Payout Ratio points normal'], y=" Sector", title="Wide-Form Input")
+fig = px.bar(df, x=["Dividend points normal", "Revenues points normal", "Free Cash Flow points normal", 'Net Income points normal', 'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 'Payout Ratio points normal'], y=" Sector", title="Sectors sorted by overall points broken down my metric")
 st.plotly_chart(fig, use_container_width=True)
 
 dftrim = df.drop([17,5])
