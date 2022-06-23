@@ -21,9 +21,9 @@ client = get_client()
 db = client.stonks
 collection = db.overall2
 data = collection.find()
+data1 = pd.DataFrame(data)
 
-
-data = data.astype(str)
+data = data1.astype(str)
 data = data.drop(columns=['_id'])
 #st.dataframe(df1, width=1500, height=None)
 #test = df2.astype(str)
