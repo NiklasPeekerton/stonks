@@ -28,6 +28,8 @@ df = df.astype({" Sector": str})
 df = df.sort_values(by=['Overall points'], ascending=False)
 st.dataframe(df)
 
+dftrim = df.drop([17])
+
 plost.bar_chart(
     data=df,
     bar=' Sector',
