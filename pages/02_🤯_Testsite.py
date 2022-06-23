@@ -144,5 +144,6 @@ st.plotly_chart(fig, use_container_width=True)
 collection3 = db.overall2
 data3 = collection3.find()
 df5 = pd.DataFrame(data3)
+marketcap = df5.astype(str)
 st.dataframe(df5)
 
