@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import altair as alt
 import plost
+import plotly.express as px
 
 st.markdown("# Segmentazione 💩")
 st.sidebar.markdown("# Segment 💩")
@@ -27,6 +28,9 @@ df = df.drop(columns=['_id'])
 df = df.astype({" Sector": str})
 df = df.sort_values(by=['Overall points'], ascending=False)
 st.dataframe(df)
+
+fig = px.bar(df, x=["Dividend points normal", "Revenues points normal", "Free Cash Flow points normal", 'Net Income points normal', 'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 'Payout Ratio points normal'], y=" Sector", title="Wide-Form Input")
+st.plotly_chart(fig, use_container_width=True)
 
 dftrim = df.drop([17,5])
 
@@ -72,7 +76,7 @@ df = df[['Overall points', ' Sector','Dividend points normal', 'Revenues points 
 st.dataframe(df)
 
 
-import plotly.express as px
+
 
 #wide_df = px.data.medals_wide()
 
