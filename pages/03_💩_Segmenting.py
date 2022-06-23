@@ -41,7 +41,7 @@ dftrim = df.drop([17,5])
 fig = px.scatter(df, x="Overall points", y="Market Capitalization size", color=' Sector', log_y=True,#log_y=True,
                  title="Log scale of market cap by overall points",
                 labels=dict(value="Average market Capitalization size", y="Average overall points"),
-                 width=400, height=800
+                 width=800, height=800
                 )
 
 fig.update_xaxes(showgrid=False)
