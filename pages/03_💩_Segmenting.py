@@ -70,6 +70,7 @@ df = df[['Overall points', 'Name', 'Ticker', ' Sector','Dividend points normal',
      'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 'Payout Ratio points normal'
         ]]
 
+df = df.astype({"Name": str})
 df = df.loc[df[' Sector'] == 'Utilities']
 df = df.drop(columns=[' Sector'])
 st.dataframe(df)
