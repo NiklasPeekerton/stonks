@@ -74,6 +74,7 @@ df = df.astype({"Name": str})
 df = df.loc[df[' Sector'] == 'Utilities']
 df = df.drop(columns=[' Sector'])
 st.dataframe(df)
+
 df = df.head(20)
 df = df.sort_values(by=['Overall points'], ascending=True)
 
@@ -81,7 +82,7 @@ fig = px.bar(df, x=["Dividend points normal", "Revenues points normal", "Free Ca
                     'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 
                     'Payout Ratio points normal'], y="Ticker", title="Utilities tickers sorted by average overall points broken down my metric",
             labels=dict(value="Average overall points", variable="Metrics"),
-             height=700
+             height=500
             )
 st.plotly_chart(fig, use_container_width=True)
 
