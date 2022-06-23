@@ -76,7 +76,7 @@ import plotly.express as px
 
 #wide_df = px.data.medals_wide()
 
-fig = px.bar(dftrim, x=["Dividend points normal", "Revenues points normal", "Free Cash Flow points normal"], y=" Sector", title="Wide-Form Input")
+fig = px.bar(df, x=["Dividend points normal", "Revenues points normal", "Free Cash Flow points normal", 'Net Income points normal', 'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 'Payout Ratio points normal'], y=" Sector", title="Wide-Form Input")
 st.plotly_chart(fig, use_container_width=True)
 
 sector = alt.Chart(dftrim).mark_bar().encode(
