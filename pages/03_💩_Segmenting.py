@@ -58,6 +58,16 @@ dftrim = dftrim[['Overall points', ' Sector','Dividend points normal', 'Revenues
 st.dataframe(dftrim)
 #st.bar_chart(dftrim)
 
+
+db = client.stonks
+collection = db.overall2
+data = collection.find()
+df = pd.DataFrame(data)
+df = df.drop(columns=['_id'])
+df = df.astype({" Sector": str})
+df = df.sort_values(by=['Overall points'], ascending=False)
+st.dataframe(df)
+
 sector = alt.Chart(dftrim).mark_bar().encode(
     x='Overall points:Q',
     y=alt.Y(' Sector:N', sort='-x'),
