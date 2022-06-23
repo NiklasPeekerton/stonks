@@ -34,26 +34,8 @@ st.plotly_chart(fig, use_container_width=True)
 
 dftrim = df.drop([17,5])
 
-plost.bar_chart(
-    data=dftrim,
-    bar=' Sector',
-    value=['Dividend points normal', 'Revenues points normal', 'Free Cash Flow points normal', 'Net Income points normal',
-     'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 'Payout Ratio points normal'],
-    direction='horizontal')
-
-plost.bar_chart(
-    data=dftrim,
-    bar=' Sector',
-    value='Market Capitalization size',
-    direction='horizontal')
-
-plost.scatter_chart(
-    data=dftrim,
-    x='Overall points',
-    y='Market Capitalization size',
-    size='Overall points',
-    #opacity='b',
-    height=500)
+fig = px.scatter(df, x="Overall points", y="Market Capitalization", color=' Sector')
+fig.show()
 
 #gapminder_2002 = gapminder[gapminder['year']==2002]
 #dftrim = dftrim.set_index(' Sector')
