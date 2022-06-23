@@ -13,3 +13,4 @@ pymongo
 matplotlib
 pymongo[srv]
 plost
+echarts
