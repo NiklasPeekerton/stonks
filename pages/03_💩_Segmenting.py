@@ -23,10 +23,11 @@ db = client.stonks
 collection = db.sectorsmean
 data = collection.find()
 df = pd.DataFrame(data)
+df = df.drop(columns=['_id'])
 st.dataframe(df)
 
 #data = data1.astype(str)
-#data = data.drop(columns=['_id'])
+
 #st.dataframe(df1, width=1500, height=None)
 #test = df2.astype(str)
 
