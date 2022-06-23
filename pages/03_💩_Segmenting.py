@@ -92,6 +92,7 @@ st.subheader("Utilities")
 st.plotly_chart(fig, use_container_width=True)
 #df = df.sort_values(by=['Overall points'], ascending=False)
 st.dataframe(df)
-st.dataframe(dfgroup)
+dfg = dfgroup.describe()
+st.dataframe(dfg)
 
 st.image('https://i.redd.it/fxrb1fsftv391.jpg')
