@@ -76,6 +76,7 @@ df = df.drop(columns=[' Sector'])
 st.dataframe(df)
 
 df = df.sort_values(by=['Overall points'], ascending=True)
+df = df[:50]
 fig = px.bar(df, x=["Dividend points normal", "Revenues points normal", "Free Cash Flow points normal", 'Net Income points normal', 
                     'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 
                     'Payout Ratio points normal'], y="Ticker", title="Utilities tickers sorted by average overall points broken down my metric",
