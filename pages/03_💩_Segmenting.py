@@ -32,7 +32,7 @@ st.dataframe(df)
 fig = px.bar(df, x=["Dividend points normal", "Revenues points normal", "Free Cash Flow points normal", 'Net Income points normal', 
                     'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 
                     'Payout Ratio points normal'], y=" Sector", title="Sectors sorted by average overall points broken down my metric",
-            labels=dict(value="Overall points", variable="Metrics")
+            labels=dict(value="Average overall points", variable="Metrics")
             )
 st.plotly_chart(fig, use_container_width=True)
 
@@ -40,7 +40,7 @@ dftrim = df.drop([17,5])
 
 fig = px.scatter(df, x="Market Capitalization size", y="Overall points", color=' Sector', log_x=True,
                  title="Log scale of market cap by overall points"
-                #labels=dict(total_bill="Total Bill ($)", tip="Tip ($)", sex="Payer Gender")
+                labels=dict(x="Average market Capitalization size", y="Average overall points", sex="Payer Gender")
                 )
 st.plotly_chart(fig, use_container_width=True)
 
