@@ -31,7 +31,7 @@ df = df.sort_values(by=['Overall points'], ascending=False)
 plost.bar_chart(
     data=df,
     bar='Overall points',
-    value=' Sector')
+    value='Overall points')
 
 #data = data1.astype(str)
 
