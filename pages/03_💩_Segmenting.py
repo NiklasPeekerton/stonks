@@ -67,6 +67,6 @@ sector = alt.Chart(dftrim).mark_bar().encode(
       'Dividend points normal',
       sort='ascending'
     )
-)
+).properties(height=700)
 
 st.altair_chart(sector)
