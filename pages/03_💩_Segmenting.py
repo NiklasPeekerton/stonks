@@ -40,7 +40,7 @@ dftrim = df.drop([17,5])
 
 fig = px.scatter(df, x="Market Capitalization size", y="Overall points", color=' Sector', log_x=True,
                  title="Log scale of market cap by overall points",
-                labels=dict(x="Average market Capitalization size", y="Average overall points")
+                labels=dict(value="Average market Capitalization size", y="Average overall points")
                 )
 st.plotly_chart(fig, use_container_width=True)
 
