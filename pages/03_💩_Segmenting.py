@@ -14,7 +14,7 @@ st.set_page_config(layout="wide")
 
 st.markdown("# Segmentazione 💩")
 st.sidebar.markdown("# Segment 💩")
-st.image('https://i.redd.it/fxrb1fsftv391.jpg')
+
 
 def get_client():
     return MongoClient(**st.secrets["mongo"])
@@ -29,7 +29,7 @@ df = pd.DataFrame(data)
 df = df.drop(columns=['_id'])
 df = df.astype({" Sector": str})
 df = df.sort_values(by=['Overall points'], ascending=True)
-st.dataframe(df)
+#st.dataframe(df)
 
 fig = px.bar(df, x=["Dividend points normal", "Revenues points normal", "Free Cash Flow points normal", 'Net Income points normal', 
                     'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 
@@ -66,29 +66,16 @@ df = pd.DataFrame(data)
 df = df.drop(columns=['_id'])
 df = df.astype({" Sector": str})
 df = df.sort_values(by=['Overall points'], ascending=False)
-df = df[['Overall points', ' Sector','Dividend points normal', 'Revenues points normal', 'Free Cash Flow points normal', 'Net Income points normal',
+df = df[['Overall points', 'Ticker', ' Sector','Dividend points normal', 'Revenues points normal', 'Free Cash Flow points normal', 'Net Income points normal',
      'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 'Payout Ratio points normal'
         ]]
+
+df = df.loc[df[' Sector'] == 'Utilities']
 st.dataframe(df)
 
 
 
 
-#wide_df = px.data.medals_wide()
 
-fig = px.bar(df, x=["Dividend points normal", "Revenues points normal", "Free Cash Flow points normal", 'Net Income points normal', 'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 'Payout Ratio points normal'], y=" Sector", title="Wide-Form Input")
-st.plotly_chart(fig, use_container_width=True)
 
-sector = alt.Chart(dftrim).mark_bar().encode(
-    x='Overall points:Q',
-    #y=alt.Y(' Sector:N', sort='-x'),
-    y='sum(Overall points)',
-    #color=['Dividend points normal', 'Revenues points normal'],
-    order=alt.Order(
-      # Sort the segments of the bars by this field
-      ' Sector',
-      sort='ascending'
-    )
-).properties(height=700)
-
-st.altair_chart(sector)
+st.image('https://i.redd.it/fxrb1fsftv391.jpg')
