@@ -138,7 +138,11 @@ st.plotly_chart(fig, use_container_width=True)
 #numberofcompaniespersector = df4.groupby(' Sector').count()
 #st.write(numberofcompaniespersector)
 
-s = df4.groupby([' Sector']).mean()
-s.sort_values(by=['Overall points'], ascending=False)
+#s = df4.groupby([' Sector']).mean()
+#s.sort_values(by=['Overall points'], ascending=False)
 
+collection2 = db.overall2
+data2 = collection2.find()
+df4 = pd.DataFrame(data2)
+st.dataframe(df4)
 
