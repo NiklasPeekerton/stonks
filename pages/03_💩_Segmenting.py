@@ -33,7 +33,8 @@ dftrim = df.drop([17,5])
 plost.bar_chart(
     data=dftrim,
     bar=' Sector',
-    value=['Dividend points normal', 'Revenues points normal', 'Free Cash Flow points normal', 'Net Income points normal', 'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 'Payout Ratio points normal'],
+    value=['Dividend points normal', 'Revenues points normal', 'Free Cash Flow points normal', 'Net Income points normal']
+    #, 'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 'Payout Ratio points normal'],
     direction='horizontal')
 
 plost.bar_chart(
