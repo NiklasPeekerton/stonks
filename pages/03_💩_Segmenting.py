@@ -26,7 +26,7 @@ df = pd.DataFrame(data)
 df = df.drop(columns=['_id'])
 df = df.astype({" Sector": str})
 df = df.sort_values(by=['Overall points'], ascending=False)
-#st.dataframe(df)
+st.dataframe(df)
 
 plost.bar_chart(
     data=df,
