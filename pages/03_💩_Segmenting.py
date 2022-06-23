@@ -44,9 +44,9 @@ plost.bar_chart(
 
 plost.scatter_chart(
     data=dftrim,
-    x='Market Capitalization size',
-    y='Overall points',
-    #size='c',
+    x='Overall points',
+    y='Market Capitalization size',
+    size='Overall points',
     #opacity='b',
     height=500)
 
