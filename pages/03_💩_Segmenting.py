@@ -24,7 +24,7 @@ collection = db.sectorsmean
 data = collection.find()
 df = pd.DataFrame(data)
 df = df.drop(columns=['_id'])
-df = df.astype(" Sector": str})
+df = df.astype({" Sector": str})
 st.dataframe(df)
 
 #data = data1.astype(str)
