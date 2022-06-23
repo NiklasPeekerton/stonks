@@ -11,3 +11,4 @@ plotly
 requests
 pymongo
 matplotlib
+pymongo[srv]
