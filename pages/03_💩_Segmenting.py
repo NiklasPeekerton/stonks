@@ -100,7 +100,6 @@ col2.metric("Average score", dfmean.loc['Utilities'][0])#, "-8%")
 col3.metric("Median score", dfmedian.loc['Utilities'][0])#, "4%")
 col4.metric("Max score", dfmax.loc['Utilities'][0])#, "4%")
 col5.metric("Min score", dfmin.loc['Utilities'][0])#, "4%")
-st.metric(label="Number of stocks", value=dfcount.loc['Utilities'][0])#, delta="1.2 °F")
 
 st.plotly_chart(fig, use_container_width=True)
 #df = df.sort_values(by=['Overall points'], ascending=False)
@@ -108,4 +107,34 @@ st.dataframe(df)
 #dfg = df.index.describe()
 
 
-st.image('https://i.redd.it/fxrb1fsftv391.jpg')
+#st.image('https://i.redd.it/fxrb1fsftv391.jpg')
+
+st.subheader("Consumer defensive")
+df = df.loc[df[' Sector'] == 'Consumer defensive']
+df = df.drop(columns=[' Sector'])
+
+
+df20 = df.head(20)
+df20 = df20.sort_values(by=['Overall points'], ascending=True)
+
+
+
+fig = px.bar(df20, x=["Dividend points normal", "Revenues points normal", "Free Cash Flow points normal", 'Net Income points normal', 
+                    'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 
+                    'Payout Ratio points normal'], y="Ticker", title="Utilities tickers sorted by average overall points broken down my metric", text='Overall points',
+            labels=dict(value="Average overall points", variable="Metrics"),
+             height=500
+            )
+
+
+
+col1, col2, col3, col4, col5 = st.columns(5)
+col1.metric("Number of stocks", dfcount.loc['Consumer defensive'][0])#, "1.2 °F")
+col2.metric("Average score", dfmean.loc['Consumer defensive'][0])#, "-8%")
+col3.metric("Median score", dfmedian.loc['Consumer defensive'][0])#, "4%")
+col4.metric("Max score", dfmax.loc['Consumer defensive'][0])#, "4%")
+col5.metric("Min score", dfmin.loc['Consumer defensive'][0])#, "4%")
+
+st.plotly_chart(fig, use_container_width=True)
+#df = df.sort_values(by=['Overall points'], ascending=False)
+st.dataframe(df)
