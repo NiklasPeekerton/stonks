@@ -80,7 +80,7 @@ fig = px.bar(df, x=["Dividend points normal", "Revenues points normal", "Free Ca
                     'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 
                     'Payout Ratio points normal'], y="Ticker", title="Utilities tickers sorted by average overall points broken down my metric",
             labels=dict(value="Average overall points", variable="Metrics"),
-             height=800
+             height=1000
             )
 st.plotly_chart(fig, use_container_width=True)
 
