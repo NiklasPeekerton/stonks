@@ -65,7 +65,7 @@ sector = alt.Chart(dftrim).mark_bar().encode(
     order=alt.Order(
       # Sort the segments of the bars by this field
       'Overall points',
-      sort='ascending'
+      sort='descending'
     )
 ).properties(height=700)
 
