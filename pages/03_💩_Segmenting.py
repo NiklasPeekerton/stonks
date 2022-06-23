@@ -38,11 +38,13 @@ st.plotly_chart(fig, use_container_width=True)
 
 dftrim = df.drop([17,5])
 
-fig = px.scatter(df, x="Market Capitalization size", y="Overall points", color=' Sector', log_x=True,
+fig = px.scatter(df, x="Market Capitalization size", y="Overall points", color=' Sector', log_x=True,log_y=True,
                  title="Log scale of market cap by overall points",
-                labels=dict(value="Average market Capitalization size", y="Average overall points"),
-                 showgrid=False
+                labels=dict(value="Average market Capitalization size", y="Average overall points")
                 )
+
+fig.update_xaxes(showgrid=False)
+fig.update_yaxes(showgrid=False)
 st.plotly_chart(fig, use_container_width=True)
 
 #gapminder_2002 = gapminder[gapminder['year']==2002]
