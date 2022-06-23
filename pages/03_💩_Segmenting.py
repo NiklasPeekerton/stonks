@@ -7,6 +7,7 @@ from pymongo import MongoClient
 import matplotlib.pyplot as plt
 import numpy as np
 import altair as alt
+import plost
 
 st.markdown("# Segmentazione 💩")
 st.sidebar.markdown("# Segment 💩")
@@ -29,4 +30,12 @@ data = data.drop(columns=['_id'])
 #test = df2.astype(str)
 
 st.subheader("blö", anchor=None)
-st.dataframe(data)
+
+s = data.groupby([' Sector']).mean()
+mean = s.sort_values(by=['Overall points'], ascending=False)
+
+plost.bar_chart(
+    data=datasets['mean'],
+    bar='Overall points',
+    value='Ticker')
+
