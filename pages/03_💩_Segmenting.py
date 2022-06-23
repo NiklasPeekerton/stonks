@@ -25,7 +25,12 @@ data = collection.find()
 df = pd.DataFrame(data)
 df = df.drop(columns=['_id'])
 df = df.astype({" Sector": str})
-st.dataframe(df)
+#st.dataframe(df)
+
+plost.bar_chart(
+    data=df,
+    bar='Overall points',
+    value=' Sector')
 
 #data = data1.astype(str)
 
@@ -38,8 +43,5 @@ st.subheader("blö", anchor=None)
 #s = data.groupby([' Sector']).mean()
 #mean = s.sort_values(by=['Overall points'], ascending=False)
 
-#plost.bar_chart(
-#    data=datasets['mean'],
-#    bar='Overall points',
-#    value='Ticker')
+
 
