@@ -71,6 +71,7 @@ df = df[['Overall points', 'Ticker', ' Sector','Dividend points normal', 'Revenu
         ]]
 
 df = df.loc[df[' Sector'] == 'Utilities']
+df.drop(' Sector')
 st.dataframe(df)
 
 
