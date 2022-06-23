@@ -34,6 +34,13 @@ plost.bar_chart(
     value='Overall points',
     direction='horizontal')
 
+plost.scatter_chart(
+    data=df,
+    x='Market Capitalization size',
+    y='Overall points',
+    #size='c',
+    #opacity='b',
+    height=500)
 #data = data1.astype(str)
 
 #st.dataframe(df1, width=1500, height=None)
