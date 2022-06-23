@@ -53,7 +53,7 @@ plost.scatter_chart(
 
 #gapminder_2002 = gapminder[gapminder['year']==2002]
 
-dftrim = dftrim[['Dividend points normal', 'Revenues points normal', 'Free Cash Flow points normal', 'Net Income points normal',
+dftrim = dftrim[[' Sector', 'Dividend points normal', 'Revenues points normal', 'Free Cash Flow points normal', 'Net Income points normal',
      'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 'Payout Ratio points normal']]
 dftrim.set_index(' Sector')
 st.bar_chart(dftrim)
