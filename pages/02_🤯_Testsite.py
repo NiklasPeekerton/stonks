@@ -135,6 +135,9 @@ fig = px.scatter(x=df4['Overall points'], y=df4['Points^2/Market cap points'], c
                 )
 st.plotly_chart(fig, use_container_width=True)
 
+numberofcompaniespersector = df4.group_by(' Sector').count()
+st.write(numberofcompaniespersector)
+
 group_labels = ['Group 1', 'Group 2', 'Group 3']
 
 # Create distplot with custom bin_size
