@@ -58,4 +58,15 @@ dftrim = dftrim[[' Sector','Dividend points normal', 'Revenues points normal', '
 st.dataframe(dftrim)
 #st.bar_chart(dftrim)
 
+alt.Chart(dftrim).mark_bar().encode(
+    x=' Sector',
+    y='Dividend points normal',
+    #color='',
+    order=alt.Order(
+      # Sort the segments of the bars by this field
+      'Dividend points normal',
+      sort='ascending'
+    )
+)
+
 
