@@ -70,7 +70,11 @@ df = df[['Overall points', 'Name', 'Ticker', ' Sector','Dividend points normal',
      'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 'Payout Ratio points normal'
         ]]
 
-dfgroup = df.groupby(by=' Sector').count()
+dfcount = df.groupby(by=' Sector').count()
+dfmean = df.groupby(by=' Sector').mean()
+dfmedian = df.groupby(by=' Sector').median()
+dfmax = df.groupby(by=' Sector').max()
+dfmin = df.groupby(by=' Sector').min()
 df = df.astype({"Name": str})
 df = df.loc[df[' Sector'] == 'Utilities']
 df = df.drop(columns=[' Sector'])
@@ -89,10 +93,11 @@ fig = px.bar(df20, x=["Dividend points normal", "Revenues points normal", "Free 
             )
 
 st.subheader("Utilities")
+st.subheader("This many stocks" + dfcount)
 st.plotly_chart(fig, use_container_width=True)
 #df = df.sort_values(by=['Overall points'], ascending=False)
 st.dataframe(df)
-dfg = df.index.describe()
-st.dataframe(dfg)
+#dfg = df.index.describe()
+
 
 st.image('https://i.redd.it/fxrb1fsftv391.jpg')
