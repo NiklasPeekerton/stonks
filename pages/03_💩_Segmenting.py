@@ -55,7 +55,7 @@ st.plotly_chart(fig, use_container_width=True)
 #dftrim = dftrim.set_index(' Sector')
 dftrim = dftrim[['Overall points', ' Sector','Dividend points normal', 'Revenues points normal', 'Free Cash Flow points normal', 'Net Income points normal',
      'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 'Payout Ratio points normal']]
-st.dataframe(dftrim)
+#st.dataframe(dftrim)
 #st.bar_chart(dftrim)
 
 
@@ -93,8 +93,15 @@ fig = px.bar(df20, x=["Dividend points normal", "Revenues points normal", "Free 
             )
 
 st.subheader("Utilities")
-st.write(dfcount.loc['Utilities'][0])
+
+col1, col2, col3, col4, col5 = st.columns(5)
+col1.metric("Number of stocks", dfcount.loc['Utilities'][0])#, "1.2 °F")
+col2.metric("Wind", "9 mph", "-8%")
+col3.metric("Humidity", "86%", "4%")
+col4.metric("Humidity", "86%", "4%")
+col5.metric("Humidity", "86%", "4%")
 st.metric(label="Number of stocks", value=dfcount.loc['Utilities'][0])#, delta="1.2 °F")
+
 st.plotly_chart(fig, use_container_width=True)
 #df = df.sort_values(by=['Overall points'], ascending=False)
 st.dataframe(df)
