@@ -71,8 +71,10 @@ st.dataframe(df3)
 
 st.subheader("Sorted by value 💰", anchor=None)
 df3=df3[df3!=0].dropna()
-df3['Points^2/Market cap points'] = df3['Points/Market cap']*df3['Overall points']
-df3 = df3.sort_values(by=['Points^2/Market cap points'], ascending=False)
+points = df3['Points/Market cap']*df3['Overall points']
+
+df3.insert(2, "Value points", points)
+df3 = df3.sort_values(by=['Value points'], ascending=False)
 df3 = df3.reset_index(drop=True)
 st.dataframe(df3)
 
