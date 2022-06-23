@@ -28,7 +28,7 @@ data1 = pd.DataFrame(data)
 #data = data.drop(columns=['_id'])
 #st.dataframe(df1, width=1500, height=None)
 #test = df2.astype(str)
-st.dataframe(data)
+st.dataframe(data1)
 
 st.subheader("blö", anchor=None)
 
