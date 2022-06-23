@@ -31,19 +31,19 @@ st.dataframe(df)
 dftrim = df.drop([17])
 
 plost.bar_chart(
-    data=df,
+    data=dftrim,
     bar=' Sector',
     value='Overall points',
     direction='horizontal')
 
 plost.bar_chart(
-    data=df,
+    data=dftrim,
     bar=' Sector',
     value='Market Capitalization size',
     direction='horizontal')
 
 plost.scatter_chart(
-    data=df,
+    data=dftrim,
     x='Market Capitalization size',
     y='Overall points',
     #size='c',
