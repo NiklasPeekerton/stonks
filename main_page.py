@@ -70,24 +70,11 @@ st.dataframe(df3)
 #)
 
 st.subheader("Sorted by value 💰", anchor=None)
-collection2 = db.overall2
-data2 = collection2.find()
-df4 = pd.DataFrame(data2)
-#df4 = df4.astype({"_id": str})
-#df4 = df4.astype({" Company Name": str})
-#df4 = df4.astype({" Exchange": str})
-#df4 = df4.astype({" Country": str})
-df4 = df4.astype(str)
-
-df4 = df4.astype({"Overall points": float})
-df4 = df4.astype({"Points/Market cap": float})
-
-df4 = df4.drop(columns=['_id'])
-df4=df4[df4!=0].dropna()
-df4['Points^2/Market cap points'] = df4['Points/Market cap']*df4['Overall points']
-df4 = df4.sort_values(by=['Points^2/Market cap points'], ascending=False)
-df4 = df4.reset_index(drop=True)
-st.dataframe(df4)
+df3=df3[df3!=0].dropna()
+df3['Points^2/Market cap points'] = df3['Points/Market cap']*df3['Overall points']
+df3 = df3.sort_values(by=['Points^2/Market cap points'], ascending=False)
+df3 = df3.reset_index(drop=True)
+st.dataframe(df3)
 
 
 st.subheader("Testsection 🚀💩🔞🚭☠︎🤯💥")
