@@ -141,8 +141,8 @@ st.plotly_chart(fig, use_container_width=True)
 #s = df4.groupby([' Sector']).mean()
 #s.sort_values(by=['Overall points'], ascending=False)
 
-collection2 = db.overall2
-data2 = collection2.find()
-df4 = pd.DataFrame(data2)
-st.dataframe(df4)
+collection3 = db.overall2
+data3 = collection3.find()
+df5 = pd.DataFrame(data3)
+st.dataframe(df5)
 
