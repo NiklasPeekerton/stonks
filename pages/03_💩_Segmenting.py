@@ -22,13 +22,14 @@ client = get_client()
 db = client.stonks
 collection = db.sectormean
 data = collection.find()
-data1 = pd.DataFrame(data)
+df = pd.DataFrame(data)
+st.dataframe(df)
 
 #data = data1.astype(str)
 #data = data.drop(columns=['_id'])
 #st.dataframe(df1, width=1500, height=None)
 #test = df2.astype(str)
-st.dataframe(data1)
+
 
 st.subheader("blö", anchor=None)
 
