@@ -13,7 +13,7 @@ st.sidebar.markdown("# Testsite 🚀💩🔞🚭☠︎🤯💥")
 
 # streamlit_app.py
 
-@st.cache(hash_funcs={MongoClient: id})
+#@st.cache(hash_funcs={MongoClient: id})
 def get_client():
     return MongoClient(**st.secrets["mongo"])
 
