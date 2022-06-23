@@ -11,7 +11,7 @@ import plost
 
 st.markdown("# Segmentazione 💩")
 st.sidebar.markdown("# Segment 💩")
-st.image(https://i.redd.it/fxrb1fsftv391.jpg)
+st.image('https://i.redd.it/fxrb1fsftv391.jpg')
 
 def get_client():
     return MongoClient(**st.secrets["mongo"])
