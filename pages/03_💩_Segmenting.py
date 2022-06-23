@@ -60,7 +60,7 @@ st.dataframe(dftrim)
 
 sector = alt.Chart(dftrim).mark_bar().encode(
     x=' Sector',
-    y='Dividend points normal',
+    y=['Dividend points normal', 'Revenues points normal']
     #color='',
     order=alt.Order(
       # Sort the segments of the bars by this field
