@@ -34,7 +34,7 @@ st.plotly_chart(fig, use_container_width=True)
 
 dftrim = df.drop([17,5])
 
-fig = px.scatter(df, x="Overall points", y="Market Capitalization size", color=' Sector')
+fig = px.scatter(df, x="Overall points", y="Market Capitalization size", color=' Sector', log_y=True)
 st.plotly_chart(fig, use_container_width=True)
 
 #gapminder_2002 = gapminder[gapminder['year']==2002]
