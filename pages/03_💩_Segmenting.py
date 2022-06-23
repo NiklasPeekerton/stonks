@@ -22,4 +22,11 @@ db = client.stonks
 collection = db.overall2
 data = collection.find()
 
+
+data = data.astype({"_id": str})
+data = data.drop(columns=['_id'])
+#st.dataframe(df1, width=1500, height=None)
+#test = df2.astype(str)
+
+st.subheader("blö", anchor=None)
 st.dataframe(data)
