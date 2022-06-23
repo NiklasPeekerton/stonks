@@ -94,6 +94,7 @@ fig = px.bar(df20, x=["Dividend points normal", "Revenues points normal", "Free 
 
 st.subheader("Utilities")
 st.write(dfcount.loc['Utilities'][0])
+st.metric(label="Number of stocks", value=dfcount.loc['Utilities'][0])#, delta="1.2 °F")
 st.plotly_chart(fig, use_container_width=True)
 #df = df.sort_values(by=['Overall points'], ascending=False)
 st.dataframe(df)
