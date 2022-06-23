@@ -20,7 +20,7 @@ client = get_client()
 
 
 db = client.stonks
-collection = db.overall2
+collection = db.sectormean
 data = collection.find()
 data1 = pd.DataFrame(data)
 
@@ -28,14 +28,15 @@ data = data1.astype(str)
 data = data.drop(columns=['_id'])
 #st.dataframe(df1, width=1500, height=None)
 #test = df2.astype(str)
+st.dataframe(data)
 
 st.subheader("blö", anchor=None)
 
-s = data.groupby([' Sector']).mean()
-mean = s.sort_values(by=['Overall points'], ascending=False)
+#s = data.groupby([' Sector']).mean()
+#mean = s.sort_values(by=['Overall points'], ascending=False)
 
-plost.bar_chart(
-    data=datasets['mean'],
-    bar='Overall points',
-    value='Ticker')
+#plost.bar_chart(
+#    data=datasets['mean'],
+#    bar='Overall points',
+#    value='Ticker')
 
