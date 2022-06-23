@@ -10,6 +10,8 @@ import altair as alt
 import plost
 import plotly.express as px
 
+st.set_page_config(layout="wide")
+
 st.markdown("# Segmentazione 💩")
 st.sidebar.markdown("# Segment 💩")
 st.image('https://i.redd.it/fxrb1fsftv391.jpg')
