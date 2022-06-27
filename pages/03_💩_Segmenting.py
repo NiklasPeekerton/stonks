@@ -178,6 +178,7 @@ def sectormetric(sector):
     col3.metric("Median score", dfmedian.loc[sector][0])#, "4%")
     col4.metric("Max score", dfmax.loc[sector][0])#, "4%")
     col5.metric("Min score", dfmin.loc[sector][0])#, "4%")
+    df = df.astype({"Name": str})
 
     st.plotly_chart(fig, use_container_width=True)
     #df = df.sort_values(by=['Overall points'], ascending=False)
