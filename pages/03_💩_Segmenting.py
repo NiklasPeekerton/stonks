@@ -138,3 +138,40 @@ col5.metric("Min score", dfmin.loc['Consumer Defensive'][0])#, "4%")
 st.plotly_chart(fig, use_container_width=True)
 #df = df.sort_values(by=['Overall points'], ascending=False)
 st.dataframe(df)
+
+
+
+
+def sectormetric(sector):
+    title = st.subheader(sector)
+    df = df.loc[df[' Sector'] == sector]
+    df = df.drop(columns=[' Sector'])
+
+
+    df20 = df.head(20)
+    df20 = df20.sort_values(by=['Overall points'], ascending=True)
+
+
+
+    fig = px.bar(df20, x=["Dividend points normal", "Revenues points normal", "Free Cash Flow points normal", 'Net Income points normal', 
+                        'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 
+                        'Payout Ratio points normal'], y="Ticker", title="Utilities tickers sorted by average overall points broken down my metric", text='Overall points',
+                labels=dict(value="Average overall points", variable="Metrics"),
+                 height=500
+                )
+
+
+
+    col1, col2, col3, col4, col5 = st.columns(5)
+    col1.metric("Number of stocks", dfcount.loc[sector][0])#, "1.2 °F")
+    col2.metric("Average score", dfmean.loc[sector][0])#, "-8%")
+    col3.metric("Median score", dfmedian.loc[sector][0])#, "4%")
+    col4.metric("Max score", dfmax.loc[sector][0])#, "4%")
+    col5.metric("Min score", dfmin.loc[sector][0])#, "4%")
+
+    st.plotly_chart(fig, use_container_width=True)
+    #df = df.sort_values(by=['Overall points'], ascending=False)
+    st.dataframe(df)
+    return fig, col1,col2,col3,col4,col5,df
+
+sectormetric('Consumer Defensive')
