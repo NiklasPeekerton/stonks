@@ -62,6 +62,12 @@ st.plotly_chart(fig, use_container_width=True)
 df20 = df.head(20)
 df20 = df20.sort_values(by=['Overall points'], ascending=True)
 
+db = client.stonks
+collection = db.overall2
+data = collection.find()
+df = pd.DataFrame(data)
+df = df.drop(columns=['_id'])
+df = df.astype({" Industry": str})
 dfcount = df.groupby(by=' Industry').count()
 dfmean = df.groupby(by=' Industry').mean()
 dfmedian = df.groupby(by=' Industry').median()
