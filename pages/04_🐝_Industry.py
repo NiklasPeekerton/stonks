@@ -28,7 +28,7 @@ data = collection.find()
 df = pd.DataFrame(data)
 df = df.drop(columns=['_id'])
 df = df.astype({" Industry": str})
-df = df.sort_values(by=['Overall points'], ascending=True)
+df = df.sort_values(by=['Overall points'], ascending=False)
 #st.dataframe(df)
 
 df20 = df.head(20)
