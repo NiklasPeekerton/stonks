@@ -92,52 +92,6 @@ fig = px.bar(df20, x=["Dividend points normal", "Revenues points normal", "Free 
              height=500
             )
 
-st.subheader("Utilities")
-
-col1, col2, col3, col4, col5 = st.columns(5)
-col1.metric("Number of stocks", dfcount.loc['Utilities'][0])#, "1.2 °F")
-col2.metric("Average score", dfmean.loc['Utilities'][0])#, "-8%")
-col3.metric("Median score", dfmedian.loc['Utilities'][0])#, "4%")
-col4.metric("Max score", dfmax.loc['Utilities'][0])#, "4%")
-col5.metric("Min score", dfmin.loc['Utilities'][0])#, "4%")
-
-st.plotly_chart(fig, use_container_width=True)
-#df = df.sort_values(by=['Overall points'], ascending=False)
-st.dataframe(df)
-#dfg = df.index.describe()
-
-
-#st.image('https://i.redd.it/fxrb1fsftv391.jpg')
-
-st.subheader("Consumer defensive")
-df = df.loc[df[' Sector'] == 'Consumer Defensive']
-df = df.drop(columns=[' Sector'])
-
-
-df20 = df.head(20)
-df20 = df20.sort_values(by=['Overall points'], ascending=True)
-
-
-
-fig = px.bar(df20, x=["Dividend points normal", "Revenues points normal", "Free Cash Flow points normal", 'Net Income points normal', 
-                    'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 
-                    'Payout Ratio points normal'], y="Ticker", title="Utilities tickers sorted by average overall points broken down my metric", text='Overall points',
-            labels=dict(value="Average overall points", variable="Metrics"),
-             height=500
-            )
-
-
-
-col1, col2, col3, col4, col5 = st.columns(5)
-col1.metric("Number of stocks", dfcount.loc['Consumer Defensive'][0])#, "1.2 °F")
-col2.metric("Average score", dfmean.loc['Consumer Defensive'][0])#, "-8%")
-col3.metric("Median score", dfmedian.loc['Consumer Defensive'][0])#, "4%")
-col4.metric("Max score", dfmax.loc['Consumer Defensive'][0])#, "4%")
-col5.metric("Min score", dfmin.loc['Consumer Defensive'][0])#, "4%")
-
-st.plotly_chart(fig, use_container_width=True)
-#df = df.sort_values(by=['Overall points'], ascending=False)
-st.dataframe(df)
 
 
 
@@ -185,4 +139,21 @@ def sectormetric(sector):
     st.dataframe(df)
     return fig, col1,col2,col3,col4,col5,df
 
+sectormetric('Utilities')
 sectormetric('Consumer Defensive')
+sectormetric('Real Estate')
+sectormetric('Consumer Cyclical')
+sectormetric('Media')
+sectormetric('Financial Services')
+sectormetric('Industrials')
+sectormetric('Basic Materials')
+sectormetric('Technology')
+sectormetric('Building')
+sectormetric('Communication Services')
+sectormetric('Pharmaceuticals')
+sectormetric('Energy')
+sectormetric('Industrial Goods')
+sectormetric('Healthcare')
+sectormetric('-')
+sectormetric('Financial')
+sectormetric('0')
