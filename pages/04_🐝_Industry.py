@@ -40,12 +40,13 @@ dfmax = df.groupby(by=' Industry').max()
 dfmin = df.groupby(by=' Industry').min()
 df = df.astype({"Name": str})
 
-fig = px.bar(dfmean, x=["Dividend points normal", "Revenues points normal", "Free Cash Flow points normal", 'Net Income points normal', 
-                    'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 
-                    'Payout Ratio points normal'], y=" Industry", title="Industries sorted by average overall points broken down my metric",
-            labels=dict(value="Average overall points", variable="Metrics")
-            )
-st.plotly_chart(fig, use_container_width=True)
+#fig = px.bar(dfmean, x=["Dividend points normal", "Revenues points normal", "Free Cash Flow points normal", 'Net Income points normal', 
+#                    'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 
+#                    'Payout Ratio points normal'], y=" Industry", title="Industries sorted by average overall points broken down my metric",
+#            labels=dict(value="Average overall points", variable="Metrics")
+#            )
+#st.plotly_chart(fig, use_container_width=True)
+st.dataframe(dfmean)
 
 dftrim = df.drop([17,5])
 
