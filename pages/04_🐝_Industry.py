@@ -53,16 +53,6 @@ st.plotly_chart(fig, use_container_width=True)
 
 
 
-fig.update_xaxes(showgrid=False)
-fig.update_yaxes(showgrid=False)
-st.plotly_chart(fig, use_container_width=True)
-
-#gapminder_2002 = gapminder[gapminder['year']==2002]
-#dftrim = dftrim.set_index(' Sector')
-dftrim = dftrim[['Overall points', ' Sector','Dividend points normal', 'Revenues points normal', 'Free Cash Flow points normal', 'Net Income points normal',
-     'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 'Payout Ratio points normal']]
-#st.dataframe(dftrim)
-#st.bar_chart(dftrim)
 
 
 
