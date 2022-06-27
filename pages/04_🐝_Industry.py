@@ -139,4 +139,4 @@ def industrymetric(industry):
     return fig, col1,col2,col3,col4,col5,df
 
 for industry in df[' Industry']:
-  sectorindustry(industry)
+  industrymetric(industry)
