@@ -23,41 +23,35 @@ client = get_client()
 
 
 db = client.stonks
-collection = db.overall2
+collection = db.industrymean
 data = collection.find()
 df = pd.DataFrame(data)
 df = df.drop(columns=['_id'])
 df = df.astype({" Industry": str})
-df = df.sort_values(by=['Overall points'], ascending=False)
-df = df.reset_index()
-df = df[['Overall points', 'Name', 'Ticker', ' Industry','Dividend points normal', 'Revenues points normal', 'Free Cash Flow points normal', 'Net Income points normal',
-     'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 'Payout Ratio points normal',
-         'Market Capitalization size'
-        ]]
+df = df.sort_values(by=['Overall points'], ascending=True)
+#st.dataframe(df)
 
-dfcount = df.groupby(by=' Industry').count()
-dfmean = df.groupby(by=' Industry').mean()
-dfmedian = df.groupby(by=' Industry').median()
-dfmax = df.groupby(by=' Industry').max()
-dfmin = df.groupby(by=' Industry').min()
-df = df.astype({"Name": str})
-
-#fig = px.bar(dfmean, x=["Dividend points normal", "Revenues points normal", "Free Cash Flow points normal", 'Net Income points normal', 
-#                    'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 
-#                    'Payout Ratio points normal'], y=" Industry", title="Industries sorted by average overall points broken down my metric",
-#            labels=dict(value="Average overall points", variable="Metrics")
-#            )
-#st.plotly_chart(fig, use_container_width=True)
-st.dataframe(dfmean)
+fig = px.bar(df, x=["Dividend points normal", "Revenues points normal", "Free Cash Flow points normal", 'Net Income points normal', 
+                    'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 
+                    'Payout Ratio points normal'], y=" Industry", title="Industries sorted by average overall points broken down my metric",
+            labels=dict(value="Average overall points", variable="Metrics")
+            )
+st.plotly_chart(fig, use_container_width=True)
 
 dftrim = df.drop([17,5])
 
-fig = px.scatter(dfmean, x="Overall points", y="Market Capitalization size", color=' Industry', log_y=True, text=' Industry',
+fig = px.scatter(df, x="Overall points", y="Market Capitalization size", color=' Industry', log_y=True, text=' Industry',
                  title="Log scale of market cap by overall points",
                 labels=dict(value="Average market Capitalization size", y="Average overall points"),
                  #width=800, 
                  height=800
                 )
+
+fig.update_xaxes(showgrid=False)
+fig.update_yaxes(showgrid=False)
+st.plotly_chart(fig, use_container_width=True)
+
+
 
 fig.update_xaxes(showgrid=False)
 fig.update_yaxes(showgrid=False)
