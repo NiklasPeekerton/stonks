@@ -140,4 +140,5 @@ def industrymetric(industry):
 
 #for industry in df[' Industry']:
 #  industrymetric(industry)
-industrymetric('Asset Management')
+#industrymetric('Asset Management')
+st.dataframe(df)
