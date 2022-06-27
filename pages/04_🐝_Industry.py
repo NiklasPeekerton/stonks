@@ -67,7 +67,7 @@ dfmean = df.groupby(by=' Industry').mean()
 dfmedian = df.groupby(by=' Industry').median()
 dfmax = df.groupby(by=' Industry').max()
 dfmin = df.groupby(by=' Industry').min()
-df = df.astype({"Name": str})
+#df = df.astype({"Name": str})
 
 
 
