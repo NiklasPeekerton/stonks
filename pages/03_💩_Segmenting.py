@@ -76,8 +76,8 @@ dfmedian = df.groupby(by=' Sector').median()
 dfmax = df.groupby(by=' Sector').max()
 dfmin = df.groupby(by=' Sector').min()
 df = df.astype({"Name": str})
-df = df.loc[df[' Sector'] == 'Utilities']
-df = df.drop(columns=[' Sector'])
+dfutil = df.loc[df[' Sector'] == 'Utilities']
+dfutil = dfutil.drop(columns=[' Sector'])
 
 
 df20 = df.head(20)
@@ -110,7 +110,7 @@ st.dataframe(df)
 #st.image('https://i.redd.it/fxrb1fsftv391.jpg')
 
 st.subheader("Consumer defensive")
-df = df.loc[df[' Sector'] == 'Consumer defensive']
+df = df.loc[df[' Sector'] == 'Consumer Defensive']
 df = df.drop(columns=[' Sector'])
 
 
@@ -129,11 +129,11 @@ fig = px.bar(df20, x=["Dividend points normal", "Revenues points normal", "Free 
 
 
 col1, col2, col3, col4, col5 = st.columns(5)
-col1.metric("Number of stocks", dfcount.loc['Consumer defensive'][0])#, "1.2 °F")
-col2.metric("Average score", dfmean.loc['Consumer defensive'][0])#, "-8%")
-col3.metric("Median score", dfmedian.loc['Consumer defensive'][0])#, "4%")
-col4.metric("Max score", dfmax.loc['Consumer defensive'][0])#, "4%")
-col5.metric("Min score", dfmin.loc['Consumer defensive'][0])#, "4%")
+col1.metric("Number of stocks", dfcount.loc['Consumer Defensive'][0])#, "1.2 °F")
+col2.metric("Average score", dfmean.loc['Consumer Defensive'][0])#, "-8%")
+col3.metric("Median score", dfmedian.loc['Consumer Defensive'][0])#, "4%")
+col4.metric("Max score", dfmax.loc['Consumer Defensive'][0])#, "4%")
+col5.metric("Min score", dfmin.loc['Consumer Defensive'][0])#, "4%")
 
 st.plotly_chart(fig, use_container_width=True)
 #df = df.sort_values(by=['Overall points'], ascending=False)
