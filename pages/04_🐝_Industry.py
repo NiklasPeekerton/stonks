@@ -23,24 +23,33 @@ client = get_client()
 
 
 db = client.stonks
-collection = db.sectorsmean
+collection = db.overall2
 data = collection.find()
 df = pd.DataFrame(data)
 df = df.drop(columns=['_id'])
-df = df.astype({" Sector": str})
-df = df.sort_values(by=['Overall points'], ascending=True)
-#st.dataframe(df)
+df = df.astype({" Industry": str})
+df = df.sort_values(by=['Overall points'], ascending=False)
+df = df[['Overall points', 'Name', 'Ticker', ' Industry','Dividend points normal', 'Revenues points normal', 'Free Cash Flow points normal', 'Net Income points normal',
+     'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 'Payout Ratio points normal'
+        ]]
 
-fig = px.bar(df, x=["Dividend points normal", "Revenues points normal", "Free Cash Flow points normal", 'Net Income points normal', 
+dfcount = df.groupby(by=' Industry').count()
+dfmean = df.groupby(by=' Industry').mean()
+dfmedian = df.groupby(by=' Industry').median()
+dfmax = df.groupby(by=' Industry').max()
+dfmin = df.groupby(by=' Industry').min()
+df = df.astype({"Name": str})
+
+fig = px.bar(dfmean, x=["Dividend points normal", "Revenues points normal", "Free Cash Flow points normal", 'Net Income points normal', 
                     'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 
-                    'Payout Ratio points normal'], y=" Sector", title="Sectors sorted by average overall points broken down my metric",
+                    'Payout Ratio points normal'], y=" Sector", title="Industries sorted by average overall points broken down my metric",
             labels=dict(value="Average overall points", variable="Metrics")
             )
 st.plotly_chart(fig, use_container_width=True)
 
 dftrim = df.drop([17,5])
 
-fig = px.scatter(df, x="Overall points", y="Market Capitalization size", color=' Sector', log_y=True, text=' Sector',
+fig = px.scatter(dfmean, x="Overall points", y="Market Capitalization size", color=' Industry', log_y=True, text=' Industry',
                  title="Log scale of market cap by overall points",
                 labels=dict(value="Average market Capitalization size", y="Average overall points"),
                  #width=800, 
@@ -59,23 +68,7 @@ dftrim = dftrim[['Overall points', ' Sector','Dividend points normal', 'Revenues
 #st.bar_chart(dftrim)
 
 
-db = client.stonks
-collection = db.overall2
-data = collection.find()
-df = pd.DataFrame(data)
-df = df.drop(columns=['_id'])
-df = df.astype({" Industry": str})
-df = df.sort_values(by=['Overall points'], ascending=False)
-df = df[['Overall points', 'Name', 'Ticker', ' Industry','Dividend points normal', 'Revenues points normal', 'Free Cash Flow points normal', 'Net Income points normal',
-     'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 'Payout Ratio points normal'
-        ]]
 
-dfcount = df.groupby(by=' Industry').count()
-dfmean = df.groupby(by=' Industry').mean()
-dfmedian = df.groupby(by=' Industry').median()
-dfmax = df.groupby(by=' Industry').max()
-dfmin = df.groupby(by=' Industry').min()
-df = df.astype({"Name": str})
 
 
 
