@@ -62,6 +62,12 @@ st.plotly_chart(fig, use_container_width=True)
 df20 = df.head(20)
 df20 = df20.sort_values(by=['Overall points'], ascending=True)
 
+dfcount = df.groupby(by=' Industry').count()
+dfmean = df.groupby(by=' Industry').mean()
+dfmedian = df.groupby(by=' Industry').median()
+dfmax = df.groupby(by=' Industry').max()
+dfmin = df.groupby(by=' Industry').min()
+df = df.astype({"Name": str})
 
 
 
