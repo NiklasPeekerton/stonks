@@ -31,16 +31,19 @@ df = df.astype({" Industry": str})
 df = df.sort_values(by=['Overall points'], ascending=True)
 #st.dataframe(df)
 
-fig = px.bar(df, x=["Dividend points normal", "Revenues points normal", "Free Cash Flow points normal", 'Net Income points normal', 
+df20 = df.head(20)
+df20 = df20.sort_values(by=['Overall points'], ascending=True)
+
+fig = px.bar(df20, x=["Dividend points normal", "Revenues points normal", "Free Cash Flow points normal", 'Net Income points normal', 
                     'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 
                     'Payout Ratio points normal'], y=" Industry", title="Industries sorted by average overall points broken down my metric",
             labels=dict(value="Average overall points", variable="Metrics")
             )
 st.plotly_chart(fig, use_container_width=True)
 
-dftrim = df.drop([17,5])
 
-fig = px.scatter(df, x="Overall points", y="Market Capitalization size", color=' Industry', log_y=True, text=' Industry',
+
+fig = px.scatter(df20, x="Overall points", y="Market Capitalization size", color=' Industry', log_y=True, text=' Industry',
                  title="Log scale of market cap by overall points",
                 labels=dict(value="Average market Capitalization size", y="Average overall points"),
                  #width=800, 
@@ -50,18 +53,6 @@ fig = px.scatter(df, x="Overall points", y="Market Capitalization size", color='
 fig.update_xaxes(showgrid=False)
 fig.update_yaxes(showgrid=False)
 st.plotly_chart(fig, use_container_width=True)
-
-
-
-
-
-
-
-
-
-df20 = df.head(20)
-df20 = df20.sort_values(by=['Overall points'], ascending=True)
-
 
 
 
