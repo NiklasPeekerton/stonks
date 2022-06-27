@@ -42,7 +42,7 @@ df = df.astype({"Name": str})
 
 fig = px.bar(dfmean, x=["Dividend points normal", "Revenues points normal", "Free Cash Flow points normal", 'Net Income points normal', 
                     'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 
-                    'Payout Ratio points normal'], y=" Sector", title="Industries sorted by average overall points broken down my metric",
+                    'Payout Ratio points normal'], y=" Industry", title="Industries sorted by average overall points broken down my metric",
             labels=dict(value="Average overall points", variable="Metrics")
             )
 st.plotly_chart(fig, use_container_width=True)
