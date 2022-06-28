@@ -108,7 +108,7 @@ def industrymetric(industry):
     st.plotly_chart(fig, use_container_width=True)
     #df = df.sort_values(by=['Overall points'], ascending=False)
     st.dataframe(df)
-    return fig, col1,col2,col3,col4,col5,df,dfcount,dfmean,dfmedian,dfmax,dfmin
+    return fig, col1,col2,col3,col4#,col5,df,dfcount,dfmean,dfmedian,dfmax,dfmin
 
 #for industry in df[' Industry']:
 #  industrymetric(industry)
