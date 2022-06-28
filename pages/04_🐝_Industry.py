@@ -88,7 +88,7 @@ def industrymetric(industry):
 
 
     df20 = df.head(25)
-    df20 = df20.sort_values(by=['Overall points'], ascending=False)
+    df20 = df20.sort_values(by=['Overall points'], ascending=True)
 
 
 
