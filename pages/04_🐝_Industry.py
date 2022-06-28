@@ -68,7 +68,7 @@ def industrymetric(industry):
     df = pd.DataFrame(data)
     df = df.drop(columns=['_id'])
     df = df.astype({" Industry": str})
-    df = df[['Overall points', 'Name', 'Ticker', ' Sector','Dividend points normal', 'Revenues points normal', 'Free Cash Flow points normal', 'Net Income points normal',
+    df = df[['Overall points', 'Name', 'Ticker', ' Industry','Dividend points normal', 'Revenues points normal', 'Free Cash Flow points normal', 'Net Income points normal',
      'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 'Payout Ratio points normal'
         ]]
     dfcount = df.groupby(by=' Industry').count()
