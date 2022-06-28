@@ -135,6 +135,6 @@ options = st.selectbox(
 )
 
 st.write('You selected:', options)
-print(options)
-print(type(options))
+#print(options)
+#print(type(options))
 industrymetric('Railroads')
