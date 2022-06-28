@@ -32,12 +32,12 @@ df = df.sort_values(by=['Overall points'], ascending=True)
 #st.dataframe(df)
 
 df20 = df.head(20)
-#df20 = df20.sort_values(by=['Overall points'], ascending=True)
+df20 = df20.sort_values(by=['Overall points'], ascending=True)
 
 fig = px.bar(df20, x=["Dividend points normal", "Revenues points normal", "Free Cash Flow points normal", 'Net Income points normal', 
                     'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 
                     'Payout Ratio points normal'], y=" Industry", title="Industries sorted by average overall points broken down my metric",
-            labels=dict(value="Average overall points", variable="Metrics")
+            labels=dict(value="Average overall points", variable="Metrics", height=900)
             )
 st.plotly_chart(fig, use_container_width=True)
 
@@ -112,7 +112,7 @@ def industrymetric(industry):
     st.dataframe(df)
     return fig, col1,col2,col3,col4,col5,df,dfcount,dfmean,dfmedian,dfmax,dfmin
 
-for industry in df20[' Industry']:
-  industrymetric(industry)
-#industrymetric('Asset Management')
-
+#for industry in df20[' Industry']:
+#  industrymetric(industry)
+industrymetric('Asset Management')
+st.dataframe(df20)
