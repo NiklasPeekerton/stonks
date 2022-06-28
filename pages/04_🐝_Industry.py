@@ -28,7 +28,7 @@ data = collection.find()
 df = pd.DataFrame(data)
 df = df.drop(columns=['_id'])
 df = df.astype({" Industry": str})
-df = df.sort_values(by=['Overall points'], ascending=False)
+df = df.sort_values(by=['Overall points'], ascending=True)
 #st.dataframe(df)
 
 df20 = df.head(20)
@@ -47,7 +47,7 @@ fig = px.scatter(df20, x="Overall points", y="Market Capitalization size", color
                  title="Log scale of market cap by overall points",
                 labels=dict(value="Average market Capitalization size", y="Average overall points"),
                  #width=800, 
-                 height=800
+                 height=900
                 )
 
 fig.update_xaxes(showgrid=False)
@@ -112,7 +112,7 @@ def industrymetric(industry):
     st.dataframe(df)
     return fig, col1,col2,col3,col4,col5,df,dfcount,dfmean,dfmedian,dfmax,dfmin
 
-for industry in df[' Industry']:
+for industry in df20[' Industry']:
   industrymetric(industry)
 #industrymetric('Asset Management')
 
