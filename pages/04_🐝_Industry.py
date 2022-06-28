@@ -129,7 +129,7 @@ industrylist = df[' Industry'].tolist()
 options = st.multiselect(
      'Pick one or several industries you want to see stats for',
      industrylist,
-     #['Yellow', 'Red']
+     ['Food Beverage & Tobacco']
 )
 
 #st.write('You selected:', options)
