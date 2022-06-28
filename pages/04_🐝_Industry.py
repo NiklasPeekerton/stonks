@@ -56,7 +56,7 @@ st.plotly_chart(fig, use_container_width=True)
 
 
 db = client.stonks
-collection = db.overall2
+
 
 
 
@@ -65,6 +65,7 @@ collection = db.overall2
 
 
 def industrymetric(industry):
+    collection = db.overall2
     overall = collection.find()
     df = pd.DataFrame(overall)
     #df = df.drop(columns=['_id'])
