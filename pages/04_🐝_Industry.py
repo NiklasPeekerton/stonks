@@ -94,7 +94,7 @@ def industrymetric(industry):
                         'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 
                         'Payout Ratio points normal'], y="Ticker", title="Utilities tickers sorted by average overall points broken down my metric", text='Overall points',
                 labels=dict(value="Average overall points", variable="Metrics"),
-                 height=500
+                 height=600
                 )
 
 
