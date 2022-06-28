@@ -99,7 +99,7 @@ def industrymetric(industry):
 
     col1, col2, col3, col4, col5 = st.columns(5)
     col1.metric("Number of stocks", dfcount.loc[industry][0])#, "1.2 °F")
-    col2.metric("Average score", dfmean.loc[industry]#[0])#, "-8%")
+    col2.metric("Average score", dfmean.loc[industry])#[0])#, "-8%")
     col3.metric("Median score", dfmedian.loc[industry][0])#, "4%")
     col4.metric("Max score", dfmax.loc[industry][0])#, "4%")
     col5.metric("Min score", dfmin.loc[industry][0])#, "4%")
