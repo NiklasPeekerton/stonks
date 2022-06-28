@@ -66,7 +66,7 @@ overall = collection.find()
 
 
 def industrymetric(industry):
-    collection = db.overall2
+    #collection = db.overall2
     overall = collection.find()
     df = pd.DataFrame(overall)
     #df = df.drop(columns=['_id'])
