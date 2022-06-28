@@ -130,11 +130,11 @@ industrylist = dfcount.index.tolist()
 
 options = st.selectbox(
      'Pick one or several industries you want to see stats for',
-     industrylist,
-     industrylist[69]
+     industrylist#,
+     #industrylist[69]
 )
 
 st.write('You selected:', options)
 #print(options)
 #print(type(options))
-industrymetric('Railroads')
+#industrymetric('Railroads')
