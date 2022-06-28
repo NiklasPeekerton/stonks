@@ -114,8 +114,8 @@ def industrymetric(industry):
 
 #for industry in df20[' Industry']:
 #  industrymetric(industry)
-industrymetric('Asset Management')
-st.dataframe(df20)
+#industrymetric('Asset Management')
+#st.dataframe(df20)
 
 tickerlist = df['Ticker'].tolist()
 
