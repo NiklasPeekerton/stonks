@@ -31,7 +31,7 @@ df = df.astype({" Industry": str})
 df = df.sort_values(by=['Overall points'], ascending=True)
 #st.dataframe(df)
 
-df20 = df.tail(20)
+df20 = df.head(20)
 df20 = df20.sort_values(by=['Overall points'], ascending=True)
 
 fig = px.bar(df20, x=["Dividend points normal", "Revenues points normal", "Free Cash Flow points normal", 'Net Income points normal', 
@@ -86,7 +86,7 @@ def industrymetric(industry):
 
 
     df20 = df.head(25)
-    df20 = df20.sort_values(by=['Overall points'], ascending=True)
+    df20 = df20.sort_values(by=['Overall points'], ascending=False)
 
 
 
