@@ -79,8 +79,8 @@ def industrymetric(industry):
     
 
     title = st.subheader(industry)
-    df = df.loc[df[' Industry'] == industry]
-    df = df.drop(columns=[' Industry'])
+    df1 = df.loc[df[' Industry'] == industry]
+    df = df1.drop(columns=[' Industry'])
 
 
     df20 = df.head(25)
