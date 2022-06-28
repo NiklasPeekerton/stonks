@@ -74,6 +74,10 @@ def industrymetric(industry):
     dfmax = df.groupby(by=' Industry').max()
     dfmin = df.groupby(by=' Industry').min()
     st.dataframe(dfcount)
+    st.dataframe(dfmean)
+    st.dataframe(dfmedian)
+    st.dataframe(dfmax)
+    st.dataframe(dfmin)
     #df = df.astype({"Name": str})
     df = df.sort_values(by=['Overall points'], ascending=False)
     df = df[['Overall points', 'Name', 'Ticker', ' Industry','Dividend points normal', 'Revenues points normal', 'Free Cash Flow points normal', 'Net Income points normal',
