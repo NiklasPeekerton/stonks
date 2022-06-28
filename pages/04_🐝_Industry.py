@@ -134,5 +134,5 @@ options = st.multiselect(
      industrylist[69]
 )
 
-st.write('You selected:', options)
-#industrymetric(options)
+#st.write('You selected:', options)
+industrymetric(options)
