@@ -124,7 +124,8 @@ df = df[['Overall points', 'Name', 'Ticker', ' Industry','Dividend points normal
     ]]
 
 #tickerlist = df['Ticker'].tolist()
-industrylist = df[' Industry'].tolist()
+dfcount = df.groupby(by=' Industry').count()
+industrylist = dfcount[' Industry'].tolist()
 
 options = st.multiselect(
      'Pick one or several industries you want to see stats for',
