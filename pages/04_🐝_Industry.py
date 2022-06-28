@@ -24,8 +24,8 @@ client = get_client()
 
 db = client.stonks
 collection = db.industrymean
-data = collection.find()
-df = pd.DataFrame(data)
+industry = collection.find()
+df = pd.DataFrame(industry)
 df = df.drop(columns=['_id'])
 df = df.astype({" Industry": str})
 df = df.sort_values(by=['Overall points'], ascending=False)
@@ -57,7 +57,7 @@ st.plotly_chart(fig, use_container_width=True)
 
 db = client.stonks
 collection = db.overall2
-data = collection.find()
+overall = collection.find()
 
 
 
@@ -65,8 +65,8 @@ data = collection.find()
 
 
 def industrymetric(industry):
-    df = pd.DataFrame(data)
-    df = df.drop(columns=['_id'])
+    df = pd.DataFrame(overall)
+    #df = df.drop(columns=['_id'])
     df = df.astype({" Industry": str})
     df = df[['Overall points', 'Name', 'Ticker', ' Industry','Dividend points normal', 'Revenues points normal', 'Free Cash Flow points normal', 'Net Income points normal',
      'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 'Payout Ratio points normal'
