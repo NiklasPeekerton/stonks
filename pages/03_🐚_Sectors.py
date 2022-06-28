@@ -92,11 +92,8 @@ fig = px.bar(df20, x=["Dividend points normal", "Revenues points normal", "Free 
              height=500
             )
 
-
-
-
-
-def sectormetric(sector):
+def overall():
+    
     db = client.stonks
     collection = db.overall2
     data = collection.find()
@@ -107,6 +104,13 @@ def sectormetric(sector):
     df = df[['Overall points', 'Name', 'Ticker', ' Sector','Dividend points normal', 'Revenues points normal', 'Free Cash Flow points normal', 'Net Income points normal',
          'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 'Payout Ratio points normal'
             ]]
+    return df
+
+
+
+
+def sectormetric(sector):
+    df = overall
     title = st.subheader(sector)
     df = df.loc[df[' Sector'] == sector]
     df = df.drop(columns=[' Sector'])
