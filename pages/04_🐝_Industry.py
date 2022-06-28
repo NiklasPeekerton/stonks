@@ -28,11 +28,11 @@ data = collection.find()
 df = pd.DataFrame(data)
 df = df.drop(columns=['_id'])
 df = df.astype({" Industry": str})
-df = df.sort_values(by=['Overall points'], ascending=True)
+df = df.sort_values(by=['Overall points'], ascending=False)
 #st.dataframe(df)
 
 df20 = df.head(20)
-df20 = df20.sort_values(by=['Overall points'], ascending=True)
+df20 = df20.sort_values(by=['Overall points'], ascending=False)
 
 fig = px.bar(df20, x=["Dividend points normal", "Revenues points normal", "Free Cash Flow points normal", 'Net Income points normal', 
                     'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 
@@ -43,7 +43,7 @@ st.plotly_chart(fig, use_container_width=True)
 
 
 
-fig = px.scatter(df20, x="Overall points", y="Market Capitalization size", color=' Industry', log_y=True, text=' Industry',
+fig = px.scatter(df20, x="Overall points", y="Market Capitalization size", color=' Industry', log_y=True, log_x=True, text=' Industry',
                  title="Log scale of market cap by overall points",
                 labels=dict(value="Average market Capitalization size", y="Average overall points"),
                  #width=800, 
