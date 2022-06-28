@@ -116,7 +116,7 @@ def industrymetric(industry):
 #industrymetric('Asset Management')
 #st.dataframe(df20)
 
-df = pd.DataFrame(data)
+df = pd.DataFrame(overall)
 #df = df.drop(columns=['_id'])
 df = df.astype({" Industry": str})
 df = df[['Overall points', 'Name', 'Ticker', ' Industry','Dividend points normal', 'Revenues points normal', 'Free Cash Flow points normal', 'Net Income points normal',
