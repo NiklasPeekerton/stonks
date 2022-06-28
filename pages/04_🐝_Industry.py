@@ -85,7 +85,7 @@ def industrymetric(industry):
     df = df.drop(columns=[' Industry'])
 
 
-    df20 = df.head(20)
+    df20 = df.head(25)
     df20 = df20.sort_values(by=['Overall points'], ascending=True)
 
 
@@ -110,13 +110,9 @@ def industrymetric(industry):
     st.plotly_chart(fig, use_container_width=True)
     #df = df.sort_values(by=['Overall points'], ascending=False)
     st.dataframe(df)
-    return fig, col1,col2,col3,col4#,col5,df,dfcount,dfmean,dfmedian,dfmax,dfmin
+    return fig, col1,col2,col3,col4,col5,df,dfcount,dfmean,dfmedian,dfmax,dfmin
 
 #for industry in df[' Industry']:
 #  industrymetric(industry)
 industrymetric('Asset Management')
-st.write(dfcount)
-#st.dataframe(dfmean)
-#st.dataframe(dfmedian)
-#st.dataframe(dfmax)
-#st.dataframe(dfmin)
+
