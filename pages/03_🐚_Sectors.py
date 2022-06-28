@@ -95,6 +95,13 @@ fig = px.bar(df20, x=["Dividend points normal", "Revenues points normal", "Free 
 
 
 def sectormetric(sector):
+    df = pd.DataFrame(data)
+    df = df.drop(columns=['_id'])
+    df = df.astype({" Sector": str})
+    df = df.sort_values(by=['Overall points'], ascending=False)
+    df = df[['Overall points', 'Name', 'Ticker', ' Sector','Dividend points normal', 'Revenues points normal', 'Free Cash Flow points normal', 'Net Income points normal',
+         'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 'Payout Ratio points normal'
+            ]]
     title = st.subheader(sector)
     df = df.loc[df[' Sector'] == sector]
     df = df.drop(columns=[' Sector'])
