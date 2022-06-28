@@ -127,8 +127,8 @@ df = df[['Overall points', 'Name', 'Ticker', ' Industry','Dividend points normal
     ]]
 
 #tickerlist = df['Ticker'].tolist()
-#dfcount = df.groupby(by=' Industry').count()
-#industrylist = dfcount.index.tolist()
+dfcount = df.groupby(by=' Industry').count()
+industrylist = dfcount.index.tolist()
 #st.write(industrylist)
 
 options = st.selectbox(
