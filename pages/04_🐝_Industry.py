@@ -135,4 +135,6 @@ options = st.multiselect(
 )
 
 #st.write('You selected:', options)
-industrymetric(options)
+print(options)
+print(type(options))
+#industrymetric(options)
