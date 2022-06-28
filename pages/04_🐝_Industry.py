@@ -117,9 +117,12 @@ def industrymetric(industry):
 industrymetric('Asset Management')
 st.dataframe(df20)
 
+tickerlist = df['Ticker'].tolist()
+
 options = st.multiselect(
-     'What are your favorite colors',
-     ['Green', 'Yellow', 'Red', 'Blue'],
-     ['Yellow', 'Red'])
+     'Pick one or several stocks you want to see graphs for',
+     tickerlist,
+     #['Yellow', 'Red']
+)
 
 st.write('You selected:', options)
