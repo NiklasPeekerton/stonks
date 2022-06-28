@@ -116,7 +116,7 @@ def industrymetric(industry):
 
 #for industry in df20[' Industry']:
 #  industrymetric(industry)
-#industrymetric('Asset Management')
+industrymetric('Asset Management')
 #st.dataframe(df20)
 
 df = pd.DataFrame(overall)
@@ -131,13 +131,13 @@ dfcount = df.groupby(by=' Industry').count()
 industrylist = dfcount.index.tolist()
 #st.write(industrylist)
 
-options = st.selectbox(
-     'Pick one or several industries you want to see stats for',
-     industrylist#,
+#options = st.selectbox(
+#     'Pick one or several industries you want to see stats for',
+#     industrylist#,
      #industrylist[69]
-)
+#)
 
-st.write('You selected:', options)
+#st.write('You selected:', options)
 #print(options)
 #print(type(options))
-industrymetric(options)
+#industrymetric(')
