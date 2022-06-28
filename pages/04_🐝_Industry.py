@@ -113,7 +113,7 @@ def industrymetric(industry):
 #for industry in df[' Industry']:
 #  industrymetric(industry)
 industrymetric('Asset Management')
-#st.dataframe(dfcount)
+st.write(dfcount)
 #st.dataframe(dfmean)
 #st.dataframe(dfmedian)
 #st.dataframe(dfmax)
