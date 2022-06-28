@@ -116,11 +116,13 @@ def industrymetric(industry):
 #st.dataframe(df20)
 
 tickerlist = df['Ticker'].tolist()
+industrylist = df[' Industry'].tolist()
 
 options = st.multiselect(
-     'Pick one or several stocks you want to see graphs for',
+     'Pick one or several industries you want to see stats for',
      tickerlist,
      #['Yellow', 'Red']
 )
 
-st.write('You selected:', options)
+#st.write('You selected:', options)
+industrymetric(options)
