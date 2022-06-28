@@ -58,29 +58,30 @@ st.plotly_chart(fig, use_container_width=True)
 db = client.stonks
 collection = db.overall2
 data = collection.find()
-df = pd.DataFrame(data)
-df = df.drop(columns=['_id'])
-df = df.astype({" Industry": str})
-df = df[['Overall points', 'Name', 'Ticker', ' Industry','Dividend points normal', 'Revenues points normal', 'Free Cash Flow points normal', 'Net Income points normal',
- 'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 'Payout Ratio points normal'
-    ]]
-dfcount = df.groupby(by=' Industry').count()
-dfmean = df.groupby(by=' Industry').mean()
-dfmedian = df.groupby(by=' Industry').median()
-dfmax = df.groupby(by=' Industry').max()
-dfmin = df.groupby(by=' Industry').min()
-df = df.sort_values(by=['Overall points'], ascending=False)
+
 
 
 
 
 
 def industrymetric(industry):
+    df = pd.DataFrame(data)
+    df = df.drop(columns=['_id'])
+    df = df.astype({" Industry": str})
+    df = df[['Overall points', 'Name', 'Ticker', ' Industry','Dividend points normal', 'Revenues points normal', 'Free Cash Flow points normal', 'Net Income points normal',
+     'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 'Payout Ratio points normal'
+        ]]
+    dfcount = df.groupby(by=' Industry').count()
+    dfmean = df.groupby(by=' Industry').mean()
+    dfmedian = df.groupby(by=' Industry').median()
+    dfmax = df.groupby(by=' Industry').max()
+    dfmin = df.groupby(by=' Industry').min()
+    df = df.sort_values(by=['Overall points'], ascending=False)
     
 
     title = st.subheader(industry)
-    df1 = df.loc[df[' Industry'] == industry]
-    df = df1.drop(columns=[' Industry'])
+    df = df.loc[df[' Industry'] == industry]
+    df = df.drop(columns=[' Industry'])
 
 
     df20 = df.head(25)
