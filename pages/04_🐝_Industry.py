@@ -64,10 +64,9 @@ overall = collection.find()
 
 
 
-#@st.experimental_memo
+@st.experimental_memo
 def industrymetric(industry):
-    print('running function again')
-    #collection = db.overall2
+    collection = db.overall2
     overall = collection.find({' Industry': industry })
     df = pd.DataFrame(overall)
     #df = df.drop(columns=['_id'])
@@ -113,7 +112,7 @@ def industrymetric(industry):
     st.plotly_chart(fig, use_container_width=True)
     #df = df.sort_values(by=['Overall points'], ascending=False)
     st.dataframe(df)
-    return fig, col1,col2,col3,col4,col5#,df#,dfcount,dfmean,dfmedian,dfmax,dfmin
+    return fig#, col1,col2,col3,col4,col5#,df#,dfcount,dfmean,dfmedian,dfmax,dfmin
 
 #for industry in df20[' Industry']:
 #  industrymetric(industry)
