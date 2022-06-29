@@ -62,7 +62,7 @@ st.plotly_chart(fig, use_container_width=True)
 
 @st.experimental_memo
 def industrymetric(industry):
-    #collection = db.overall2
+    collection = db.overall2
     overall = collection.find({' Industry': industry })
     df = pd.DataFrame(overall)
     df = df.astype({" Industry": str})
