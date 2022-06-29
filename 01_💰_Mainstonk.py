@@ -17,15 +17,14 @@ st.sidebar.markdown("# Stonkomeizter 🚀🚀🚀")
 def get_client():
     return MongoClient(**st.secrets["mongo"])
 
-client = get_client()
 
-
-db = client.stonks
 
 
 
 @st.experimental_memo
 def giveme():
+    client = get_client()
+    db = client.stonks
     collection = db.overall2
     overall = collection.find()
     df = pd.DataFrame(overall)
@@ -35,17 +34,25 @@ def giveme():
 
 
 
-    df20 = df.head(25)
-    df20 = df20.sort_values(by=['Overall points'], ascending=True)
+    df25 = df.head(25)
+    #df20 = df20.sort_values(by=['Overall points'], ascending=True)
 
     df = df.astype({"Name": str})
 
-    return df, df20
+    return df, df25
 
 
 #giveme(overall2)
 
 full = giveme()[0]
-top20 = giveme()[1]
+top25 = giveme()[1]
 
-st.dataframe(top20)
+fig = px.bar(top25, x=["Dividend points normal", "Revenues points normal", "Free Cash Flow points normal", 'Net Income points normal', 
+                        'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 
+                        'Payout Ratio points normal'], y="Ticker", title="Tickers sorted by average overall points broken down my metric", text='Overall points',
+                labels=dict(value="Average overall points", variable="Metrics"),
+                 height=600
+                )
+
+st.plotly_chart(fig, use_container_width=True)
+st.dataframe(full)
