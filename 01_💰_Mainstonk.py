@@ -36,7 +36,7 @@ def giveme():
 
 
     df25 = df.head(25)
-    df25 = df20.sort_values(by=['Overall points'], ascending=True)
+    df25 = df25.sort_values(by=['Overall points'], ascending=True)
 
     df = df.astype({"Name": str})
     df = df.astype({" Industry": str})
