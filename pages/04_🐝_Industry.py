@@ -95,14 +95,14 @@ def industrymetric(industry):
 
 #tickerlist = df['Ticker'].tolist()
 #dfcount = df.groupby(by=' Industry').count()
-#industrylist = dfcount.index.tolist()
+industrylist = df[' Industry'].tolist()
 #st.write(industrylist)
 
-#options = st.selectbox(
-#     'Pick an industry you want to see stats for',
-#     industrylist#,
+options = st.selectbox(
+     'Pick an industry you want to see stats for',
+     industrylist#,
 #     #industrylist[69]
-#)
+)
 
 st.subheader(options)
 
