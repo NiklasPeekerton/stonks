@@ -74,12 +74,12 @@ def industrymetric(industry):
     df = df[['Overall points', 'Name', 'Ticker', ' Industry','Dividend points normal', 'Revenues points normal', 'Free Cash Flow points normal', 'Net Income points normal',
      'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 'Payout Ratio points normal'
         ]]
-    dfcount = df.groupby(by=' Industry').count()
-    dfmean = df.groupby(by=' Industry').mean()
-    dfmedian = df.groupby(by=' Industry').median()
-    dfmax = df.groupby(by=' Industry').max()
-    dfmin = df.groupby(by=' Industry').min()
-    df = df.sort_values(by=['Overall points'], ascending=False)
+    #dfcount = df.groupby(by=' Industry').count()
+    #dfmean = df.groupby(by=' Industry').mean()
+    #dfmedian = df.groupby(by=' Industry').median()
+    #dfmax = df.groupby(by=' Industry').max()
+    #dfmin = df.groupby(by=' Industry').min()
+    #df = df.sort_values(by=['Overall points'], ascending=False)
     
 
     title = st.subheader(industry)
@@ -101,13 +101,13 @@ def industrymetric(industry):
 
 
 
-    col1, col2, col3, col4, col5 = st.columns(5)
-    col1.metric("Number of stocks", dfcount.loc[industry][0])#, "1.2 °F")
-    col2.metric("Average score", dfmean.loc[industry][0])#, "-8%")
-    col3.metric("Median score", dfmedian.loc[industry][0])#, "4%")
-    col4.metric("Max score", dfmax.loc[industry][0])#, "4%")
-    col5.metric("Min score", dfmin.loc[industry][0])#, "4%")
-    df = df.astype({"Name": str})
+    #col1, col2, col3, col4, col5 = st.columns(5)
+    #col1.metric("Number of stocks", dfcount.loc[industry][0])#, "1.2 °F")
+    #col2.metric("Average score", dfmean.loc[industry][0])#, "-8%")
+    #col3.metric("Median score", dfmedian.loc[industry][0])#, "4%")
+    #col4.metric("Max score", dfmax.loc[industry][0])#, "4%")
+    #col5.metric("Min score", dfmin.loc[industry][0])#, "4%")
+    #df = df.astype({"Name": str})
 
     st.plotly_chart(fig, use_container_width=True)
     #df = df.sort_values(by=['Overall points'], ascending=False)
