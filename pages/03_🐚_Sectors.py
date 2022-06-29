@@ -38,7 +38,7 @@ fig = px.bar(df, x=["Dividend points normal", "Revenues points normal", "Free Ca
             )
 st.plotly_chart(fig, use_container_width=True)
 
-dftrim = df.drop([17,5])
+
 
 fig = px.scatter(df, x="Overall points", y="Market Capitalization size", color=' Sector', log_y=True, text=' Sector',
                  title="Log scale of market cap by overall points",
@@ -95,6 +95,9 @@ fig = px.bar(df20, x=["Dividend points normal", "Revenues points normal", "Free 
 
 
 def sectormetric(sector):
+    db = client.stonks
+    collection = db.overall2
+    data = collection.find()
     df = pd.DataFrame(data)
     #df = df.drop(columns=['_id'])
     df = df.astype({" Sector": str})
