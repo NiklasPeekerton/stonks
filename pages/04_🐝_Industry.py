@@ -98,29 +98,29 @@ def industrymetric(industry):
 #    ]]
 
 #tickerlist = df['Ticker'].tolist()
-dfcount = df.groupby(by=' Industry').count()
-industrylist = dfcount.index.tolist()
+#dfcount = df.groupby(by=' Industry').count()
+#industrylist = dfcount.index.tolist()
 #st.write(industrylist)
 
-options = st.selectbox(
-     'Pick an industry you want to see stats for',
-     industrylist#,
+#options = st.selectbox(
+#     'Pick an industry you want to see stats for',
+#     industrylist#,
 #     #industrylist[69]
-)
+#)
 
 st.subheader(options)
 
-full = industrymetric(options)[0]
-top20 = industrymetric(options)[1]
+#full = industrymetric(options)[0]
+#top20 = industrymetric(options)[1]
 
-fig = px.bar(top20, x=["Dividend points normal", "Revenues points normal", "Free Cash Flow points normal", 'Net Income points normal', 
-                        'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 
-                        'Payout Ratio points normal'], y="Ticker", title="Utilities tickers sorted by average overall points broken down my metric", text='Overall points',
-                labels=dict(value="Average overall points", variable="Metrics"),
-                 height=600
-                )
+#fig = px.bar(top20, x=["Dividend points normal", "Revenues points normal", "Free Cash Flow points normal", 'Net Income points normal', 
+#                        'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 
+#                        'Payout Ratio points normal'], y="Ticker", title="Utilities tickers sorted by average overall points broken down my metric", text='Overall points',
+#                labels=dict(value="Average overall points", variable="Metrics"),
+#                 height=600
+#                )
 
 
     
-st.plotly_chart(fig, use_container_width=True)
-st.write(full)
+#st.plotly_chart(fig, use_container_width=True)
+#st.write(full)
