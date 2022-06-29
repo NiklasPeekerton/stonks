@@ -12,8 +12,8 @@ import plotly.express as px
 
 st.set_page_config(layout="wide")
 
-st.markdown("# Segmentazione 💩")
-st.sidebar.markdown("# Segment 💩")
+st.markdown("# Sectors 🚬")
+st.sidebar.markdown("# Sectors 🚬")
 
 
 def get_client():
@@ -24,27 +24,30 @@ client = get_client()
 
 db = client.stonks
 collection = db.sectorsmean
-data = collection.find()
-df = pd.DataFrame(data)
+sector = collection.find()
+df = pd.DataFrame(sector)
 df = df.drop(columns=['_id'])
 df = df.astype({" Sector": str})
-df = df.sort_values(by=['Overall points'], ascending=True)
+df = df.sort_values(by=['Overall points'], ascending=False)
 #st.dataframe(df)
 
-fig = px.bar(df, x=["Dividend points normal", "Revenues points normal", "Free Cash Flow points normal", 'Net Income points normal', 
+df20 = df.head(20)
+df20 = df20.sort_values(by=['Overall points'], ascending=True)
+
+fig = px.bar(df20, x=["Dividend points normal", "Revenues points normal", "Free Cash Flow points normal", 'Net Income points normal', 
                     'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 
-                    'Payout Ratio points normal'], y=" Sector", title="Sectors sorted by average overall points broken down my metric",
-            labels=dict(value="Average overall points", variable="Metrics")
+                    'Payout Ratio points normal'], y=" Sector", title="Industries sorted by average overall points broken down my metric",
+            labels=dict(value="Average overall points", variable="Metrics"), height=600
             )
 st.plotly_chart(fig, use_container_width=True)
 
 
 
-fig = px.scatter(df, x="Overall points", y="Market Capitalization size", color=' Sector', log_y=True, text=' Sector',
+fig = px.scatter(df20, x="Overall points", y="Market Capitalization size", color=' Sector', log_y=True, log_x=True, text=' Sector',
                  title="Log scale of market cap by overall points",
                 labels=dict(value="Average market Capitalization size", y="Average overall points"),
                  #width=800, 
-                 height=800
+                 height=900
                 )
 
 fig.update_xaxes(showgrid=False)
@@ -52,104 +55,67 @@ fig.update_yaxes(showgrid=False)
 st.plotly_chart(fig, use_container_width=True)
 
 
-#dftrim = dftrim[['Overall points', ' Sector','Dividend points normal', 'Revenues points normal', 'Free Cash Flow points normal', 'Net Income points normal',
-#     'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 'Payout Ratio points normal']]
 
 
 
-db = client.stonks
-collection = db.overall2
-data = collection.find()
-df = pd.DataFrame(data)
-df = df.drop(columns=['_id'])
-df = df.astype({" Sector": str})
-df = df.sort_values(by=['Overall points'], ascending=False)
-df = df[['Overall points', 'Name', 'Ticker', ' Sector','Dividend points normal', 'Revenues points normal', 'Free Cash Flow points normal', 'Net Income points normal',
+
+
+@st.experimental_memo
+def sectormetric(sector):
+    collection = db.overall2
+    overall = collection.find({' Sector': sector })
+    df = pd.DataFrame(overall)
+    df = df.astype({" Sector": str})
+    df = df[['Overall points', 'Name', 'Ticker', ' Sector','Dividend points normal', 'Revenues points normal', 'Free Cash Flow points normal', 'Net Income points normal',
      'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 'Payout Ratio points normal'
         ]]
 
-dfcount = df.groupby(by=' Sector').count()
-dfmean = df.groupby(by=' Sector').mean()
-dfmedian = df.groupby(by=' Sector').median()
-dfmax = df.groupby(by=' Sector').max()
-dfmin = df.groupby(by=' Sector').min()
-df = df.astype({"Name": str})
-dfutil = df.loc[df[' Sector'] == 'Utilities']
-dfutil = dfutil.drop(columns=[' Sector'])
-
-
-df20 = df.head(20)
-df20 = df20.sort_values(by=['Overall points'], ascending=True)
-
-
-
-fig = px.bar(df20, x=["Dividend points normal", "Revenues points normal", "Free Cash Flow points normal", 'Net Income points normal', 
-                    'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 
-                    'Payout Ratio points normal'], y="Ticker", title="Utilities tickers sorted by average overall points broken down my metric", text='Overall points',
-            labels=dict(value="Average overall points", variable="Metrics"),
-             height=500
-            )
-
-
-
-
-
-def sectormetric(sector):
-    db = client.stonks
-    collection = db.overall2
-    data = collection.find()
-    df = pd.DataFrame(data)
-    #df = df.drop(columns=['_id'])
-    df = df.astype({" Sector": str})
-    df = df.sort_values(by=['Overall points'], ascending=False)
-    df = df[['Overall points', 'Name', 'Ticker', ' Sector','Dividend points normal', 'Revenues points normal', 'Free Cash Flow points normal', 'Net Income points normal',
-         'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 'Payout Ratio points normal'
-            ]]
-    title = st.subheader(sector)
     df = df.loc[df[' Sector'] == sector]
     df = df.drop(columns=[' Sector'])
 
 
+    df20 = df.head(25)
+    df20 = df20.sort_values(by=['Overall points'], ascending=True)
+
+    df = df.astype({"Name": str})
+
+    return df, df20
 
 
 
-    fig = px.bar(df20, x=["Dividend points normal", "Revenues points normal", "Free Cash Flow points normal", 'Net Income points normal', 
+sectorlist = df[' Sector'].tolist()
+
+options = st.selectbox(
+     'Pick a sector you want to see stats for',
+     sectorlist#,
+#     #sectorlist[69]
+)
+
+st.subheader(options)
+
+full = sectormetric(options)[0]
+top20 = sectormetric(options)[1]
+
+fig = px.bar(top20, x=["Dividend points normal", "Revenues points normal", "Free Cash Flow points normal", 'Net Income points normal', 
                         'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 
-                        'Payout Ratio points normal'], y="Ticker", title="Utilities tickers sorted by average overall points broken down my metric", text='Overall points',
+                        'Payout Ratio points normal'], y="Ticker", title=options+" tickers sorted by average overall points broken down my metric", text='Overall points',
                 labels=dict(value="Average overall points", variable="Metrics"),
-                 height=500
+                 height=600
                 )
 
 
+test = full.describe()
 
-    col1, col2, col3, col4, col5 = st.columns(5)
-    col1.metric("Number of stocks", dfcount.loc[sector][0])#, "1.2 °F")
-    col2.metric("Average score", dfmean.loc[sector][0])#, "-8%")
-    col3.metric("Median score", dfmedian.loc[sector][0])#, "4%")
-    col4.metric("Max score", dfmax.loc[sector][0])#, "4%")
-    col5.metric("Min score", dfmin.loc[sector][0])#, "4%")
-    df = df.astype({"Name": str})
+col1, col2, col3, col4 = st.columns(4)
+col1.metric("Number of stocks", test.loc['count'][0])
+col2.metric("Average score", test.loc['mean'][0])
+col3.metric("Min score", test.loc['min'][0])
+col4.metric("Max score", test.loc['max'][0])
 
-    st.plotly_chart(fig, use_container_width=True)
-    #df = df.sort_values(by=['Overall points'], ascending=False)
-    st.dataframe(df)
-    return fig, col1,col2,col3,col4,col5,df
-
-sectormetric('Utilities')
-sectormetric('Consumer Defensive')
-sectormetric('Real Estate')
-sectormetric('Consumer Cyclical')
-sectormetric('Media')
-sectormetric('Financial Services')
-sectormetric('Industrials')
-sectormetric('Basic Materials')
-sectormetric('Technology')
-sectormetric('Building')
-sectormetric('Communication Services')
-sectormetric('Pharmaceuticals')
-sectormetric('Energy')
-sectormetric('Industrial Goods')
-sectormetric('Healthcare')
-sectormetric('-')
-sectormetric('Financial')
-sectormetric('0')
+col5, col6, col7 = st.columns(3)
+col5.metric("25% score", test.loc['25%'][0])
+col6.metric("50% score", test.loc['50%'][0])
+col7.metric("75% score", test.loc['75%'][0])
+    
+st.plotly_chart(fig, use_container_width=True)
+st.dataframe(full)
