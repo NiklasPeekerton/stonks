@@ -12,8 +12,8 @@ import plotly.express as px
 
 st.set_page_config(layout="wide")
 
-st.markdown("# Sectors 🚬")
-st.sidebar.markdown("# Sectors 🚬")
+st.markdown("# Sectors 🐚")
+st.sidebar.markdown("# Sectors 🐚")
 
 
 def get_client():
