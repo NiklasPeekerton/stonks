@@ -102,7 +102,7 @@ dfcount = df.groupby(by=' Industry').count()
 industrylist = dfcount.index.tolist()
 #st.write(industrylist)
 
-options = st.selectbox(
+options = st.multiselect(
      'Pick one or several industries you want to see stats for',
      industrylist#,
 #     #industrylist[69]
