@@ -29,7 +29,6 @@ def giveme(coll):
     collection = db.coll
     overall = collection.find()
     df = pd.DataFrame(overall)
-    df = df.astype({" Industry": str})
     df = df[['Overall points', 'Name', 'Ticker', ' Industry',' Sector', 'Dividend points normal', 'Revenues points normal', 'Free Cash Flow points normal', 'Net Income points normal',
      'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 'Payout Ratio points normal'
         ]]
