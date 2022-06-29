@@ -117,6 +117,8 @@ fig = px.bar(top20, x=["Dividend points normal", "Revenues points normal", "Free
                 )
 
 
+test = full.describe()
     
 st.plotly_chart(fig, use_container_width=True)
+st.write(test)
 st.write(full)
