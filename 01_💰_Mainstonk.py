@@ -36,7 +36,7 @@ def giveme(coll):
 
 
     df20 = df.head(25)
-    df20 = df20.sort_values(by=['Overall points'], ascending=True)
+    #df20 = df20.sort_values(by=['Overall points'], ascending=True)
 
     df = df.astype({"Name": str})
 
