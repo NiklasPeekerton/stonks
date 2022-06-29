@@ -119,5 +119,19 @@ fig = px.bar(top20, x=["Dividend points normal", "Revenues points normal", "Free
                 labels=dict(value="Average overall points", variable="Metrics"),
                  height=600
                 )
+
+dfcount = overall.groupby(by=' Industry').count()
+dfmean = overall.groupby(by=' Industry').mean()
+dfmedian = overall.groupby(by=' Industry').median()
+dfmax = overall.groupby(by=' Industry').max()
+dfmin = overall.groupby(by=' Industry').min()
+
+col1, col2, col3, col4, col5 = st.columns(5)
+col1.metric("Number of stocks", dfcount.loc[industry][0])
+col2.metric("Average score", dfmean.loc[industry][0])
+col3.metric("Median score", dfmedian.loc[industry][0])
+col4.metric("Max score", dfmax.loc[industry][0])
+col5.metric("Min score", dfmin.loc[industry][0])
+    
 st.plotly_chart(fig, use_container_width=True)
 st.write(full)
