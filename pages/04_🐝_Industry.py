@@ -108,7 +108,7 @@ options = st.selectbox(
 #     #industrylist[69]
 )
 
-st.write('You selected:', options)
+st.subheader(options)
 
 test = industrymetric(options)[0]
 st.write(test)
