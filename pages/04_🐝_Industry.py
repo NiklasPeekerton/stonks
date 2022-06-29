@@ -67,7 +67,7 @@ overalldf = pd.DataFrame(overall)
 #@st.experimental_memo
 @st.cache
 def industrymetric(industry):
-    collection = db.overall2
+    #collection = db.overall2
     overall = collection.find({' Industry': industry })
     df = pd.DataFrame(overall)
     df = df.astype({" Industry": str})
