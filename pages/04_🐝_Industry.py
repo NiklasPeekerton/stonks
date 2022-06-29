@@ -120,13 +120,7 @@ fig = px.bar(top20, x=["Dividend points normal", "Revenues points normal", "Free
 test = full.describe()
     
 st.plotly_chart(fig, use_container_width=True)
-st.write(test.loc['count'][0])
-st.write(test.loc['mean'][0])
-st.write(test.loc['min'][0])
-st.write(test.loc['max'][0])
-st.write(test.loc['25%'][0])
-st.write(test.loc['50%'][0])
-st.write(test.loc['75%'][0])
+
 col1, col2, col3, col4 = st.columns(4)
 col1.metric("Number of stocks", test.loc['count'][0])
 col2.metric("Average score", test.loc['mean'][0])
