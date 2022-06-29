@@ -64,7 +64,7 @@ overall = collection.find()
 
 
 
-
+@st.experimental_memo
 def industrymetric(industry):
     #collection = db.overall2
     overall = collection.find()
