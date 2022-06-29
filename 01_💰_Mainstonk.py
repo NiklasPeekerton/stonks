@@ -25,8 +25,8 @@ db = client.stonks
 
 
 @st.experimental_memo
-def giveme(coll):
-    collection = db.coll
+def giveme():
+    collection = db.overall2
     overall = collection.find()
     df = pd.DataFrame(overall)
     #df = df[['Overall points', 'Name', 'Ticker', ' Industry',' Sector', 'Dividend points normal', 'Revenues points normal', 'Free Cash Flow points normal', 'Net Income points normal',
@@ -45,7 +45,7 @@ def giveme(coll):
 
 #giveme(overall2)
 
-full = giveme('overall2')[0]
-top20 = giveme('overall2')[1]
+full = giveme()[0]
+top20 = giveme()[1]
 
 st.dataframe(top20)
