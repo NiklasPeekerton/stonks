@@ -64,8 +64,7 @@ overalldf = pd.DataFrame(overall)
 
 
 
-#@st.experimental_memo
-#@st.cache
+@st.experimental_memo
 def industrymetric(industry):
     #collection = db.overall2
     overall = collection.find({' Industry': industry })
@@ -99,8 +98,8 @@ def industrymetric(industry):
 #    ]]
 
 #tickerlist = df['Ticker'].tolist()
-#dfcount = df.groupby(by=' Industry').count()
-industrylist =  ['Railroads','Grocery Stores']          #dfcount.index.tolist()
+dfcount = df.groupby(by=' Industry').count()
+industrylist = dfcount.index.tolist()
 #st.write(industrylist)
 
 options = st.selectbox(
