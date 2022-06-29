@@ -46,7 +46,7 @@ def giveme(coll):
 
 #giveme(overall2)
 
-full = giveme(overall2)[0]
-top20 = giveme(overall2)[1]
+full = giveme('overall2')[0]
+top20 = giveme('overall2')[1]
 
 st.dataframe(top20)
