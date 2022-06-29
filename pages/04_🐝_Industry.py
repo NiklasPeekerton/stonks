@@ -64,8 +64,9 @@ overall = collection.find()
 
 
 
-@st.experimental_memo
+#@st.experimental_memo
 def industrymetric(industry):
+    print('running function again')
     #collection = db.overall2
     overall = collection.find()
     df = pd.DataFrame(overall)
