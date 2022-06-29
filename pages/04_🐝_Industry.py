@@ -106,7 +106,7 @@ options = st.selectbox(
 
 st.subheader(options)
 
-#full = industrymetric(options)[0]
+full = industrymetric(options)[0]
 #top20 = industrymetric(options)[1]
 
 #fig = px.bar(top20, x=["Dividend points normal", "Revenues points normal", "Free Cash Flow points normal", 'Net Income points normal', 
@@ -119,4 +119,4 @@ st.subheader(options)
 
     
 #st.plotly_chart(fig, use_container_width=True)
-#st.write(full)
+st.write(full)
