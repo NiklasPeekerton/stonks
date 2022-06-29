@@ -74,6 +74,24 @@ df3 = df2.drop(columns=['_id'])
 
 
 
+@st.experimental_memo
+def giveme(coll):
+    collection = db.coll
+    overall = collection.find()
+    df = pd.DataFrame(overall)
+    df = df.astype({" Industry": str})
+    df = df[['Overall points', 'Name', 'Ticker', ' Industry',' Sector', 'Dividend points normal', 'Revenues points normal', 'Free Cash Flow points normal', 'Net Income points normal',
+     'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 'Payout Ratio points normal'
+        ]]
 
 
 
+    df20 = df.head(25)
+    df20 = df20.sort_values(by=['Overall points'], ascending=True)
+
+    df = df.astype({"Name": str})
+
+    return df, df20
+
+
+giveme(df20)
