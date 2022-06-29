@@ -55,10 +55,6 @@ fig.update_yaxes(showgrid=False)
 st.plotly_chart(fig, use_container_width=True)
 
 
-db = client.stonks
-collection = db.overall2
-overall = collection.find({' Industry': industry })
-overalldf = pd.DataFrame(overall)
 
 
 
