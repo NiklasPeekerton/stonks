@@ -119,4 +119,5 @@ fig = px.bar(top20, x=["Dividend points normal", "Revenues points normal", "Free
                 labels=dict(value="Average overall points", variable="Metrics"),
                  height=600
                 )
-st.write(test)
+st.plotly_chart(fig, use_container_width=True)
+st.write(full)
