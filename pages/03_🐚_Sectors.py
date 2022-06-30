@@ -67,7 +67,7 @@ def sectormetric(sector):
     df = pd.DataFrame(overall)
     df = df.astype({" Sector": str})
     df = df[['Overall points', 'Market Capitalization size','Name', 'Ticker', ' Sector', 'Dividend points normal', 'Revenues points normal', 'Free Cash Flow points normal', 'Net Income points normal',
-     'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 'Payout Ratio points normal', 'Website'
+     'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 'Payout Ratio points normal'#, 'Website'
         ]]
 
     df = df.loc[df[' Sector'] == sector]
@@ -121,7 +121,7 @@ def make_clickable(val):
     return f'<a target="_blank" href="{val}">{val}</a>'
     
 st.plotly_chart(fig, use_container_width=True)
-test = full.style.format({"Market Capitalization size": '${0:,.2f}', "Overall points": "🏆{:20,.0f}"
+styledf = full.style.format({"Market Capitalization size": '${0:,.2f}', "Overall points": "🏆{:20,.0f}"
                          , "Dividend points normal": "🏆{:20,.0f}", "Revenues points normal": "🏆{:20,.0f}"
                          , "Free Cash Flow points normal": "🏆{:20,.0f}", "Net Income points normal": "🏆{:20,.0f}"
                          , "Net Income Margin points normal": "🏆{:20,.0f}", "Current Ratio points normal": "🏆{:20,.0f}"
@@ -145,7 +145,7 @@ test = full.style.format({"Market Capitalization size": '${0:,.2f}', "Overall po
                      
 #test1 =  test.style.format({'Name': make_clickable_both}).bar(subset=['Overall points'], align='mid', color=['#d65f5f', '#5fba7d'])
 #st.table(test)
-st._legacy_dataframe(test)
+st._legacy_dataframe(styledf)
 #st.markdown(
 #    test_styled.to_html(table_uuid="table_1"), unsafe_allow_html=True
 #)
