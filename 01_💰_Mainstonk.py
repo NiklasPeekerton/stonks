@@ -101,7 +101,8 @@ multiplots = px.scatter(full, x="Market Capitalization size", y="Overall points"
                         facet_col_spacing=0.01, # default is 0.03
                         height=5000, width=800,
                         size='Free Cash Flow points normal',
-                       log_y=True, log_x=True, trendline="lowess", trendline_scope="overall", hover_name="Name")
+                       log_y=True, log_x=True, trendline="ols", trendline_scope="overall", hover_name="Name",
+                       trendline_options=dict(log_x=True))
 #multiplots.update_xaxes(title_font=dict(size=18, family='Courier', color='crimson'))
 #multiplots.update_yaxes(title_font=dict(size=18, family='Courier', color='crimson'))
 multiplots.update_xaxes(type="log", range=[np.log10(80), np.log10(10444203938535)])
