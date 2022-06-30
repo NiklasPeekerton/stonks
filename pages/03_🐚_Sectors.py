@@ -117,17 +117,16 @@ col5.metric("25% score", test.loc['25%'][0])
 col6.metric("50% score", test.loc['50%'][0])
 col7.metric("75% score", test.loc['75%'][0])
 
-def make_clickable_both(val): 
-    url = f"{val}"
-    return f'<a href="{url}"</a>'
+def make_clickable(val):
+    return f'<a target="_blank" href="{val}">{val}</a>'
     
 st.plotly_chart(fig, use_container_width=True)
 test = full.style.format({"Market Capitalization size": "${:20,.0f}", "Overall points": "🏆{:20,.0f}"
                          , "Dividend points normal": "🏆{:20,.0f}", "Revenues points normal": "🏆{:20,.0f}"
                          , "Free Cash Flow points normal": "🏆{:20,.0f}", "Net Income points normal": "🏆{:20,.0f}"
                          , "Net Income Margin points normal": "🏆{:20,.0f}", "Current Ratio points normal": "🏆{:20,.0f}"
-                         , "Weighted Average Shares (Diluted) points normal": "🏆{:20,.0f}", "Payout Ratio points normal": "🏆{:20,.0f}"#,
-                          #'Website': make_clickable_both
+                         , "Weighted Average Shares (Diluted) points normal": "🏆{:20,.0f}", "Payout Ratio points normal": "🏆{:20,.0f}",
+                          'Website': make_clickable
                          
                          })\
                  .hide_index()\
@@ -154,6 +153,6 @@ st._legacy_dataframe(test)
 def make_clickable(url, name):
     return '<a href="{}" rel="noopener noreferrer" target="_blank">{}</a>'.format(url,name)
 
-test['Website'] = test['Website'].apply(lambda x: f'<a href="{x}">{x}</a>')
-HTML(test.to_html(escape=False))
-st.write(HTML)
+#test['Website'] = test['Website'].apply(lambda x: f'<a href="{x}">{x}</a>')
+#HTML(test.to_html(escape=False))
+#st.write(HTML)
