@@ -118,7 +118,7 @@ col6.metric("50% score", test.loc['50%'][0])
 col7.metric("75% score", test.loc['75%'][0])
     
 st.plotly_chart(fig, use_container_width=True)
-test = full.style.format({"Market Capitalization size": "${:20,.0f}", "Overall points": "💩{:20,.0f}"})\
+test = full.style.format({"Market Capitalization size": "${:20,.0f}", "Overall points": "🏆{:20,.0f}"})\
                  .hide_index()\
                  .bar(subset=["Overall points"], color='1B2432')\
                  .bar(subset=["Market Capitalization size"], color='lightgreen')\
