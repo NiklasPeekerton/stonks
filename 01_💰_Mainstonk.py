@@ -29,7 +29,7 @@ def giveme():
     collection = db.overall2
     overall = collection.find()
     df = pd.DataFrame(overall)
-    df = df[['Overall points', 'Name', 'Ticker', ' Industry',' Sector', 'Dividend points normal', 'Revenues points normal', 'Free Cash Flow points normal', 'Net Income points normal',
+    df = df[['Overall points', 'Name', 'Ticker', ' Industry',' Sector', 'Market Capitalization size','Dividend points normal', 'Revenues points normal', 'Free Cash Flow points normal', 'Net Income points normal',
      'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 'Payout Ratio points normal'
         ]]
 
@@ -52,7 +52,7 @@ top25 = giveme()[1]
 
 fig = px.bar(top25, x=["Dividend points normal", "Revenues points normal", "Free Cash Flow points normal", 'Net Income points normal', 
                         'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 
-                        'Payout Ratio points normal'], y="Ticker", title="Tickers sorted by average overall points broken down my metric", text='Overall points',
+                        'Payout Ratio points normal'], y="Name", title="Tickers sorted by average overall points broken down my metric", text='Overall points',
                 labels=dict(value="Average overall points", variable="Metrics"),
                  height=600
                 )
