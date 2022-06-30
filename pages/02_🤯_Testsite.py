@@ -9,6 +9,8 @@ import numpy as np
 import altair as alt
 import plotly.express as px
 
+st.set_page_config(layout="wide")
+
 st.markdown("# Stonkolawdhavemercy 🚀💩🔞🚭☠︎🤯💥")
 st.sidebar.markdown("# Testsite 🚀💩🔞🚭☠︎🤯💥")
 
@@ -29,6 +31,7 @@ data = collection.find()
 df = pd.DataFrame(data)
 df = df.drop(columns=['_id'])
 df = df.drop(columns=[' CUSIP'])
+df = df.drop(columns=[' CIK'])
 df = df.astype({" IPO Date": str})
 
 weight = st.slider('Weight for Revenue', 1, 10, 1)
