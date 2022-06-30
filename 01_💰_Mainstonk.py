@@ -104,6 +104,6 @@ multiplots = px.scatter(full, x="Market Capitalization size", y="Overall points"
 #multiplots.update_xaxes(title_font=dict(size=18, family='Courier', color='crimson'))
 #multiplots.update_yaxes(title_font=dict(size=18, family='Courier', color='crimson'))
 multiplots.update_xaxes(type="log")
-multiplots.update_yaxes(type="log")#, range=[np.log10(0.8), np.log10(250)])
+multiplots.update_yaxes(type="log"), range=[np.log10(2), np.log10(1000)])
 
 st.plotly_chart(multiplots, use_container_width=True)
