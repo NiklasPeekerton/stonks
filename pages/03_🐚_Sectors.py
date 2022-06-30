@@ -121,13 +121,14 @@ st.plotly_chart(fig, use_container_width=True)
 test = full.style.format({"Market Capitalization size": "${:20,.0f}"})\
                  .hide_index()\
                  .bar(subset=["Market Capitalization size",], color='lightgreen')\
-                 .bar(subset=["Revenues points normal"], color='#ee1f5f')\
-                 .bar(subset=["Dividend points normal"], color='#FFA07A')\
-                 .bar(subset=["Free Cash Flow points normal"], color='#FFA07A')\
-                 .bar(subset=["Net Income points normal"], color='#FFA07A')\
-                 .bar(subset=["Current Ratio points normal"], color='#FFA07A')\
-                 .bar(subset=["Weighted Average Shares (Diluted) points normal"], color='#FFA07A')\
-                 .bar(subset=["Payout Ratio points normal"], color='#FFA07A')
+                 .bar(subset=["Revenues points normal"], color='#EF553B')\
+                 .bar(subset=["Dividend points normal"], color='#646FFB')\
+                 .bar(subset=["Free Cash Flow points normal"], color='#00CC96')\
+                 .bar(subset=["Net Income points normal"], color='#AB63FA')\
+                 .bar(subset=["Net Income Margin points normal"], color='#FFA15A')\
+                 .bar(subset=["Current Ratio points normal"], color='#19D3F3')\
+                 .bar(subset=["Weighted Average Shares (Diluted) points normal"], color='#FF6692')\
+                 .bar(subset=["Payout Ratio points normal"], color='#B6E980')
                      
 #st.table(test)
 st._legacy_dataframe(test)
