@@ -57,8 +57,8 @@ valuepoints = px.scatter(df, x="Market Capitalization size", y="Overall points",
 
 
 
-valuepoints.update_xaxes(type="log", range=[np.log10(80), np.log10(11000000000)])
-valuepoints.update_yaxes(type="log", range=[np.log10(80), np.log10(600)])
+valuepoints.update_xaxes(type="log", range=[np.log10(25000), np.log10(10200000000)])
+valuepoints.update_yaxes(type="log", range=[np.log10(140), np.log10(420)])
 st.plotly_chart(valuepoints, use_container_width=True)
 
 
