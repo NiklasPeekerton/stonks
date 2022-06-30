@@ -125,8 +125,8 @@ test = full.style.format({"Market Capitalization size": "${:20,.0f}", "Overall p
                          , "Dividend points normal": "🏆{:20,.0f}", "Revenues points normal": "🏆{:20,.0f}"
                          , "Free Cash Flow points normal": "🏆{:20,.0f}", "Net Income points normal": "🏆{:20,.0f}"
                          , "Net Income Margin points normal": "🏆{:20,.0f}", "Current Ratio points normal": "🏆{:20,.0f}"
-                         , "Weighted Average Shares (Diluted) points normal": "🏆{:20,.0f}", "Payout Ratio points normal": "🏆{:20,.0f}",
-                          'Website': make_clickable
+                         , "Weighted Average Shares (Diluted) points normal": "🏆{:20,.0f}", "Payout Ratio points normal": "🏆{:20,.0f}"#,
+                          #'Website': make_clickable
                          
                          })\
                  .hide_index()\
@@ -150,13 +150,4 @@ st._legacy_dataframe(test)
 #    test_styled.to_html(table_uuid="table_1"), unsafe_allow_html=True
 #)
 
-def make_clickable(link):
-    # target _blank to open new window
-    # extract clickable text to display for your link
-    text = 'test'
-    return f'<a target="_blank" href="{link}">{text}</a>'
 
-# link is the column with hyperlinks
-full['Website'] = full['Website'].apply(make_clickable)
-full = full.to_html(escape=False)
-st._legacy_dataframe(full, unsafe_allow_html=True)
