@@ -81,4 +81,4 @@ test = full.style.format({"Market Capitalization size": '${:20,.0f}', "Overall p
                  .bar(subset=["Payout Ratio points normal"], color='#B6E980')
 
 st.plotly_chart(fig, use_container_width=True)
-st._legacy_dataframe(test)
+st._legacy_dataframe(test, height=800)
