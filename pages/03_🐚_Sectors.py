@@ -124,9 +124,4 @@ test = full.head(10).style.format({"Market Capitalization size": "${:20,.0f}"})\
                  .bar(subset=["Overall points"], color='#ee1f5f')\
                  .bar(subset=["Dividend points normal"], color='#FFA07A'
                      )
-st.dataframe(full.head(10).style.format({"Market Capitalization size": "${:20,.0f}"})\
-                 .hide_index()\
-                 .bar(subset=["Market Capitalization size",], color='lightgreen')\
-                 .bar(subset=["Overall points"], color='#ee1f5f')\
-                 .bar(subset=["Dividend points normal"], color='#FFA07A'
-                     ))
+st.dataframe(full.style.highlight_max(axis=0))
