@@ -45,13 +45,7 @@ st.plotly_chart(fig, use_container_width=True)
 
 
 
-fig = px.scatter(df20, x="Overall points", y="Market Capitalization size", color=' Industry', log_y=True, log_x=True, text=' Industry',
-                 title="Log scale of market cap by overall points",
-                labels=dict(value="Average market Capitalization size", y="Average overall points"),
-                 #width=800, 
-                 height=900
-                )
-valuepoints = px.scatter(df, x="Market Capitalization size", y="Overall points", color=' Industry', 
+valuepoints = px.scatter(logdf, x="Market Capitalization size", y="Overall points", color=' Industry', 
                          log_y=True, log_x=True, trendline="ols", 
                          trendline_options=dict(log_y=True), 
                          trendline_scope="overall", #text=' Sector',
