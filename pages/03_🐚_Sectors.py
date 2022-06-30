@@ -150,10 +150,13 @@ st._legacy_dataframe(test)
 #    test_styled.to_html(table_uuid="table_1"), unsafe_allow_html=True
 #)
 
-def make_clickable(url, name):
-    return '<a href="{}" rel="noopener noreferrer" target="_blank">{}</a>'.format(url,name)
+def make_clickable(link):
+    # target _blank to open new window
+    # extract clickable text to display for your link
+    text = link.split('=')[1]
+    return f'<a target="_blank" href="{link}">{text}</a>'
 
-#test['Website'] = test['Website'].apply(lambda x: f'<a href="{x}">{x}</a>')
-#HTML(test.to_html(escape=False))
-HTML = test.to_html(render_links=True, escape=False)
-st.write(HTML)
+# link is the column with hyperlinks
+test['Website'] = test['Website'].apply(make_clickable)
+test = test.to_html(escape=False)
+st.write(test, unsafe_allow_html=True)
