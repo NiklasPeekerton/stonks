@@ -80,7 +80,7 @@ test = full.style.format({"Market Capitalization size": '${:20,.0f}', "Overall p
                  .bar(subset=["Weighted Average Shares (Diluted) points normal"], color='#FF6692')\
                  .bar(subset=["Payout Ratio points normal"], color='#B6E980')
 valuepoints = px.scatter(full, x="Market Capitalization size", y="Overall points", color=' Sector', 
-                         log_y=True, log_x=True, trendline="ols", #trendline_scope="overall", #text=' Sector',
+                         log_y=True, log_x=True, trendline="ols", trendline_scope="overall", #text=' Sector',
                  title="Log scale of market cap by overall points",
                 labels=dict(value="Average market Capitalization size", y="Average overall points"),
                  #width=800, 
