@@ -7,6 +7,7 @@ from pymongo import MongoClient
 import matplotlib.pyplot as plt
 import numpy as np
 import altair as alt
+import plotly.express as px
 
 st.markdown("# Stonkolawdhavemercy 🚀💩🔞🚭☠︎🤯💥")
 st.sidebar.markdown("# Testsite 🚀💩🔞🚭☠︎🤯💥")
