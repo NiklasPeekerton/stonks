@@ -121,7 +121,7 @@ def make_clickable(val):
     return f'<a target="_blank" href="{val}">{val}</a>'
     
 st.plotly_chart(fig, use_container_width=True)
-test = full.style.format({"Market Capitalization size": '${0:,.2f/100}', "Overall points": "🏆{:20,.0f}"
+test = full.style.format({"Market Capitalization size": '${0:,.2f}', "Overall points": "🏆{:20,.0f}"
                          , "Dividend points normal": "🏆{:20,.0f}", "Revenues points normal": "🏆{:20,.0f}"
                          , "Free Cash Flow points normal": "🏆{:20,.0f}", "Net Income points normal": "🏆{:20,.0f}"
                          , "Net Income Margin points normal": "🏆{:20,.0f}", "Current Ratio points normal": "🏆{:20,.0f}"
@@ -150,4 +150,5 @@ st._legacy_dataframe(test)
 #    test_styled.to_html(table_uuid="table_1"), unsafe_allow_html=True
 #)
 
-
+test['Market Capitalization size'] = test['Market Capitalization size'].apply(lambda x: f'${x/1000000:.1f}M' if x/1000000>=1 else f'${int(x/1000)}K' if x/10000>=1 else f'${x}')
+st._legacy_dataframe(test)
