@@ -51,7 +51,7 @@ def givestonks():
 full = givestonks()[0]
 top25 = givestonks()[1]
 
-st.write(full)
+
 
 #collection = db.overall2
 #data = collection.find()
@@ -102,84 +102,28 @@ st.plotly_chart(fig, use_container_width=True)
 
 #st.dataframe(df20)
 
+styledf = full.style.format({"Market Capitalization size": '${:20,.0f}', "Overall points": "🏆{:20,.0f}"
+                         , "Dividend points normal": "🏆{:20,.0f}", "Revenues points normal": "🏆{:20,.0f}"
+                         , "Free Cash Flow points normal": "🏆{:20,.0f}", "Net Income points normal": "🏆{:20,.0f}"
+                         , "Net Income Margin points normal": "🏆{:20,.0f}", "Current Ratio points normal": "🏆{:20,.0f}"
+                         , "Weighted Average Shares (Diluted) points normal": "🏆{:20,.0f}", "Payout Ratio points normal": "🏆{:20,.0f}"#,
+                          #'Website': make_clickable
+                         
+                         }, hyperlinks='html')\
+                 .hide_index()\
+                 .bar(subset=["Overall points"], color='1B2432')\
+                 .bar(subset=["Market Capitalization size"], color='lightgreen')\
+                 .bar(subset=["Revenues points normal"], color='#EF553B')\
+                 .bar(subset=["Dividend points normal"], color='#646FFB')\
+                 .bar(subset=["Free Cash Flow points normal"], color='#00CC96')\
+                 .bar(subset=["Net Income points normal"], color='#AB63FA')\
+                 .bar(subset=["Net Income Margin points normal"], color='#FFA15A')\
+                 .bar(subset=["Current Ratio points normal"], color='#19D3F3')\
+                 .bar(subset=["Weighted Average Shares (Diluted) points normal"], color='#FF6692')\
+                 .bar(subset=["Payout Ratio points normal"], color='#B6E980')
 
-"""
-df3=df3[df3!=0].dropna()
-df3['Points^2/Market cap points'] = df3['Points/Market cap']*df3['Overall points']
-df3 = df3.sort_values(by=['Points^2/Market cap points'], ascending=False)
-df3 = df3.reset_index(drop=True)
-st.dataframe(df3)
-
-
-import plotly.express as px
-fig = px.scatter(x=df3['Overall points'], y=df3['Points^2/Market cap points'], #color="species",
-                 #size=df3['Overall points'], 
-                 #hover_data=df3['Ticker']
-                 #mode='markers',
-                 text=df3['Ticker']
-                )
-st.plotly_chart(fig, use_container_width=True)
-
-collection2 = db.overall2
-data2 = collection2.find()
-df4 = pd.DataFrame(data2)
-#df4 = df4.astype({"_id": str})
-#df4 = df4.astype({" Company Name": str})
-#df4 = df4.astype({" Exchange": str})
-#df4 = df4.astype({" Country": str})
-df4 = df4.astype(str)
-
-df4 = df4.astype({"Overall points": float})
-df4 = df4.astype({"Points/Market cap": float})
-
-df4 = df4.drop(columns=['_id'])
-df4=df4[df4!=0].dropna()
-df4['Points^2/Market cap points'] = df4['Points/Market cap']*df4['Overall points']
-df4 = df4.sort_values(by=['Points^2/Market cap points'], ascending=False)
-df4 = df4.reset_index(drop=True)
-st.dataframe(df4)
-
-fig = px.scatter(x=df4['Overall points'], y=df4['Points^2/Market cap points'], color=df4[' Industry'],
-                 #size=df3['Overall points'], 
-                 #hover_data=df4['Ticker']
-                 #mode='markers',
-                 #text=df4['Ticker']
-                )
-st.plotly_chart(fig, use_container_width=True)
-
-fig = px.scatter(x=df4['Overall points'], y=df4['Points^2/Market cap points'], color=df4[' Country'],
-                 #size=df3['Overall points'], 
-                 #hover_data=df4['Ticker']
-                 #mode='markers',
-                 #text=df4['Ticker']
-                )
-st.plotly_chart(fig, use_container_width=True)
-
-fig = px.scatter(x=df4['Overall points'], y=df4['Points^2/Market cap points'], color=df4[' Sector'],
-                 #size=df3['Overall points'], 
-                 #hover_data=df4['Ticker']
-                 #mode='markers',
-                 #text=df4['Ticker']
-                )
-st.plotly_chart(fig, use_container_width=True)
-
-fig = px.scatter(x=df4['Overall points'], y=df4['Points^2/Market cap points'], color=df4[' Exchange'],
-                 #size=df3['Overall points'], 
-                 #hover_data=df4['Ticker']
-                 #mode='markers',
-                 #text=df4['Ticker']
-                )
-st.plotly_chart(fig, use_container_width=True)
-
-#numberofcompaniespersector = df4.groupby(' Sector').count()
-#st.write(numberofcompaniespersector)
-
-#s = df4.groupby([' Sector']).mean()
-#s.sort_values(by=['Overall points'], ascending=False)
-
-collection3 = db.overall2
-data3 = collection3.find()
-df5 = pd.DataFrame(data3)
-marketcap = df5.astype(str)
-st.dataframe(df5)
-"""
+                 #.background_gradient(cmap='Blues')
+                     
+#test1 =  test.style.format({'Name': make_clickable_both}).bar(subset=['Overall points'], align='mid', color=['#d65f5f', '#5fba7d'])
+#st.table(test)
+st._legacy_dataframe(styledf, height=800)
