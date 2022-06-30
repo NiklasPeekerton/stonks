@@ -52,7 +52,7 @@ fig = px.bar(df20, x=["Dividend points normal", "Revenues points normal", "Free 
             )
 st.plotly_chart(fig, use_container_width=True)
 
-st.dataframe(df)
+st.dataframe(df20)
 
 
 
