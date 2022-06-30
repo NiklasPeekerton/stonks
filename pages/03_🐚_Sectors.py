@@ -120,6 +120,7 @@ col7.metric("75% score", test.loc['75%'][0])
 st.plotly_chart(fig, use_container_width=True)
 test = full.style.format({"Market Capitalization size": "${:20,.0f}"})\
                  .hide_index()\
+                 .bar(subset=["Overall points",], color='1B2432')\
                  .bar(subset=["Market Capitalization size",], color='lightgreen')\
                  .bar(subset=["Revenues points normal"], color='#EF553B')\
                  .bar(subset=["Dividend points normal"], color='#646FFB')\
@@ -129,6 +130,7 @@ test = full.style.format({"Market Capitalization size": "${:20,.0f}"})\
                  .bar(subset=["Current Ratio points normal"], color='#19D3F3')\
                  .bar(subset=["Weighted Average Shares (Diluted) points normal"], color='#FF6692')\
                  .bar(subset=["Payout Ratio points normal"], color='#B6E980')
+                 .background_gradient(cmap='Blues')
                      
 #st.table(test)
 st._legacy_dataframe(test)
