@@ -127,7 +127,7 @@ test = full.style.format({"Market Capitalization size": "${:20,.0f}", "Overall p
                          , "Free Cash Flow points normal": "🏆{:20,.0f}", "Net Income points normal": "🏆{:20,.0f}"
                          , "Net Income Margin points normal": "🏆{:20,.0f}", "Current Ratio points normal": "🏆{:20,.0f}"
                          , "Weighted Average Shares (Diluted) points normal": "🏆{:20,.0f}", "Payout Ratio points normal": "🏆{:20,.0f}",
-                          'Name': make_clickable_both('Ticker')
+                          'Ticker': make_clickable_both
                          
                          })\
                  .hide_index()\
