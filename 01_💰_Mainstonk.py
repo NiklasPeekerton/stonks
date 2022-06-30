@@ -68,7 +68,7 @@ test = full.style.format({"Market Capitalization size": '${0:,.2f}', "Overall po
                          }, hyperlinks='html')\
                  .hide_index()\
                  .bar(subset=["Overall points"], color='1B2432')\
-                 .bar(subset=["Market Capitalization size"], color='lightgreen')\
+                 .bar(subset=["Market Capitalization size"], color='#44F9B3')\
                  .bar(subset=["Revenues points normal"], color='#EF553B')\
                  .bar(subset=["Dividend points normal"], color='#646FFB')\
                  .bar(subset=["Free Cash Flow points normal"], color='#00CC96')\
