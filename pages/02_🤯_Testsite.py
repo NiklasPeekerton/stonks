@@ -60,7 +60,7 @@ st.plotly_chart(fig, use_container_width=True)
 st.dataframe(df20)
 
 
-
+"""
 df3=df3[df3!=0].dropna()
 df3['Points^2/Market cap points'] = df3['Points/Market cap']*df3['Overall points']
 df3 = df3.sort_values(by=['Points^2/Market cap points'], ascending=False)
@@ -139,4 +139,4 @@ data3 = collection3.find()
 df5 = pd.DataFrame(data3)
 marketcap = df5.astype(str)
 st.dataframe(df5)
-
+"""
