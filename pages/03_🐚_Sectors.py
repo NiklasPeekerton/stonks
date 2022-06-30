@@ -118,8 +118,8 @@ col6.metric("50% score", test.loc['50%'][0])
 col7.metric("75% score", test.loc['75%'][0])
 
 def make_clickable_both(val): 
-    url = full.loc[val]['Website'][0]
-    return url
+    url = f"{val}"
+    return f'<a href="{url}"</a>'
     
 st.plotly_chart(fig, use_container_width=True)
 test = full.style.format({"Market Capitalization size": "${:20,.0f}", "Overall points": "🏆{:20,.0f}"
@@ -151,4 +151,4 @@ st._legacy_dataframe(test)
 #    test_styled.to_html(table_uuid="table_1"), unsafe_allow_html=True
 #)
 
-st.write(full['Ticker']['MSEX'])#.loc[MSEX])#['Website'][0])
+st.write(make_clickable_both('www.target.com')
