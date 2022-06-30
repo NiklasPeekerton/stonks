@@ -118,7 +118,7 @@ col6.metric("50% score", test.loc['50%'][0])
 col7.metric("75% score", test.loc['75%'][0])
 
 def make_clickable_both(val): 
-    url = full.loc['val]['Website'][0]
+    url = full.loc[val]['Website'][0]
     return url
     
 st.plotly_chart(fig, use_container_width=True)
