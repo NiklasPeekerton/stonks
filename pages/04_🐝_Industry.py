@@ -47,7 +47,7 @@ st.plotly_chart(fig, use_container_width=True)
 
 valuepoints = px.scatter(logdf, x="Market Capitalization size", y="Overall points", color=' Industry', 
                          log_y=True, log_x=True, trendline="ols", 
-                         trendline_options=dict(log_y=True), 
+                         trendline_options=dict(log_x=True), 
                          trendline_scope="overall", #text=' Sector',
                          title="Log scale of market cap by overall points. The size of the bubbles are based on the Free cash flow points",
                          labels=dict(value="Average market Capitalization size", y="Average overall points"),
