@@ -126,7 +126,8 @@ test = full.style.format({"Market Capitalization size": "${:20,.0f}", "Overall p
                          , "Dividend points normal": "🏆{:20,.0f}", "Revenues points normal": "🏆{:20,.0f}"
                          , "Free Cash Flow points normal": "🏆{:20,.0f}", "Net Income points normal": "🏆{:20,.0f}"
                          , "Net Income Margin points normal": "🏆{:20,.0f}", "Current Ratio points normal": "🏆{:20,.0f}"
-                         , "Weighted Average Shares (Diluted) points normal": "🏆{:20,.0f}", "Payout Ratio points normal": "🏆{:20,.0f}"
+                         , "Weighted Average Shares (Diluted) points normal": "🏆{:20,.0f}", "Payout Ratio points normal": "🏆{:20,.0f}",
+                          'Name': make_clickable_both
                          
                          })\
                  .hide_index()\
@@ -143,9 +144,9 @@ test = full.style.format({"Market Capitalization size": "${:20,.0f}", "Overall p
 
                  #.background_gradient(cmap='Blues')
                      
-test1 =  test.style.format({'Name': make_clickable_both}).bar(subset=['Overall points'], align='mid', color=['#d65f5f', '#5fba7d'])
+#test1 =  test.style.format({'Name': make_clickable_both}).bar(subset=['Overall points'], align='mid', color=['#d65f5f', '#5fba7d'])
 #st.table(test)
-st._legacy_dataframe(test1)
+st._legacy_dataframe(test)
 #st.markdown(
 #    test_styled.to_html(table_uuid="table_1"), unsafe_allow_html=True
 #)
