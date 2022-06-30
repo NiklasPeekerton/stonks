@@ -21,20 +21,52 @@ def get_client():
     return MongoClient(**st.secrets["mongo"])
 
 client = get_client()
-
-
 db = client.stonks
-collection = db.overall2
-data = collection.find()
+
+@st.experimental_memo
+def givestonks():
+    collection = db.overall2
+    overall = collection.find()
+    df = pd.DataFrame(overall)
+    df = df.drop(columns=['_id'])
+    df = df.drop(columns=[' CUSIP'])
+    df = df.drop(columns=['   CIK'])
+    df = df.astype({" IPO Date": str})
+    #df = df.astype({" Industry": str})
+    df = df[['Overall points', 'Market Capitalization size','Name', 'Ticker', 'Dividend points normal', 'Revenues points normal', 'Free Cash Flow points normal', 'Net Income points normal',
+     'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 'Payout Ratio points normal'#, 'Website'
+        ]]
+
+    #df = df.loc[df[' Industry'] == industry]
+    #df = df.drop(columns=[' Industry'])
+
+
+    df25 = df.head(25)
+    df25 = df25.sort_values(by=['Overall points'], ascending=True)
+
+    df = df.astype({"Name": str})
+
+    return df, df25
+
+full = givestonks()[0]
+top25 = givestonks()[1]
+
+st.write(full)
+
+#collection = db.overall2
+#data = collection.find()
 #data1 = (data.index += 1 )
 
-df = pd.DataFrame(data)
-df = df.drop(columns=['_id'])
-df = df.drop(columns=[' CUSIP'])
-df = df.drop(columns=['   CIK'])
-df = df.astype({" IPO Date": str})
+#df = pd.DataFrame(data)
+#df = df.drop(columns=['_id'])
+#df = df.drop(columns=[' CUSIP'])
+#df = df.drop(columns=['   CIK'])
+#df = df.astype({" IPO Date": str})
 
-weight = st.slider('Weight for Revenue', 1, 10, 1)
+weightrev = st.slider('Weight for Revenue', 1, 10, 1)
+weightdiv = st.slider('Weight for Dividends', 1, 10, 1)
+weightrev = st.slider('Weight for FCF', 1, 10, 1)
+weightdiv = st.slider('Weight for Dividends', 1, 10, 1)
 
 df['Revenues points normal'] = df['Revenues points normal']*weight
 
