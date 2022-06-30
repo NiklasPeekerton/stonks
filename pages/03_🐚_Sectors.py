@@ -118,7 +118,7 @@ col6.metric("50% score", test.loc['50%'][0])
 col7.metric("75% score", test.loc['75%'][0])
 
 def make_clickable_both(val): 
-    url = full.loc['Ticker']['Website'][0]
+    url = full.loc['val]['Website'][0]
     return url
     
 st.plotly_chart(fig, use_container_width=True)
@@ -127,7 +127,7 @@ test = full.style.format({"Market Capitalization size": "${:20,.0f}", "Overall p
                          , "Free Cash Flow points normal": "🏆{:20,.0f}", "Net Income points normal": "🏆{:20,.0f}"
                          , "Net Income Margin points normal": "🏆{:20,.0f}", "Current Ratio points normal": "🏆{:20,.0f}"
                          , "Weighted Average Shares (Diluted) points normal": "🏆{:20,.0f}", "Payout Ratio points normal": "🏆{:20,.0f}",
-                          'Name': make_clickable_both
+                          'Name': make_clickable_both('Ticker')
                          
                          })\
                  .hide_index()\
