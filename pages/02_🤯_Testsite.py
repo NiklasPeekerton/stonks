@@ -65,21 +65,34 @@ st.write(full)
 
 weightrev = st.slider('Weight for Revenue', 1, 10, 1)
 weightdiv = st.slider('Weight for Dividends', 1, 10, 1)
-weightrev = st.slider('Weight for FCF', 1, 10, 1)
-weightdiv = st.slider('Weight for Dividends', 1, 10, 1)
+weightfcf = st.slider('Weight for FCF', 1, 10, 1)
+weightni = st.slider('Weight for Net Income', 1, 10, 1)
+weightnim = st.slider('Weight for Net Income Margin', 1, 10, 1)
+weightcr = st.slider('Weight for Current Ratio', 1, 10, 1)
+weightos = st.slider('Weight for Outstanding shares', 1, 10, 1)
+weightpr = st.slider('Weight for Payout Ratio', 1, 10, 1)
 
-df['Revenues points normal'] = df['Revenues points normal']*weight
+full['Revenues points normal'] = full['Revenues points normal']*weight
+full['Dividend points normal'] = full['Dividend points normal']*weight
+full['Free Cash Flow points normal'] = full['Free Cash Flow points normal']*weight
+full['Net Income points normal'] = full['Net Income points normal']*weight
+full['Net Income Margin points normal'] = full['Net Income Margin points normal']*weight
+full['Current Ratio points normal'] = full['Current Ratio points normal']*weight
+full['Weighted Average Shares (Diluted) points normal'] = full['Weighted Average Shares (Diluted) points normal']*weight
+full['Payout Ratio points normal'] = full['Payout Ratio points normal']*weight
 
-df['Overall points'] = df['Overall points'] + (df['Revenues points normal']-(df['Revenues points normal']/weight))
+full['Overall points'] = full['Overall points'] 
+                        + (full['Revenues points normal']-(full['Revenues points normal']/weight)) 
+                        + (full['Dividend points normal']-(full['Dividend points normal']/weight))
 
-df = df.sort_values(by=['Overall points'], ascending=False)
-df = df.reset_index(drop=True)
+full = full.sort_values(by=['Overall points'], ascending=False)
+full = full.reset_index(drop=True)
 
 #df3['Overall points2'] = df3['Revenues points normal'] + df3['Dividend points normal'] 
 #+ df3['Free Cash Flow points normal'] + df3['Net Income points normal'] + df3['Net Income Margin points normal'] + df3['Current Ratio points normal']
 #+ df3['Weighted Average Shares (Diluted) points normal'] + df3['Payout Ratio points normal']
 
-df20 = df.head(20)
+df20 = full.head(20)
 df20 = df20.sort_values(by=['Overall points'], ascending=True)
 
 fig = px.bar(df20, x=["Dividend points normal", "Revenues points normal", "Free Cash Flow points normal", 'Net Income points normal', 
@@ -89,7 +102,7 @@ fig = px.bar(df20, x=["Dividend points normal", "Revenues points normal", "Free 
             )
 st.plotly_chart(fig, use_container_width=True)
 
-st.dataframe(df20)
+#st.dataframe(df20)
 
 
 """
