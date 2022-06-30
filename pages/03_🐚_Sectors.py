@@ -155,5 +155,5 @@ def make_clickable(url, name):
 
 #test['Website'] = test['Website'].apply(lambda x: f'<a href="{x}">{x}</a>')
 #HTML(test.to_html(escape=False))
-HTML(test.to_html(render_links=True, escape=False))
-
+HTML = test.to_html(render_links=True, escape=False)
+st.write(HTML)
