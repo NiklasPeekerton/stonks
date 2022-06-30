@@ -61,7 +61,7 @@ valuepoints.update_xaxes(type="log", range=[np.log10(13000), np.log10(1100000000
 valuepoints.update_yaxes(type="log", range=[np.log10(140), np.log10(400)])
 st.plotly_chart(valuepoints, use_container_width=True)
 
-
+st.dataframe(df)
 
 
 
