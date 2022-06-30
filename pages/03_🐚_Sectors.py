@@ -151,4 +151,8 @@ st._legacy_dataframe(test)
 #    test_styled.to_html(table_uuid="table_1"), unsafe_allow_html=True
 #)
 
-#st.write(make_clickable_both('www.target.com'))
+def make_clickable(url, name):
+    return '<a href="{}" rel="noopener noreferrer" target="_blank">{}</a>'.format(url,name)
+
+full['link'] = full.apply(lambda x: make_clickable(x['Website'], x['Name']), axis=1)
+full.style
