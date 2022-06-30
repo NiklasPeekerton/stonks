@@ -143,7 +143,7 @@ test = full.style.format({"Market Capitalization size": "${:20,.0f}", "Overall p
 
                  #.background_gradient(cmap='Blues')
                      
-test1 =  df.style.format({'Name': make_clickable_both}).bar(subset=['Overall points'], align='mid', color=['#d65f5f', '#5fba7d'])
+test1 =  test.style.format({'Name': make_clickable_both}).bar(subset=['Overall points'], align='mid', color=['#d65f5f', '#5fba7d'])
 #st.table(test)
 st._legacy_dataframe(test1)
 #st.markdown(
