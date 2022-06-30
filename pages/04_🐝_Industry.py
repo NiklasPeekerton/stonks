@@ -131,4 +131,30 @@ col6.metric("50% score", test.loc['50%'][0])
 col7.metric("75% score", test.loc['75%'][0])
     
 st.plotly_chart(fig, use_container_width=True)
-st.dataframe(full)
+
+styledf = full.style.format({"Market Capitalization size": '${0:,.2f}', "Overall points": "🏆{:20,.0f}"
+                         , "Dividend points normal": "🏆{:20,.0f}", "Revenues points normal": "🏆{:20,.0f}"
+                         , "Free Cash Flow points normal": "🏆{:20,.0f}", "Net Income points normal": "🏆{:20,.0f}"
+                         , "Net Income Margin points normal": "🏆{:20,.0f}", "Current Ratio points normal": "🏆{:20,.0f}"
+                         , "Weighted Average Shares (Diluted) points normal": "🏆{:20,.0f}", "Payout Ratio points normal": "🏆{:20,.0f}"#,
+                          #'Website': make_clickable
+                         
+                         }, hyperlinks='html')\
+                 .hide_index()\
+                 .bar(subset=["Overall points"], color='1B2432')\
+                 .bar(subset=["Market Capitalization size"], color='lightgreen')\
+                 .bar(subset=["Revenues points normal"], color='#EF553B')\
+                 .bar(subset=["Dividend points normal"], color='#646FFB')\
+                 .bar(subset=["Free Cash Flow points normal"], color='#00CC96')\
+                 .bar(subset=["Net Income points normal"], color='#AB63FA')\
+                 .bar(subset=["Net Income Margin points normal"], color='#FFA15A')\
+                 .bar(subset=["Current Ratio points normal"], color='#19D3F3')\
+                 .bar(subset=["Weighted Average Shares (Diluted) points normal"], color='#FF6692')\
+                 .bar(subset=["Payout Ratio points normal"], color='#B6E980')
+
+                 #.background_gradient(cmap='Blues')
+                     
+#test1 =  test.style.format({'Name': make_clickable_both}).bar(subset=['Overall points'], align='mid', color=['#d65f5f', '#5fba7d'])
+#st.table(test)
+st._legacy_dataframe(styledf)
+#st.dataframe(full)
