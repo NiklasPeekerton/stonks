@@ -95,7 +95,7 @@ st.plotly_chart(valuepoints, use_container_width=True)
 
 st._legacy_dataframe(test, height=800)
 
-multiplots = px.scatter(full, x="Market Capitalization size", y="Overall points", facet_col=" Sector", facet_col_wrap=4, height=1000)
+multiplots = px.scatter(full, x="Market Capitalization size", y="Overall points", facet_col=" Sector", facet_col_wrap=2, height=1000)
 multiplots.update_xaxes(title_font=dict(size=18, family='Courier', color='crimson'))
 multiplots.update_yaxes(title_font=dict(size=18, family='Courier', color='crimson'))
 
