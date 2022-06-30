@@ -145,7 +145,7 @@ styledf = full.style.format({"Market Capitalization size": '${0:,.2f}', "Overall
                      
 #test1 =  test.style.format({'Name': make_clickable_both}).bar(subset=['Overall points'], align='mid', color=['#d65f5f', '#5fba7d'])
 #st.table(test)
-st._legacy_dataframe(styledf)
+st._legacy_dataframe(styledf, height=800)
 #st.markdown(
 #    test_styled.to_html(table_uuid="table_1"), unsafe_allow_html=True
 #)
