@@ -122,10 +122,15 @@ test = full.style.format({"Market Capitalization size": "${:20,.0f}"})\
                  .hide_index()\
                  .bar(subset=["Market Capitalization size",], color='lightgreen')\
                  .bar(subset=["Revenues points normal"], color='#ee1f5f')\
-                 .bar(subset=["Dividend points normal"], color='#FFA07A'
+                 .bar(subset=["Dividend points normal"], color='#FFA07A')\
+                 .bar(subset=["Free Cash Flow points normal"], color='#FFA07A')\
+                 .bar(subset=["Net Income points normal"], color='#FFA07A')\
+                 .bar(subset=["Current Ratio points normal"], color='#FFA07A')\
+                 .bar(subset=["Weighted Average Shares (Diluted) points normal"], color='#FFA07A')\
+                 .bar(subset=["Payout Ratio points normal"], color='#FFA07A')\
                      )
-st.table(test)
+#st.table(test)
 st._legacy_dataframe(test)
-st.markdown(
-    test_styled.to_html(table_uuid="table_1"), unsafe_allow_html=True
-)
+#st.markdown(
+#    test_styled.to_html(table_uuid="table_1"), unsafe_allow_html=True
+#)
