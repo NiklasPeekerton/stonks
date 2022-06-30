@@ -128,7 +128,7 @@ test = full.style.format({"Market Capitalization size": '${0:,.2f}', "Overall po
                          , "Weighted Average Shares (Diluted) points normal": "🏆{:20,.0f}", "Payout Ratio points normal": "🏆{:20,.0f}"#,
                           #'Website': make_clickable
                          
-                         }, hyperlinks='html')\
+                         }, hyperlinks=html)\
                  .hide_index()\
                  .bar(subset=["Overall points"], color='1B2432')\
                  .bar(subset=["Market Capitalization size"], color='lightgreen')\
