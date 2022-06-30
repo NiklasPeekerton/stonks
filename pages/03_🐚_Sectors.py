@@ -154,5 +154,6 @@ st._legacy_dataframe(test)
 def make_clickable(url, name):
     return '<a href="{}" rel="noopener noreferrer" target="_blank">{}</a>'.format(url,name)
 
-full['link'] = full.apply(lambda x: make_clickable(x['Website'], x['Name']), axis=1)
-full.style
+test['Website'] = test['Website'].apply(lambda x: f'<a href="{x}">{x}</a>')
+HTML(test.to_html(escape=False))
+st.write(HTML)
