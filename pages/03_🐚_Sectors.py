@@ -157,6 +157,6 @@ def make_clickable(link):
     return f'<a target="_blank" href="{link}">{text}</a>'
 
 # link is the column with hyperlinks
-test['Website'] = test['Website'].apply(make_clickable)
-test = test.to_html(escape=False)
-st.write(test, unsafe_allow_html=True)
+full['Website'] = full['Website'].apply(make_clickable)
+full = full.to_html(escape=False)
+st.write(full, unsafe_allow_html=True)
