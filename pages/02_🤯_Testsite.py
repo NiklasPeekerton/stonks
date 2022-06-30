@@ -81,8 +81,8 @@ full['Current Ratio points normal'] = full['Current Ratio points normal']*weight
 full['Weighted Average Shares (Diluted) points normal'] = full['Weighted Average Shares (Diluted) points normal']*weight
 full['Payout Ratio points normal'] = full['Payout Ratio points normal']*weight
 
-full['Overall points'] = full['Overall points'] 
-                        + (full['Revenues points normal']-(full['Revenues points normal']/weight)) 
+full['Overall points'] = full['Overall points'], 
+                        + (full['Revenues points normal']-(full['Revenues points normal']/weight)), 
                         + (full['Dividend points normal']-(full['Dividend points normal']/weight))
 
 full = full.sort_values(by=['Overall points'], ascending=False)
