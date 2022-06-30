@@ -29,7 +29,7 @@ df = pd.DataFrame(industry)
 df = df.drop(columns=['_id'])
 df = df.astype({" Industry": str})
 logdf = df.sort_values(by=['Market Capitalization size'], ascending=False)
-logdf = logdf[1:]
+logdf = logdf[:1]
 df = df.sort_values(by=['Overall points'], ascending=False)
 #st.dataframe(df)
 
