@@ -129,7 +129,7 @@ test = full.style.format({"Market Capitalization size": "${:20,.0f}"})\
                  .bar(subset=["Net Income Margin points normal"], color='#FFA15A')\
                  .bar(subset=["Current Ratio points normal"], color='#19D3F3')\
                  .bar(subset=["Weighted Average Shares (Diluted) points normal"], color='#FF6692')\
-                 .bar(subset=["Payout Ratio points normal"], color='#B6E980')
+                 .bar(subset=["Payout Ratio points normal"], color='#B6E980')\
                  .background_gradient(cmap='Blues')
                      
 #st.table(test)
