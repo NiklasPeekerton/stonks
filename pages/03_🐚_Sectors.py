@@ -121,7 +121,7 @@ def make_clickable(val):
     return f'<a target="_blank" href="{val}">{val}</a>'
     
 st.plotly_chart(fig, use_container_width=True)
-test = full.style.format({"Market Capitalization size": f"${x/1000:.1f}k", "Overall points": "🏆{:20,.0f}"
+test = full.style.format({"Market Capitalization size": '${0:,.2f}'.astype(float)/1000000).astype(str) + 'MM', "Overall points": "🏆{:20,.0f}"
                          , "Dividend points normal": "🏆{:20,.0f}", "Revenues points normal": "🏆{:20,.0f}"
                          , "Free Cash Flow points normal": "🏆{:20,.0f}", "Net Income points normal": "🏆{:20,.0f}"
                          , "Net Income Margin points normal": "🏆{:20,.0f}", "Current Ratio points normal": "🏆{:20,.0f}"
