@@ -21,50 +21,37 @@ client = get_client()
 
 
 db = client.stonks
-collection = db.overall
+collection = db.overall2
 data = collection.find()
 #data1 = (data.index += 1 )
 
 df = pd.DataFrame(data)
-df = df.astype({"_id": str})
-df1 = df.drop(columns=['_id'])
-#st.dataframe(df1, width=1500, height=None)
-test = df1.astype(str)
 
-st.subheader("'Old' scores", anchor=None)
-st.dataframe(test)
-test1 = test[:500]
-
-
-collection1 = db.overall1
-data1 = collection1.find()
-
-
-df2 = pd.DataFrame(data1)
-df3 = df2.astype({"_id": str})
-df3 = df2.drop(columns=['_id'])
-#st.dataframe(df1, width=1500, height=None)
-#test = df2.astype(str)
-
-st.subheader("'New' scores", anchor=None)
-st.dataframe(df3)
-
-st.subheader("Testsection 🚀💩🔞🚭☠︎🤯💥")
 
 weight = st.slider('Weight for Revenue', 1, 10, 1)
 
-df3['Revenues points normal'] = df3['Revenues points normal']*weight
+df['Revenues points normal'] = df['Revenues points normal']*weight
 
-df3['Overall points'] = df3['Overall points'] + (df3['Revenues points normal']-(df3['Revenues points normal']/weight))
+df['Overall points'] = df['Overall points'] + (df['Revenues points normal']-(df['Revenues points normal']/weight))
 
-df3 = df3.sort_values(by=['Overall points'], ascending=False)
-df3 = df3.reset_index(drop=True)
+df = df.sort_values(by=['Overall points'], ascending=False)
+df = df.reset_index(drop=True)
 
 #df3['Overall points2'] = df3['Revenues points normal'] + df3['Dividend points normal'] 
 #+ df3['Free Cash Flow points normal'] + df3['Net Income points normal'] + df3['Net Income Margin points normal'] + df3['Current Ratio points normal']
 #+ df3['Weighted Average Shares (Diluted) points normal'] + df3['Payout Ratio points normal']
 
-st.dataframe(df3)
+df20 = df.head(20)
+df20 = df20.sort_values(by=['Overall points'], ascending=True)
+
+fig = px.bar(df20, x=["Dividend points normal", "Revenues points normal", "Free Cash Flow points normal", 'Net Income points normal', 
+                    'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 
+                    'Payout Ratio points normal'], y=" Industry", title="Industries sorted by average overall points broken down my metric",
+            labels=dict(value="Average overall points", variable="Metrics"), height=600
+            )
+st.plotly_chart(fig, use_container_width=True)
+
+st.dataframe(df)
 
 
 
