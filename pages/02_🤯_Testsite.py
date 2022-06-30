@@ -27,6 +27,7 @@ data = collection.find()
 #data1 = (data.index += 1 )
 
 df = pd.DataFrame(data)
+df = df.drop(columns=['_id'])
 
 
 weight = st.slider('Weight for Revenue', 1, 10, 1)
