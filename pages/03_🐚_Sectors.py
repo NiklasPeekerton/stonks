@@ -151,4 +151,4 @@ st._legacy_dataframe(test)
 #    test_styled.to_html(table_uuid="table_1"), unsafe_allow_html=True
 #)
 
-st.write(full['Ticker'].loc[MSEX])#['Website'][0])
+st.write(full['Ticker']['MSEX']#.loc[MSEX])#['Website'][0])
