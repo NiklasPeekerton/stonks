@@ -127,7 +127,7 @@ test = full.style.format({"Market Capitalization size": "${:20,.0f}"})\
                  .bar(subset=["Net Income points normal"], color='#FFA07A')\
                  .bar(subset=["Current Ratio points normal"], color='#FFA07A')\
                  .bar(subset=["Weighted Average Shares (Diluted) points normal"], color='#FFA07A')\
-                 .bar(subset=["Payout Ratio points normal"], color='#FFA07A')\
+                 .bar(subset=["Payout Ratio points normal"], color='#FFA07A')
                      )
 #st.table(test)
 st._legacy_dataframe(test)
