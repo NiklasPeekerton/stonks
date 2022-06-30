@@ -83,7 +83,8 @@ valuepoints = px.scatter(full, x="Overall points", y="Market Capitalization size
                  title="Log scale of market cap by overall points",
                 labels=dict(value="Average market Capitalization size", y="Average overall points"),
                  #width=800, 
-                 height=900
+                 height=900,
+                 hover_name="Name"
                 )
 st.plotly_chart(fig, use_container_width=True)
 valuepoints.update_xaxes(showgrid=False)
