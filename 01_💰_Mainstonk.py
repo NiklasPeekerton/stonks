@@ -52,9 +52,10 @@ top25 = giveme()[1]
 
 fig = px.bar(top25, x=["Dividend points normal", "Revenues points normal", "Free Cash Flow points normal", 'Net Income points normal', 
                         'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 
-                        'Payout Ratio points normal'], y="Name", title="Tickers sorted by average overall points broken down my metric", text='Overall points',
+                        'Payout Ratio points normal'], y="Ticker", title="Tickers sorted by average overall points broken down my metric", text='Overall points',
                 labels=dict(value="Average overall points", variable="Metrics"),
-                 height=600
+                 height=600,
+                hover_name="Name"
                 )
 
 st.plotly_chart(fig, use_container_width=True)
