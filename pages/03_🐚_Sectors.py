@@ -126,3 +126,6 @@ test = full.style.format({"Market Capitalization size": "${:20,.0f}"})\
                      )
 st.table(test)
 st._legacy_dataframe(test)
+st.markdown(
+    test_styled.to_html(table_uuid="table_1"), unsafe_allow_html=True
+)
