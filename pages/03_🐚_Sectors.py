@@ -67,7 +67,7 @@ def sectormetric(sector):
     df = pd.DataFrame(overall)
     df = df.astype({" Sector": str})
     df = df[['Overall points', 'Market Capitalization size','Name', 'Ticker', ' Sector', 'Dividend points normal', 'Revenues points normal', 'Free Cash Flow points normal', 'Net Income points normal',
-     'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 'Payout Ratio points normal'
+     'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 'Payout Ratio points normal', 'Website'
         ]]
 
     df = df.loc[df[' Sector'] == sector]
@@ -116,6 +116,10 @@ col5, col6, col7 = st.columns(3)
 col5.metric("25% score", test.loc['25%'][0])
 col6.metric("50% score", test.loc['50%'][0])
 col7.metric("75% score", test.loc['75%'][0])
+
+def make_clickable_both(val): 
+    url = full.loc['Ticker']['Website'][0]
+    return url
     
 st.plotly_chart(fig, use_container_width=True)
 test = full.style.format({"Market Capitalization size": "${:20,.0f}", "Overall points": "🏆{:20,.0f}"
@@ -139,8 +143,9 @@ test = full.style.format({"Market Capitalization size": "${:20,.0f}", "Overall p
 
                  #.background_gradient(cmap='Blues')
                      
+test1 =  df.style.format({'Name': make_clickable_both}).bar(subset=['Overall points'], align='mid', color=['#d65f5f', '#5fba7d'])
 #st.table(test)
-st._legacy_dataframe(test)
+st._legacy_dataframe(test1)
 #st.markdown(
 #    test_styled.to_html(table_uuid="table_1"), unsafe_allow_html=True
 #)
