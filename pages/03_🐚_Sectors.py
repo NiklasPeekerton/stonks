@@ -28,6 +28,8 @@ sector = collection.find()
 df = pd.DataFrame(sector)
 df = df.drop(columns=['_id'])
 df = df.astype({" Sector": str})
+logdf = df.sort_values(by=['Market Capitalization size'], ascending=False)
+logdf = logdf[:-1]
 df = df.sort_values(by=['Overall points'], ascending=False)
 #st.dataframe(df)
 
@@ -47,7 +49,7 @@ st.plotly_chart(fig, use_container_width=True)
 
 valuepoints = px.scatter(df20, x="Market Capitalization size", y="Overall points", color=' Sector', 
                          log_y=True, log_x=True, trendline="ols",
-                         #trendline_options=dict(log_x=True, log_y=True), 
+                         trendline_options=dict(log_x=True, log_y=True), 
                          trendline_scope="overall", text=' Sector',
                          title="Log scale of market cap by overall points. The size of the bubbles are based on the Free cash flow points",
                          labels=dict(value="Average market Capitalization size", y="Average overall points"),
