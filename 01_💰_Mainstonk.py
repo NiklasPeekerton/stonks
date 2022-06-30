@@ -68,17 +68,16 @@ test = full.style.format({"Market Capitalization size": '${:20,.0f}', "Overall p
                           #'Website': make_clickable
                          
                          }, hyperlinks='html')\
-                 #.hide_index()\
-                 .bar(subset=["Overall points"], color='1B2432')\
-                 .bar(subset=["Market Capitalization size"], color='lightgreen')\
-                 .bar(subset=["Revenues points normal"], color='#EF553B')\
-                 .bar(subset=["Dividend points normal"], color='#646FFB')\
-                 .bar(subset=["Free Cash Flow points normal"], color='#00CC96')\
-                 .bar(subset=["Net Income points normal"], color='#AB63FA')\
-                 .bar(subset=["Net Income Margin points normal"], color='#FFA15A')\
-                 .bar(subset=["Current Ratio points normal"], color='#19D3F3')\
-                 .bar(subset=["Weighted Average Shares (Diluted) points normal"], color='#FF6692')\
-                 .bar(subset=["Payout Ratio points normal"], color='#B6E980')
+                         .bar(subset=["Overall points"], color='1B2432')\
+                         .bar(subset=["Market Capitalization size"], color='lightgreen')\
+                         .bar(subset=["Revenues points normal"], color='#EF553B')\
+                         .bar(subset=["Dividend points normal"], color='#646FFB')\
+                         .bar(subset=["Free Cash Flow points normal"], color='#00CC96')\
+                         .bar(subset=["Net Income points normal"], color='#AB63FA')\
+                         .bar(subset=["Net Income Margin points normal"], color='#FFA15A')\
+                         .bar(subset=["Current Ratio points normal"], color='#19D3F3')\
+                         .bar(subset=["Weighted Average Shares (Diluted) points normal"], color='#FF6692')\
+                         .bar(subset=["Payout Ratio points normal"], color='#B6E980')
 valuepoints = px.scatter(full, x="Market Capitalization size", y="Overall points", color=' Sector', 
                          log_y=True, log_x=True, trendline="ols", trendline_scope="overall", #text=' Sector',
                  title="Log scale of market cap by overall points. The size of the bubbles are based on the Free cash flow points",
