@@ -28,6 +28,8 @@ industry = collection.find()
 df = pd.DataFrame(industry)
 df = df.drop(columns=['_id'])
 df = df.astype({" Industry": str})
+logdf = df.sort_values(by=['Market Capitalization size'], ascending=False)
+logdf = logdf[1:]
 df = df.sort_values(by=['Overall points'], ascending=False)
 #st.dataframe(df)
 
@@ -65,7 +67,7 @@ valuepoints.update_xaxes(type="log", range=[np.log10(80), np.log10(11000000000)]
 valuepoints.update_yaxes(type="log", range=[np.log10(80), np.log10(600)])
 st.plotly_chart(valuepoints, use_container_width=True)
 
-st.write(df)
+st.write(logdf)
 
 
 
