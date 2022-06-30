@@ -63,14 +63,14 @@ st.write(full)
 #df = df.drop(columns=['   CIK'])
 #df = df.astype({" IPO Date": str})
 
-weightrev = st.slider('Weight for Revenue', 0.5, 10, 1)
-weightdiv = st.slider('Weight for Dividends', 0.5, 10, 1)
-weightfcf = st.slider('Weight for FCF', 0.5, 10, 1)
-weightni = st.slider('Weight for Net Income', 0.5, 10, 1)
-weightnim = st.slider('Weight for Net Income Margin', 0.5, 10, 1)
-weightcr = st.slider('Weight for Current Ratio', 0.5, 10, 1)
-weightos = st.slider('Weight for Outstanding shares', 0.5, 10, 1)
-weightpr = st.slider('Weight for Payout Ratio', 0.5, 10, 1)
+weightrev = st.slider('Weight for Revenue', 0.5, 10.0, 1.0)
+weightdiv = st.slider('Weight for Dividends', 0.5, 10.0, 1.0)
+weightfcf = st.slider('Weight for FCF', 0.5, 10.0, 1.0)
+weightni = st.slider('Weight for Net Income', 0.5, 10.0, 1.0)
+weightnim = st.slider('Weight for Net Income Margin', 0.5, 10.0, 1.0)
+weightcr = st.slider('Weight for Current Ratio', 0.5, 10.0, 1.0)
+weightos = st.slider('Weight for Outstanding shares', 0.5, 10.0, 1.0)
+weightpr = st.slider('Weight for Payout Ratio', 0.5, 10.0, 1.0)
 
 full['Revenues points normal'] = full['Revenues points normal']*weightrev
 full['Dividend points normal'] = full['Dividend points normal']*weightdiv
