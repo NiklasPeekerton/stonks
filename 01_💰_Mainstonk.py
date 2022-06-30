@@ -95,15 +95,15 @@ st.plotly_chart(valuepoints, use_container_width=True)
 
 
 st._legacy_dataframe(test, height=800)
-full2 = full[full["Market Capitalization size"] < 0] = 0
+
 
 multiplots = px.scatter(full2, x="Market Capitalization size", y="Overall points", color=' Industry', facet_col=" Sector", facet_col_wrap=2, #height=3000,
                         facet_row_spacing=0.01, # default is 0.07 when facet_col_wrap is used
                         facet_col_spacing=0.01, # default is 0.03
                         height=5000, width=800,
                         size='Free Cash Flow points normal',
-                       log_y=True, log_x=True, trendline="ols", trendline_scope="overall", hover_name="Name",
-                       trendline_options=dict(log_x=True))
+                       log_y=True, log_x=True, trendline="ols", trendline_scope="overall", hover_name="Name"#,
+                       #trendline_options=dict(log_x=True))
 #multiplots.update_xaxes(title_font=dict(size=18, family='Courier', color='crimson'))
 #multiplots.update_yaxes(title_font=dict(size=18, family='Courier', color='crimson'))
 multiplots.update_xaxes(type="log", range=[np.log10(80), np.log10(10444203938535)])
