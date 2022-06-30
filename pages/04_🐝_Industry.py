@@ -51,7 +51,8 @@ fig = px.scatter(df20, x="Overall points", y="Market Capitalization size", color
                 )
 valuepoints = px.scatter(df, x="Market Capitalization size", y="Overall points", color=' Industry', 
                          log_y=True, log_x=True, trendline="ols", 
-                         trendline_options=dict(log_x=True), trendline_scope="overall", #text=' Sector',
+                         trendline_options=dict(log_y=True), 
+                         trendline_scope="overall", #text=' Sector',
                          title="Log scale of market cap by overall points. The size of the bubbles are based on the Free cash flow points",
                          labels=dict(value="Average market Capitalization size", y="Average overall points"),
                          #width=800, 
