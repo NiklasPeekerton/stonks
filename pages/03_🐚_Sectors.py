@@ -43,18 +43,30 @@ st.plotly_chart(fig, use_container_width=True)
 
 
 
-fig = px.scatter(df20, x="Overall points", y="Market Capitalization size", color=' Sector', log_y=True, log_x=True, text=' Sector',
+fig = px.scatter(df, x="Overall points", y="Market Capitalization size", color=' Sector', log_y=True, log_x=True, text=' Sector',
                  title="Log scale of market cap by overall points",
                 labels=dict(value="Average market Capitalization size", y="Average overall points"),
                  #width=800, 
                  height=900
                 )
 
+valuepoints = px.scatter(df, x="Market Capitalization size", y="Overall points", color=' Sector', 
+                         log_y=True, log_x=True, trendline="ols", trendline_scope="overall", #text=' Sector',
+                 title="Log scale of market cap by overall points. The size of the bubbles are based on the Free cash flow points",
+                labels=dict(value="Average market Capitalization size", y="Average overall points"),
+                 #width=800, 
+                 height=900,
+                 size='Free Cash Flow points normal',
+                 hover_name=" Sector"
+                )
+
 fig.update_xaxes(showgrid=False)
 fig.update_yaxes(showgrid=False)
 st.plotly_chart(fig, use_container_width=True)
 
-
+valuepoints.update_xaxes(type="log", range=[np.log10(80), np.log10(11000000000)])
+valuepoints.update_yaxes(type="log", range=[np.log10(80), np.log10(600)])
+st.plotly_chart(valuepoints, use_container_width=True)
 
 
 
