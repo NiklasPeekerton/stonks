@@ -124,4 +124,5 @@ test = full.head(10).style.apply({"Market Capitalization size": "${:20,.0f}"})\
                  .bar(subset=["Overall points"], color='#ee1f5f')\
                  .bar(subset=["Dividend points normal"], color='#FFA07A'
                      )
-st.dataframe(test)
+st.table(test)
+st._legacy_dataframe(test)
