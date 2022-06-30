@@ -56,7 +56,7 @@ valuepoints = px.scatter(df, x="Market Capitalization size", y="Overall points",
                  #width=800, 
                  height=900,
                  size='Free Cash Flow points normal',
-                 hover_name="Name"
+                 hover_name=" Industry"
                 )
 
 valuepoints.update_xaxes(showgrid=False)
