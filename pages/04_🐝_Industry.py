@@ -57,7 +57,7 @@ valuepoints = px.scatter(logdf, x="Market Capitalization size", y="Overall point
                          hover_name=" Industry"
                 )
 
-valuepoints.update_xaxes(type="log", range=[np.log10(80), np.log10(11000000000)])
+valuepoints.update_xaxes(type="log", range=[np.log10(40000), np.log10(11000000000)])
 valuepoints.update_yaxes(type="log", range=[np.log10(80), np.log10(600)])
 st.plotly_chart(valuepoints, use_container_width=True)
 
