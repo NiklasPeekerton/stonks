@@ -81,7 +81,7 @@ test = full.style.format({"Market Capitalization size": '${:20,.0f}', "Overall p
                  .bar(subset=["Payout Ratio points normal"], color='#B6E980')
 valuepoints = px.scatter(full, x="Market Capitalization size", y="Overall points", color=' Sector', 
                          log_y=True, log_x=True, trendline="ols", trendline_scope="overall", #text=' Sector',
-                 title="Log scale of market cap by overall points",
+                 title="Log scale of market cap by overall points. The size of the bubbles are based on the Free cash flow points",
                 labels=dict(value="Average market Capitalization size", y="Average overall points"),
                  #width=800, 
                  height=900,
@@ -107,4 +107,5 @@ multiplots = px.scatter(full, x="Market Capitalization size", y="Overall points"
 multiplots.update_xaxes(type="log", range=[np.log10(80), np.log10(10444203938535)])
 multiplots.update_yaxes(type="log", range=[np.log10(80), np.log10(1000)])
 
+st.subheader('Sectors broken down by points and market cap. Colors are industries and size is based on Free cash flow points')
 st.plotly_chart(multiplots, use_container_width=True)
