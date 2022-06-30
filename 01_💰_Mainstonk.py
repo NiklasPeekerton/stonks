@@ -58,5 +58,25 @@ fig = px.bar(top25, x=["Dividend points normal", "Revenues points normal", "Free
                 hover_name="Name"
                 )
 
+test = full.style.format({"Market Capitalization size": '${0:,.2f}', "Overall points": "🏆{:20,.0f}"
+                         , "Dividend points normal": "🏆{:20,.0f}", "Revenues points normal": "🏆{:20,.0f}"
+                         , "Free Cash Flow points normal": "🏆{:20,.0f}", "Net Income points normal": "🏆{:20,.0f}"
+                         , "Net Income Margin points normal": "🏆{:20,.0f}", "Current Ratio points normal": "🏆{:20,.0f}"
+                         , "Weighted Average Shares (Diluted) points normal": "🏆{:20,.0f}", "Payout Ratio points normal": "🏆{:20,.0f}"#,
+                          #'Website': make_clickable
+                         
+                         }, hyperlinks='html')\
+                 .hide_index()\
+                 .bar(subset=["Overall points"], color='1B2432')\
+                 .bar(subset=["Market Capitalization size"], color='lightgreen')\
+                 .bar(subset=["Revenues points normal"], color='#EF553B')\
+                 .bar(subset=["Dividend points normal"], color='#646FFB')\
+                 .bar(subset=["Free Cash Flow points normal"], color='#00CC96')\
+                 .bar(subset=["Net Income points normal"], color='#AB63FA')\
+                 .bar(subset=["Net Income Margin points normal"], color='#FFA15A')\
+                 .bar(subset=["Current Ratio points normal"], color='#19D3F3')\
+                 .bar(subset=["Weighted Average Shares (Diluted) points normal"], color='#FF6692')\
+                 .bar(subset=["Payout Ratio points normal"], color='#B6E980')
+
 st.plotly_chart(fig, use_container_width=True)
-st.dataframe(full)
+st.table(test)
