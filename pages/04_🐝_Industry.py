@@ -66,8 +66,8 @@ def industrymetric(industry):
     overall = collection.find({' Industry': industry })
     df = pd.DataFrame(overall)
     df = df.astype({" Industry": str})
-    df = df[['Overall points', 'Name', 'Ticker', ' Industry','Dividend points normal', 'Revenues points normal', 'Free Cash Flow points normal', 'Net Income points normal',
-     'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 'Payout Ratio points normal'
+    df = df[['Overall points', 'Market Capitalization size','Name', 'Ticker', ' Industry', 'Dividend points normal', 'Revenues points normal', 'Free Cash Flow points normal', 'Net Income points normal',
+     'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 'Payout Ratio points normal'#, 'Website'
         ]]
 
     df = df.loc[df[' Industry'] == industry]
