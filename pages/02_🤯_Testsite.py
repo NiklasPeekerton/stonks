@@ -72,14 +72,14 @@ weightcr = st.slider('Weight for Current Ratio', 1, 10, 1)
 weightos = st.slider('Weight for Outstanding shares', 1, 10, 1)
 weightpr = st.slider('Weight for Payout Ratio', 1, 10, 1)
 
-full['Revenues points normal'] = full['Revenues points normal']*weight
-full['Dividend points normal'] = full['Dividend points normal']*weight
-full['Free Cash Flow points normal'] = full['Free Cash Flow points normal']*weight
-full['Net Income points normal'] = full['Net Income points normal']*weight
-full['Net Income Margin points normal'] = full['Net Income Margin points normal']*weight
-full['Current Ratio points normal'] = full['Current Ratio points normal']*weight
-full['Weighted Average Shares (Diluted) points normal'] = full['Weighted Average Shares (Diluted) points normal']*weight
-full['Payout Ratio points normal'] = full['Payout Ratio points normal']*weight
+full['Revenues points normal'] = full['Revenues points normal']*weightrev
+full['Dividend points normal'] = full['Dividend points normal']*weightdiv
+full['Free Cash Flow points normal'] = full['Free Cash Flow points normal']*weightfcf
+full['Net Income points normal'] = full['Net Income points normal']*weightni
+full['Net Income Margin points normal'] = full['Net Income Margin points normal']*weightnim
+full['Current Ratio points normal'] = full['Current Ratio points normal']*weightcr
+full['Weighted Average Shares (Diluted) points normal'] = full['Weighted Average Shares (Diluted) points normal']*weightos
+full['Payout Ratio points normal'] = full['Payout Ratio points normal']*weightpr
 
 full['Overall points'] = full['Overall points']+(full['Revenues points normal']-(full['Revenues points normal']/weight)) + (full['Dividend points normal']-(full['Dividend points normal']/weight)) + (full['Free Cash Flow points normal']-(full['Free Cash Flow points normal']/weight)) + (full['Net Income points normal']-(full['Net Income points normal']/weight)) + (full['Net Income Margin points normal']-(full['Net Income Margin points normal']/weight)) + (full['Current Ratio points normal']-(full['Current Ratio points normal']/weight)) + (full['Weighted Average Shares (Diluted) points normal']-(full['Weighted Average Shares (Diluted) points normal']/weight)) + (full['Payout Ratio points normal']-(full['Payout Ratio points normal']/weight))
 
