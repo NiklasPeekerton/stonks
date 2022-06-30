@@ -122,7 +122,7 @@ test = full.style.format({"Market Capitalization size": "${:20,.0f}"})\
                  .hide_index()\
                  .bar(subset=["Overall points",], color='1B2432')\
                  .bar(subset=["Market Capitalization size",], color='lightgreen')\
-                 .bar(subset=["Revenues points normal"], cmap='Blues')\
+                 .bar(subset=["Revenues points normal"], color='#1B2432')\
                  .bar(subset=["Dividend points normal"], color='#646FFB')\
                  .bar(subset=["Free Cash Flow points normal"], color='#00CC96')\
                  .bar(subset=["Net Income points normal"], color='#AB63FA')\
