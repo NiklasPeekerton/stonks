@@ -31,7 +31,7 @@ data = collection.find()
 df = pd.DataFrame(data)
 df = df.drop(columns=['_id'])
 df = df.drop(columns=[' CUSIP'])
-df = df.drop(columns=[' CIK'])
+df = df.drop(columns=['CIK'])
 df = df.astype({" IPO Date": str})
 
 weight = st.slider('Weight for Revenue', 1, 10, 1)
