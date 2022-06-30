@@ -153,7 +153,7 @@ st._legacy_dataframe(test)
 def make_clickable(link):
     # target _blank to open new window
     # extract clickable text to display for your link
-    text = link.split('=')[1]
+    text = 'test'
     return f'<a target="_blank" href="{link}">{text}</a>'
 
 # link is the column with hyperlinks
