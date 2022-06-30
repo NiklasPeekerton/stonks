@@ -97,7 +97,7 @@ st._legacy_dataframe(test, height=800)
 
 multiplots = px.scatter(full, x="Market Capitalization size", y="Overall points", facet_col=" Sector", facet_col_wrap=2, height=3000,
                        log_y=True, log_x=True, trendline="ols", trendline_scope="overall", hover_name="Name")
-multiplots.update_xaxes(title_font=dict(size=18, family='Courier', color='crimson'))
-multiplots.update_yaxes(title_font=dict(size=18, family='Courier', color='crimson'))
+#multiplots.update_xaxes(title_font=dict(size=18, family='Courier', color='crimson'))
+#multiplots.update_yaxes(title_font=dict(size=18, family='Courier', color='crimson'))
 
 st.plotly_chart(multiplots, use_container_width=True)
