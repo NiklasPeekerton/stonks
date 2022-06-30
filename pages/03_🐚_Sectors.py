@@ -128,7 +128,7 @@ test = full.style.format({"Market Capitalization size": '${0:,.2f}', "Overall po
                          , "Weighted Average Shares (Diluted) points normal": "🏆{:20,.0f}", "Payout Ratio points normal": "🏆{:20,.0f}"#,
                           #'Website': make_clickable
                          
-                         })\
+                         }, hyperlinks='html')\
                  .hide_index()\
                  .bar(subset=["Overall points"], color='1B2432')\
                  .bar(subset=["Market Capitalization size"], color='lightgreen')\
@@ -150,5 +150,5 @@ st._legacy_dataframe(test)
 #    test_styled.to_html(table_uuid="table_1"), unsafe_allow_html=True
 #)
 
-test['Market Capitalization size'] = test['Market Capitalization size'].apply(lambda x: f'${x/1000000:.1f}M' if x/1000000>=1 else f'${int(x/1000)}K' if x/10000>=1 else f'${x}')
-st._legacy_dataframe(test)
+#test['Market Capitalization size'] = test['Market Capitalization size'].apply(lambda x: f'${x/1000000:.1f}M' if x/1000000>=1 else f'${int(x/1000)}K' if x/10000>=1 else f'${x}')
+#st._legacy_dataframe(test)
