@@ -20,10 +20,10 @@ def get_client():
     return MongoClient(**st.secrets["mongo"])
 
 client = get_client()
+db = client.stonks
 
 @st.experimental_memo
 def sectormean():
-    db = client.stonks
     collection = db.sectorsmean
     sector = collection.find()
     df = pd.DataFrame(sector)
