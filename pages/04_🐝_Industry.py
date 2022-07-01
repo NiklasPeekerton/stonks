@@ -32,6 +32,12 @@ if t:
     </style>
 
     """,
+        unsafe_allow_html=True,
+    )
+
+"# Hello"
+
+"""This font will look different, based on your choice of radio button"""
 
 st.markdown("# Industry 🐝")
 st.sidebar.markdown("# Industry 🐝")
