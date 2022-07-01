@@ -21,22 +21,28 @@ def get_client():
 
 client = get_client()
 
+@st.experimental_memo
+def sectormean():
+    db = client.stonks
+    collection = db.sectorsmean
+    sector = collection.find()
+    df = pd.DataFrame(sector)
+    df = df.drop(columns=['_id'])
+    df = df.astype({" Sector": str})
+    logdf = df.sort_values(by=['Market Capitalization size'], ascending=False)
+    logdf = logdf[:-1]
+    df = df.sort_values(by=['Overall points'], ascending=False)
+    #st.dataframe(df)
 
-db = client.stonks
-collection = db.sectorsmean
-sector = collection.find()
-df = pd.DataFrame(sector)
-df = df.drop(columns=['_id'])
-df = df.astype({" Sector": str})
-logdf = df.sort_values(by=['Market Capitalization size'], ascending=False)
-logdf = logdf[:-1]
-df = df.sort_values(by=['Overall points'], ascending=False)
-#st.dataframe(df)
+    df20 = df.head(20)
+    df20 = df20.sort_values(by=['Overall points'], ascending=True)
+    return df, logdf, df20
 
-df20 = df.head(20)
-df20 = df20.sort_values(by=['Overall points'], ascending=True)
+allsectors = sectormean()[0]
+logsectors = sectormean()[1]
+top20sectors = sectormean()[2]
 
-fig = px.bar(df20, x=["Dividend points normal", "Revenues points normal", "Free Cash Flow points normal", 'Net Income points normal', 
+fig = px.bar(top20sectors, x=["Dividend points normal", "Revenues points normal", "Free Cash Flow points normal", 'Net Income points normal', 
                     'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 
                     'Payout Ratio points normal'], y=" Sector", title="Industries sorted by average overall points broken down my metric",
             labels=dict(value="Average overall points", variable="Metrics"), height=600
@@ -47,7 +53,7 @@ st.plotly_chart(fig, use_container_width=True)
 
 
 
-valuepoints = px.scatter(logdf, x="Market Capitalization size", y="Overall points", color=' Sector', 
+valuepoints = px.scatter(logsectors, x="Market Capitalization size", y="Overall points", color=' Sector', 
                          log_y=True, log_x=True, trendline="ols",
                          trendline_options=dict(log_x=True, log_y=True), 
                          trendline_scope="overall", text=' Sector',
@@ -65,7 +71,7 @@ valuepoints.update_xaxes(type="log", range=[np.log10(13000), np.log10(1100000000
 valuepoints.update_yaxes(type="log", range=[np.log10(140), np.log10(400)])
 st.plotly_chart(valuepoints, use_container_width=True)
 
-st.dataframe(df)
+st.dataframe(allsectors)
 
 
 
