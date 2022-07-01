@@ -98,7 +98,7 @@ def sectormetric(sector):
 
 
 
-sectorlist = df[' Sector'].tolist()
+sectorlist = allsectors[' Sector'].tolist()
 
 options = st.selectbox(
      'Pick a sector you want to see stats for',
