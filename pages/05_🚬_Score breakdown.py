@@ -39,7 +39,23 @@ def metric():
     #df20 = df20.sort_values(by=['Overall points'], ascending=True)
     return df, df20
 
-allindustries = metric()[0]
+allmetric = metric()[0]
+topmetric = metric()[1]
+
+fig = px.bar(topmetric, x=["Enterprise Valuation p3 points", 
+                           "Enterprise Valuation slope points", 
+                           "Enterprise Valuation growth points", 
+                           'Enterprise Valuation endvaluediff points', 
+                           'Enterprise Valuation count_pos points', 
+                           'Enterprise Valuation size points', 
+                           'Enterprise Valuation povsneg points', 
+                           'Enterprise Valuation relative_sum_neg points',
+                           'Enterprise Valuation relative_sum_pos points'], 
+                           y="Ticker", title="Tickers sorted by Enterprise Valuation points broken down my metric", text='Enterprise Valuation points',
+                          labels=dict(value="Enterprise Valuation points", variable="Metrics"),
+                          height=600
+                )
 
 st.write(allindustries)
 
+st.plotly_chart(fig, use_container_width=True)
