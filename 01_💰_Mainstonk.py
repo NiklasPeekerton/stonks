@@ -86,8 +86,8 @@ test = full.style.format({"Market Capitalization size": '${:20,.0f}', "Overall p
                          .bar(subset=["Weighted Average Shares (Diluted) points normal"], color='#FF6692')\
                          .bar(subset=["Payout Ratio points normal"], color='#B6E980')
 valuepoints = px.scatter(full1, x="Enterprise Valuation size", y="Overall points", color=' Sector', 
-                         log_y=True, log_x=False, trendline="ols", trendline_scope="overall", #text=' Sector',
-                         trendline_options=dict(log_x=False, log_y=True), 
+                         log_y=False, log_x=False, trendline="ols", trendline_scope="overall", #text=' Sector',
+                         trendline_options=dict(log_x=False, log_y=False), 
                          title="Log scale of market cap by overall points. The size of the bubbles are based on the Free cash flow points",
                          labels=dict(value="Average market Capitalization size", y="Average overall points"),
                          #width=800, 
