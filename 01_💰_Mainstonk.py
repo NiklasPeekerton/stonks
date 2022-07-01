@@ -56,6 +56,7 @@ def giveme():
 
 full = giveme()[0]
 top25 = giveme()[1]
+st.write(full)
 
 fig = px.bar(top25, x=["Dividend points normal", "Revenues points normal", "Free Cash Flow points normal", 'Net Income points normal', 
                         'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 
