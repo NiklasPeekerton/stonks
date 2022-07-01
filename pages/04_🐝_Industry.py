@@ -14,7 +14,7 @@ st.set_page_config(layout="wide")
 t = st.radio("Toggle to see font change", [True, False])
 
 if t:
-    st.markdown(
+    st.subheader(
         """
         <style>
 @font-face {
