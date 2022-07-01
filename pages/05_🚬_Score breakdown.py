@@ -25,7 +25,7 @@ db = client.stonks
 
 @st.experimental_memo
 def metrics(metric):
-    collection = db.metric
+    collection = db.enterprisevalue
     industry = collection.find()
     df = pd.DataFrame(industry)
     df = df.drop(columns=['_id'])
