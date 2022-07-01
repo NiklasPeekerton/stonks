@@ -94,6 +94,8 @@ st.plotly_chart(valuepoints, use_container_width=True)
 
 
 st._legacy_dataframe(test, height=800)
+full = full.sort_values(by=['Market Capitalization size'], ascending=True)
+full = full.reset_index()
 st.write(full)
 
 multiplots = px.scatter(full, x="Market Capitalization size", y="Overall points", color=' Industry', facet_col=" Sector", facet_col_wrap=2, #height=3000,
