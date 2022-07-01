@@ -59,7 +59,9 @@ fig = px.bar(top25, x=["Dividend points normal", "Revenues points normal", "Free
                  height=600,
                 hover_name="Name"
                 )
-
+full = full.sort_values(by=['Market Capitalization size'], ascending=True)
+full = full.reset_index()
+full = full[2391:]
 test = full.style.format({"Market Capitalization size": '${:20,.0f}', "Overall points": "🏆{:20,.0f}"
                          , "Dividend points normal": "🏆{:20,.0f}", "Revenues points normal": "🏆{:20,.0f}"
                          , "Free Cash Flow points normal": "🏆{:20,.0f}", "Net Income points normal": "🏆{:20,.0f}"
@@ -80,12 +82,13 @@ test = full.style.format({"Market Capitalization size": '${:20,.0f}', "Overall p
                          .bar(subset=["Payout Ratio points normal"], color='#B6E980')
 valuepoints = px.scatter(full, x="Market Capitalization size", y="Overall points", color=' Sector', 
                          log_y=True, log_x=True, trendline="ols", trendline_scope="overall", #text=' Sector',
-                 title="Log scale of market cap by overall points. The size of the bubbles are based on the Free cash flow points",
-                labels=dict(value="Average market Capitalization size", y="Average overall points"),
-                 #width=800, 
-                 height=900,
-                 size='Free Cash Flow points normal',
-                 hover_name="Name"
+                         trendline_options=dict(log_x=True, log_y=True), 
+                         title="Log scale of market cap by overall points. The size of the bubbles are based on the Free cash flow points",
+                         labels=dict(value="Average market Capitalization size", y="Average overall points"),
+                         #width=800, 
+                         height=900,
+                         size='Free Cash Flow points normal',
+                         hover_name="Name"
                 )
 st.plotly_chart(fig, use_container_width=True)
 valuepoints.update_xaxes(type="log", range=[np.log10(80), np.log10(10444203938535)])
@@ -94,9 +97,7 @@ st.plotly_chart(valuepoints, use_container_width=True)
 
 
 st._legacy_dataframe(test, height=800)
-full = full.sort_values(by=['Market Capitalization size'], ascending=True)
-full = full.reset_index()
-full = full[2391:]
+
 st.write(full)
 
 multiplots = px.scatter(full, x="Market Capitalization size", y="Overall points", color=' Industry', facet_col=" Sector", facet_col_wrap=2, #height=3000,
