@@ -36,7 +36,7 @@ def metric():
     #st.dataframe(df)
 
     df20 = df.head(20)
-    #df20 = df20.sort_values(by=['Overall points'], ascending=True)
+    df20 = df20.sort_values(by=['Enterprise Valuation points'], ascending=True)
     return df, df20
 
 allmetric = metric()[0]
