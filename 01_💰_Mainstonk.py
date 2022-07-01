@@ -62,7 +62,7 @@ fig = px.bar(top25, x=["Dividend points normal", "Revenues points normal", "Free
 full1 = full.sort_values(by=['Market Capitalization size'], ascending=True)
 full1 = full1.reset_index()
 full1 = full1[2391:]
-test = full1.style.format({"Market Capitalization size": '${:20,.0f}', "Overall points": "🏆{:20,.0f}"
+test = full.style.format({"Market Capitalization size": '${:20,.0f}', "Overall points": "🏆{:20,.0f}"
                          , "Dividend points normal": "🏆{:20,.0f}", "Revenues points normal": "🏆{:20,.0f}"
                          , "Free Cash Flow points normal": "🏆{:20,.0f}", "Net Income points normal": "🏆{:20,.0f}"
                          , "Net Income Margin points normal": "🏆{:20,.0f}", "Current Ratio points normal": "🏆{:20,.0f}"
