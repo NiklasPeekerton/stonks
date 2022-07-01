@@ -30,10 +30,13 @@ def giveme():
     db = client.stonks
     collection = db.overall2
     overall = collection.find()
-    df = pd.DataFrame(overall)
-    df = df[['Overall points', 'Market Capitalization size','Name', 'Ticker', ' Sector', ' Industry','Dividend points normal', 'Revenues points normal', 'Free Cash Flow points normal', 'Net Income points normal',
+    overalldf = pd.DataFrame(overall)
+    collectionev = db.enterprisevalue
+    ev = collectionev.find()
+    evdf = pd.DataFrame(ev)
+    df = overalldf[['Overall points', 'Market Capitalization size','Name', 'Ticker', ' Sector', ' Industry','Dividend points normal', 'Revenues points normal', 'Free Cash Flow points normal', 'Net Income points normal',
      'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 'Payout Ratio points normal'#, 'Website'
-        ]]
+        ]]+evdf[['Enterprise Valuation size']]
 
 
 
@@ -80,7 +83,7 @@ test = full.style.format({"Market Capitalization size": '${:20,.0f}', "Overall p
                          .bar(subset=["Current Ratio points normal"], color='#19D3F3')\
                          .bar(subset=["Weighted Average Shares (Diluted) points normal"], color='#FF6692')\
                          .bar(subset=["Payout Ratio points normal"], color='#B6E980')
-valuepoints = px.scatter(full1, x="Market Capitalization size", y="Overall points", color=' Sector', 
+valuepoints = px.scatter(full1, x="Enterprise Valuation size", y="Overall points", color=' Sector', 
                          log_y=True, log_x=True, trendline="ols", trendline_scope="overall", #text=' Sector',
                          trendline_options=dict(log_x=True, log_y=True), 
                          title="Log scale of market cap by overall points. The size of the bubbles are based on the Free cash flow points",
