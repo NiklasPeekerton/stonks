@@ -36,7 +36,7 @@ def giveme():
     evdf = pd.DataFrame(ev)
     df = overalldf[['Overall points', 'Market Capitalization size','Name', 'Ticker', ' Sector', ' Industry','Dividend points normal', 'Revenues points normal', 'Free Cash Flow points normal', 'Net Income points normal',
      'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 'Payout Ratio points normal'#, 'Website'
-        ]]+evdf[['Enterprise Valuation size']]
+        ]]+evdf[['Enterprise Valuation size']].dropna()
 
 
 
