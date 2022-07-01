@@ -103,7 +103,7 @@ st.write(full)
 multiplots = px.scatter(full1, x="Market Capitalization size", y="Overall points", color=' Industry', facet_col=" Sector", facet_col_wrap=1, #height=3000,
                         facet_row_spacing=0.01, # default is 0.07 when facet_col_wrap is used
                         facet_col_spacing=0.01, # default is 0.03
-                        height=5000, width=800,
+                        height=10000, width=800,
                         size='Free Cash Flow points normal',
                        log_y=True, log_x=True, trendline="ols", trendline_scope="overall", hover_name="Name",
                        trendline_options=dict(log_x=True, log_y=True)
