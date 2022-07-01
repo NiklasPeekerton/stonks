@@ -37,7 +37,7 @@ def metric():
 
     df20 = df.head(20)
     #df20 = df20.sort_values(by=['Overall points'], ascending=True)
-    return df, logdf, df20
+    return df, df20
 
 allindustries = metric()[0]
 
