@@ -21,23 +21,28 @@ def get_client():
     return MongoClient(**st.secrets["mongo"])
 
 client = get_client()
-
-
 db = client.stonks
-collection = db.industrymean
-industry = collection.find()
-df = pd.DataFrame(industry)
-df = df.drop(columns=['_id'])
-df = df.astype({" Industry": str})
-logdf = df.sort_values(by=['Market Capitalization size'], ascending=False)
-logdf = logdf[:-6]
-df = df.sort_values(by=['Overall points'], ascending=False)
-#st.dataframe(df)
 
-df20 = df.head(20)
-df20 = df20.sort_values(by=['Overall points'], ascending=True)
+def industries():
+    collection = db.industrymean
+    industry = collection.find()
+    df = pd.DataFrame(industry)
+    df = df.drop(columns=['_id'])
+    df = df.astype({" Industry": str})
+    logdf = df.sort_values(by=['Market Capitalization size'], ascending=False)
+    logdf = logdf[:-6]
+    df = df.sort_values(by=['Overall points'], ascending=False)
+    #st.dataframe(df)
 
-fig = px.bar(df20, x=["Dividend points normal", "Revenues points normal", "Free Cash Flow points normal", 'Net Income points normal', 
+    df20 = df.head(20)
+    df20 = df20.sort_values(by=['Overall points'], ascending=True)
+    return df, logdf, df20
+
+allindustries = industries()[0]
+logindustries = industries()[1]
+top20industries = industries()[2]
+
+fig = px.bar(top20industries, x=["Dividend points normal", "Revenues points normal", "Free Cash Flow points normal", 'Net Income points normal', 
                     'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 
                     'Payout Ratio points normal'], y=" Industry", title="Industries sorted by average overall points broken down my metric",
             labels=dict(value="Average overall points", variable="Metrics"), height=600
@@ -46,7 +51,7 @@ st.plotly_chart(fig, use_container_width=True)
 
 
 
-valuepoints = px.scatter(logdf, x="Market Capitalization size", y="Overall points", color=' Industry', 
+valuepoints = px.scatter(logindustries, x="Market Capitalization size", y="Overall points", color=' Industry', 
                          log_y=True, log_x=True, trendline="ols", 
                          trendline_options=dict(log_x=True, log_y=True), 
                          trendline_scope="overall", #text=' Sector',
@@ -62,7 +67,7 @@ valuepoints.update_xaxes(type="log", range=[np.log10(40000), np.log10(1100000000
 valuepoints.update_yaxes(type="log", range=[np.log10(80), np.log10(600)])
 st.plotly_chart(valuepoints, use_container_width=True)
 
-st.write(logdf)
+st.write(logindustries)
 
 
 
@@ -89,21 +94,8 @@ def industrymetric(industry):
 
     return df, df20
 
-#for industry in df20[' Industry']:
-#  industrymetric(industry)
-#industrymetric('Asset Management')
-#st.dataframe(df20)
 
-#df = pd.DataFrame(overall)
-#df = df.drop(columns=['_id'])
-#df = df.astype({" Industry": str})
-#df = df[['Overall points', 'Name', 'Ticker', ' Industry','Dividend points normal', 'Revenues points normal', 'Free Cash Flow points normal', 'Net Income points normal',
-# 'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 'Payout Ratio points normal'
-#    ]]
-
-#tickerlist = df['Ticker'].tolist()
-#dfcount = df.groupby(by=' Industry').count()
-industrylist = df[' Industry'].tolist()
+industrylist = allindustries[' Industry'].tolist()
 #st.write(industrylist)
 
 options = st.selectbox(
