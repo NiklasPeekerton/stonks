@@ -23,6 +23,7 @@ def get_client():
 client = get_client()
 db = client.stonks
 
+@st.experimental_memo
 def industries():
     collection = db.industrymean
     industry = collection.find()
