@@ -24,7 +24,7 @@ client = get_client()
 db = client.stonks
 
 @st.experimental_memo
-def metrics(metric):
+def metrics():
     collection = db.enterprisevalue
     industry = collection.find()
     df = pd.DataFrame(industry)
@@ -39,7 +39,7 @@ def metrics(metric):
     df20 = df20.sort_values(by=['Enterprise Valuation points'], ascending=True)
     return df, df20
 
-allmetric = metrics('enterprisevalue')[0]
+allmetric = metrics()[0]
 topmetric = metrics()[1]
 
 fig = px.bar(topmetric, x=["Enterprise Valuation p3 points", 
