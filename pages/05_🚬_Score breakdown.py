@@ -56,6 +56,5 @@ fig = px.bar(topmetric, x=["Enterprise Valuation p3 points",
                           height=600
                 )
 
-st.write(allindustries)
-
 st.plotly_chart(fig, use_container_width=True)
+st.write(allmetric)
