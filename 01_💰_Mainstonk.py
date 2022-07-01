@@ -31,14 +31,15 @@ def giveme():
     collection = db.overall2
     overall = collection.find()
     overalldf = pd.DataFrame(overall)
-    #collectionev = db.enterprisevalue
-    #ev = collectionev.find()
-    #evdf = pd.DataFrame(ev)
-    #evdfnonan = evdf['Enterprise Valuation size'].dropna()
+    collectionev = db.enterprisevalue
+    ev = collectionev.find()
+    evdf = pd.DataFrame(ev)
+    www = evdf[['Ticker', 'Enterprise Valuation size']]
+    
     df = overalldf[['Overall points', 'Market Capitalization size','Name', 'Ticker', ' Sector', ' Industry','Dividend points normal', 'Revenues points normal', 'Free Cash Flow points normal', 'Net Income points normal',
      'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 'Payout Ratio points normal'#, 'Website'
         ]]#+evdfnonan
-
+    df = df.merge(www)
 
 
     df25 = df.head(25)
