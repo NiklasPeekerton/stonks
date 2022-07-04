@@ -22,11 +22,14 @@ def get_client():
 
 client = get_client()
 db = client.stonks
+collection_name = 'ncav'
+
+
 
 @st.experimental_memo
 def metrics():
-    collection = db.enterprisevalue
-    industry = collection.find()
+    mycol = db[new_collection_name]
+    industry = mycol.find()
     df = pd.DataFrame(industry)
     df = df.drop(columns=['_id'])
     #df = df.astype({" Industry": str})
