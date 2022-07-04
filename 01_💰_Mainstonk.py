@@ -34,7 +34,7 @@ def giveme():
     collectionev = db.enterprisevalue
     ev = collectionev.find()
     evdf = pd.DataFrame(ev)
-    www = evdf[['Ticker', 'Enterprise Valuation size']]
+    www = evdf[['Ticker', 'Enterprise Valuation points']]
     
     df = overalldf[['Overall points', 'Market Capitalization size','Name', 'Ticker', ' Sector', ' Industry','Dividend points normal', 'Revenues points normal', 'Free Cash Flow points normal', 'Net Income points normal',
      'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 'Payout Ratio points normal'#, 'Website'
@@ -86,7 +86,8 @@ test = full.style.format({"Market Capitalization size": '${:20,.0f}', "Overall p
                          .bar(subset=["Current Ratio points normal"], color='#19D3F3')\
                          .bar(subset=["Weighted Average Shares (Diluted) points normal"], color='#FF6692')\
                          .bar(subset=["Payout Ratio points normal"], color='#B6E980')
-valuepoints = px.scatter(full1, x="Market Capitalization size", y="Overall points", color=' Sector', 
+
+valuepoints = px.scatter(full1, x="Enterprise Valuation points", y="Overall points", color=' Sector', 
                          log_y=True, log_x=True, trendline="ols", trendline_scope="overall", #text=' Sector',
                          trendline_options=dict(log_x=True, log_y=True), 
                          title="Log scale of market cap by overall points. The size of the bubbles are based on the Free cash flow points",
@@ -97,7 +98,7 @@ valuepoints = px.scatter(full1, x="Market Capitalization size", y="Overall point
                          hover_name="Name"
                 )
 st.plotly_chart(fig, use_container_width=True)
-valuepoints.update_xaxes(type="log", range=[np.log10(80), np.log10(10444203938535)])
+valuepoints.update_xaxes(type="log", range=[np.log10(200000), np.log10(10444203938535)])
 valuepoints.update_yaxes(type="log", range=[np.log10(80), np.log10(1000)])
 st.plotly_chart(valuepoints, use_container_width=True)
 
