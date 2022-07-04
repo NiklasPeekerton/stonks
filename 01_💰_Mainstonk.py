@@ -91,7 +91,16 @@ test = full.style.format({"Market Capitalization size": '${:20,.0f}', "Overall p
                          .bar(subset=["Weighted Average Shares (Diluted) points normal"], color='#FF6692')\
                          .bar(subset=["Payout Ratio points normal"], color='#B6E980')
 
-valuepoints = px.scatter(full1, x="NCAV points", y="Overall points", color=' Sector', 
+metriclist =['NCAV points', 'Enterprise Valuation points', 'Market Capitalization size', 'Market Capitalization points']
+
+options = st.selectbox(
+     'Pick a metric for the x axis',
+     metriclist#,
+#     #industrylist[69]
+)
+
+
+valuepoints = px.scatter(full1, x=options, y="Overall points", color=' Sector', 
                          log_y=True, log_x=True, trendline="ols", trendline_scope="overall", #text=' Sector',
                          trendline_options=dict(log_x=True, log_y=True), 
                          title="Log scale of market cap by overall points. The size of the bubbles are based on the Free cash flow points",
