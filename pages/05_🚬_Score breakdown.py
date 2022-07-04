@@ -29,8 +29,8 @@ collection_name = ['ncav','enterprisevalue']
 
 
 @st.experimental_memo
-def metrics():
-    mycol = db[options]
+def metrics(metric):
+    mycol = db[metric]
     industry = mycol.find()
     df = pd.DataFrame(industry)
     df = df.drop(columns=['_id'])
@@ -62,9 +62,11 @@ topmetric = metrics()[1]
  #               )
 
 #st.plotly_chart(fig, use_container_width=True)
-st.write(allmetric)
+
 options = st.selectbox(
      'Pick a metric you want to see score breakdown for',
      collection_name#,
 #     #industrylist[69]
 )
+st.write(allmetric)
+
