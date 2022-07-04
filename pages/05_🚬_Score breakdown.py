@@ -44,8 +44,8 @@ def metrics(metric):
     #df20 = df20.sort_values(by=['Enterprise Valuation points'], ascending=True)
     return df, df20
 
-allmetric = metrics()[0]
-topmetric = metrics()[1]
+allmetric = metrics(options)[0]
+topmetric = metrics(options)[1]
 
 #fig = px.bar(topmetric, x=["Enterprise Valuation p3 points", 
 #                           "Enterprise Valuation slope points", 
