@@ -28,7 +28,7 @@ collection_name = 'ncav'
 
 @st.experimental_memo
 def metrics():
-    mycol = db[new_collection_name]
+    mycol = db[collection_name]
     industry = mycol.find()
     df = pd.DataFrame(industry)
     df = df.drop(columns=['_id'])
