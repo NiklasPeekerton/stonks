@@ -24,11 +24,7 @@ client = get_client()
 db = client.stonks
 collection_name = ['ncav','enterprisevalue']
 
-options = st.selectbox(
-     'Pick a metric you want to see score breakdown for',
-     collection_name#,
-#     #industrylist[69]
-)
+
 
 
 
@@ -67,3 +63,8 @@ topmetric = metrics()[1]
 
 #st.plotly_chart(fig, use_container_width=True)
 st.write(allmetric)
+options = st.selectbox(
+     'Pick a metric you want to see score breakdown for',
+     collection_name#,
+#     #industrylist[69]
+)
