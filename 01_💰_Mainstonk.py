@@ -92,6 +92,7 @@ test = full.style.format({"Market Capitalization size": '${:20,.0f}', "Overall p
                          .bar(subset=["Payout Ratio points normal"], color='#B6E980')
 
 metriclist =['NCAV points', 'Enterprise Valuation points', 'Market Capitalization size', 'Market Capitalization points']
+st.plotly_chart(fig, use_container_width=True)
 
 options = st.selectbox(
      'Pick a metric for the x axis',
@@ -110,7 +111,7 @@ valuepoints = px.scatter(full1, x=options, y="Overall points", color=' Sector',
                          size='Free Cash Flow points normal',
                          hover_name="Name"
                 )
-st.plotly_chart(fig, use_container_width=True)
+
 #valuepoints.update_xaxes(type="log", range=[np.log10(200000), np.log10(10444203938535)])
 valuepoints.update_yaxes(type="log", range=[np.log10(80), np.log10(1000)])
 st.plotly_chart(valuepoints, use_container_width=True)
