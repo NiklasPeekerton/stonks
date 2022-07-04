@@ -44,6 +44,13 @@ def metrics(metric):
     #df20 = df20.sort_values(by=['Enterprise Valuation points'], ascending=True)
     return df, df20
 
+
+options = st.selectbox(
+     'Pick a metric you want to see score breakdown for',
+     collection_name#,
+#     #industrylist[69]
+)
+
 allmetric = metrics(options)[0]
 topmetric = metrics(options)[1]
 
@@ -63,10 +70,6 @@ topmetric = metrics(options)[1]
 
 #st.plotly_chart(fig, use_container_width=True)
 
-options = st.selectbox(
-     'Pick a metric you want to see score breakdown for',
-     collection_name#,
-#     #industrylist[69]
-)
+
 st.write(allmetric)
 
