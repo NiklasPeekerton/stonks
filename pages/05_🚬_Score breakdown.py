@@ -22,13 +22,19 @@ def get_client():
 
 client = get_client()
 db = client.stonks
-collection_name = 'ncav'
+collection_name = ['ncav','enterprisevalue']
+
+options = st.selectbox(
+     'Pick a metric you want to see score breakdown for',
+     collection_name#,
+#     #industrylist[69]
+)
 
 
 
 @st.experimental_memo
 def metrics():
-    mycol = db[collection_name]
+    mycol = db[options]
     industry = mycol.find()
     df = pd.DataFrame(industry)
     df = df.drop(columns=['_id'])
