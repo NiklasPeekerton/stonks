@@ -102,8 +102,8 @@ options = st.selectbox(
 
 
 valuepoints = px.scatter(full1, x=options, y="Overall points", color=' Sector', 
-                         log_y=True, log_x=False, trendline="ols", trendline_scope="overall", #text=' Sector',
-                         trendline_options=dict(log_x=False, log_y=True), 
+                         log_y=True, log_x=True, trendline="ols", trendline_scope="overall", #text=' Sector',
+                         trendline_options=dict(log_x=True, log_y=True), 
                          title="Log scale of market cap by overall points. The size of the bubbles are based on the Free cash flow points",
                          labels=dict(value="Average market Capitalization size", y="Average overall points"),
                          #width=800, 
@@ -135,4 +135,4 @@ multiplots.update_xaxes(type="log", range=[np.log10(80), np.log10(10444203938535
 multiplots.update_yaxes(type="log", range=[np.log10(80), np.log10(1000)])
 
 st.subheader('Sectors broken down by points and market cap. Colors are industries and size is based on Free cash flow points')
-st.plotly_chart(multiplots, use_container_width=True)
+#st.plotly_chart(multiplots, use_container_width=True)
