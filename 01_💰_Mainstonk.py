@@ -36,9 +36,9 @@ def giveme():
     evdf = pd.DataFrame(ev)
     www = evdf[['Ticker', 'Enterprise Valuation size', 'Enterprise Valuation points']]
     collectionncav = db.ncavlog
-    ncav = collectionncav.find()
+    ncav = collectionncavdf.find()
     ncavdf = pd.DataFrame(ncav)
-    ncav = ncavdf[['Ticker', 'NCAV size', 'NCAV size log']]
+    ncav = ncavdf[['Ticker', 'NCAVratio size']]
     
     df = overalldf[['Overall points', 'Market Capitalization size','Name', 'Ticker', ' Sector', ' Industry','Dividend points normal', 'Revenues points normal', 'Free Cash Flow points normal', 'Net Income points normal',
      'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 'Payout Ratio points normal'#, 'Website'
@@ -91,7 +91,7 @@ test = full.style.format({"Market Capitalization size": '${:20,.0f}', "Overall p
                          .bar(subset=["Weighted Average Shares (Diluted) points normal"], color='#FF6692')\
                          .bar(subset=["Payout Ratio points normal"], color='#B6E980')
 
-metriclist =['NCAV size log', 'Enterprise Valuation points', 'Market Capitalization size', 'Market Capitalization points']
+metriclist =['NCAVratio size', 'Enterprise Valuation points', 'Market Capitalization size', 'Market Capitalization points']
 st.plotly_chart(fig, use_container_width=True)
 
 options = st.selectbox(
@@ -112,7 +112,7 @@ valuepoints = px.scatter(full1, x=options, y="Overall points", color=' Sector',
                          hover_name="Name"
                 )
 
-valuepoints.update_xaxes(type="log", range=[np.log10(598600000000), np.log10(598650000000)])
+#valuepoints.update_xaxes(type="log", range=[np.log10(598600000000), np.log10(598650000000)])
 valuepoints.update_yaxes(type="log", range=[np.log10(80), np.log10(1000)])
 st.plotly_chart(valuepoints, use_container_width=True)
 
