@@ -101,7 +101,7 @@ options = st.selectbox(
 )
 
 
-valuepoints = px.scatter(full1, x=options, y="Overall points", color=' Sector', 
+valuepoints = px.scatter(full, x=options, y="Overall points", color=' Sector', 
                          log_y=True, log_x=False, trendline="ols", trendline_scope="overall", #text=' Sector',
                          trendline_options=dict(log_x=False, log_y=True), 
                          title="Log scale of market cap by overall points. The size of the bubbles are based on the Free cash flow points",
