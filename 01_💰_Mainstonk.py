@@ -35,8 +35,8 @@ def giveme():
     ev = collectionev.find()
     evdf = pd.DataFrame(ev)
     www = evdf[['Ticker', 'Enterprise Valuation size', 'Enterprise Valuation points']]
-    collectionncav = db.ncavlog
-    ncav = collectionncavdf.find()
+    collectionncav = db.ncavdf
+    ncav = collectionncav.find()
     ncavdf = pd.DataFrame(ncav)
     ncav = ncavdf[['Ticker', 'NCAVratio size']]
     
