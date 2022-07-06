@@ -25,7 +25,7 @@ db = client.stonks
 
 @st.experimental_memo
 def givestonks():
-    collection = db.overall2
+    collection = db.overall3
     overall = collection.find()
     df = pd.DataFrame(overall)
     df = df.drop(columns=['_id'])
@@ -33,8 +33,10 @@ def givestonks():
     df = df.drop(columns=['   CIK'])
     df = df.astype({" IPO Date": str})
     #df = df.astype({" Industry": str})
-    df = df[['Overall points', 'Market Capitalization size','Name', 'Ticker', 'Dividend points normal', 'Revenues points normal', 'Free Cash Flow points normal', 'Net Income points normal',
-     'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 'Payout Ratio points normal'#, 'Website'
+    df = df[['Market Capitalization size','Name', 'Ticker', 'Dividend points normal', 'Revenues points normal', 'Free Cash Flow points normal', 'Net Income points normal',
+             'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 'Payout Ratio points normal',
+             'Debt to Equity Ratio points normal', 'Enterprise Valuation points normal', 'Total Assets points normal', 'Total Liabilities points normal', 'Book Value Per Share points normal',
+             'Price To Book Value points normal', 'Price To Earnings Ratio points normal', 'Total ratio points normal'
         ]]
 
     #df = df.loc[df[' Industry'] == industry]
@@ -42,7 +44,7 @@ def givestonks():
 
 
     df25 = df.head(25)
-    df25 = df25.sort_values(by=['Overall points'], ascending=True)
+    #df25 = df25.sort_values(by=['Overall points'], ascending=True)
 
     df = df.astype({"Name": str})
 
@@ -81,8 +83,8 @@ full['Current Ratio points normal'] = full['Current Ratio points normal']*weight
 full['Weighted Average Shares (Diluted) points normal'] = full['Weighted Average Shares (Diluted) points normal']*weightos
 full['Payout Ratio points normal'] = full['Payout Ratio points normal']*weightpr
 
-full['Overall points'] = full['Overall points']+(full['Revenues points normal']-(full['Revenues points normal']/weightrev)) + (full['Dividend points normal']-(full['Dividend points normal']/weightdiv)) + (full['Free Cash Flow points normal']-(full['Free Cash Flow points normal']/weightfcf)) + (full['Net Income points normal']-(full['Net Income points normal']/weightni)) + (full['Net Income Margin points normal']-(full['Net Income Margin points normal']/weightnim)) + (full['Current Ratio points normal']-(full['Current Ratio points normal']/weightcr)) + (full['Weighted Average Shares (Diluted) points normal']-(full['Weighted Average Shares (Diluted) points normal']/weightos)) + (full['Payout Ratio points normal']-(full['Payout Ratio points normal']/weightpr))
-full['Overall points2'] = full['Revenues points normal']*weightrev + full['Dividend points normal']*weightdiv + full['Free Cash Flow points normal']*weightfcf + full['Net Income points normal']*weightni + full['Net Income Margin points normal']*weightnim + full['Current Ratio points normal']*weightcr + full['Weighted Average Shares (Diluted) points normal']*weightos + full['Payout Ratio points normal']*weightpr
+#full['Overall points'] = full['Overall points']+(full['Revenues points normal']-(full['Revenues points normal']/weightrev)) + (full['Dividend points normal']-(full['Dividend points normal']/weightdiv)) + (full['Free Cash Flow points normal']-(full['Free Cash Flow points normal']/weightfcf)) + (full['Net Income points normal']-(full['Net Income points normal']/weightni)) + (full['Net Income Margin points normal']-(full['Net Income Margin points normal']/weightnim)) + (full['Current Ratio points normal']-(full['Current Ratio points normal']/weightcr)) + (full['Weighted Average Shares (Diluted) points normal']-(full['Weighted Average Shares (Diluted) points normal']/weightos)) + (full['Payout Ratio points normal']-(full['Payout Ratio points normal']/weightpr))
+full['Overall points'] = full['Revenues points normal']*weightrev + full['Dividend points normal']*weightdiv + full['Free Cash Flow points normal']*weightfcf + full['Net Income points normal']*weightni + full['Net Income Margin points normal']*weightnim + full['Current Ratio points normal']*weightcr + full['Weighted Average Shares (Diluted) points normal']*weightos + full['Payout Ratio points normal']*weightpr
 
 full = full.sort_values(by=['Overall points'], ascending=False)
 full = full.reset_index(drop=True)
