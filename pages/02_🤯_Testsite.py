@@ -67,8 +67,13 @@ top25 = givestonks()[1]
 
 col1, col2, col3, col4 = st.columns(4)
 with col1:
-    st.header("Revenue weight")
     weightrev = st.slider('Weight for Revenue', 0.0, 10.0, 1.0)
+with col2:
+    weightdiv = st.slider('Weight for Dividends', 0.0, 10.0, 1.0)
+with col3:
+    weightfcf = st.slider('Weight for FCF', 0.0, 10.0, 1.0)
+with col4:
+    weightni = st.slider('Weight for Net Income', 0.0, 10.0, 1.0)
 #col1.slider('Weight for Revenue', 0.0, 10.0, 1.0)
 #col2.slider('Weight for Dividends', 0.0, 10.0, 1.0)
 #col3.slider('Weight for FCF', 0.0, 10.0, 1.0)
