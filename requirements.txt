@@ -15,3 +15,4 @@ pymongo[srv]
 plost
 echarts
 statsmodels
+numerize
