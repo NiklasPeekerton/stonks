@@ -66,11 +66,12 @@ top25 = givestonks()[1]
 #df = df.astype({" IPO Date": str})
 
 col1, col2, col3, col4 = st.columns(4)
-col1.slider('Weight for Revenue', 0.0, 10.0, 1.0)
+weightrev = st.slider('Weight for Revenue', 0.0, 10.0, 1.0)
+col1.weightrev
 col2.slider('Weight for Dividends', 0.0, 10.0, 1.0)
 col3.slider('Weight for FCF', 0.0, 10.0, 1.0)
 col4.slider('Weight for Net Income', 0.0, 10.0, 1.0)
-#weightrev = st.slider('Weight for Revenue', 0.0, 10.0, 1.0)
+
 #weightdiv = st.slider('Weight for Dividends', 0.0, 10.0, 1.0)
 #weightfcf = st.slider('Weight for FCF', 0.0, 10.0, 1.0)
 #weightni = st.slider('Weight for Net Income', 0.0, 10.0, 1.0)
