@@ -105,11 +105,11 @@ with col3:
 with col4:
     weighttr = st.slider('Weight for Total ratio', 0.0, 10.0, 0.0)
     
-#col1, col2, col3, col4 = st.columns(4)
-#with col1:
-#    weightdy = st.slider('Weight for Dividend Yield', 0.0, 10.0, 0.0)
-#with col2:
-#    weightmp = st.slider('Weight for Market Capitalization', 0.0, 10.0, 0.0)
+col1, col2, col3, col4 = st.columns(4)
+with col1:
+    weightdy = st.slider('Weight for Dividend Yield', 0.0, 10.0, 0.0)
+with col2:
+    weightmp = st.slider('Weight for Market Capitalization', 0.0, 10.0, 0.0)
 
 
 
@@ -133,7 +133,7 @@ full['Dividend Yield points normal'] = full['Dividend Yield points normal']*weig
 full['Market Capitalization size'] = full['Market Capitalization size']*weightmp
 
 #full['Overall points'] = full['Overall points']+(full['Revenues points normal']-(full['Revenues points normal']/weightrev)) + (full['Dividend points normal']-(full['Dividend points normal']/weightdiv)) + (full['Free Cash Flow points normal']-(full['Free Cash Flow points normal']/weightfcf)) + (full['Net Income points normal']-(full['Net Income points normal']/weightni)) + (full['Net Income Margin points normal']-(full['Net Income Margin points normal']/weightnim)) + (full['Current Ratio points normal']-(full['Current Ratio points normal']/weightcr)) + (full['Weighted Average Shares (Diluted) points normal']-(full['Weighted Average Shares (Diluted) points normal']/weightos)) + (full['Payout Ratio points normal']-(full['Payout Ratio points normal']/weightpr))
-#overallpoints = full['Revenues points normal']*weightrev + full['Dividend points normal']*weightdiv + full['Free Cash Flow points normal']*weightfcf + full['Net Income points normal']*weightni + full['Net Income Margin points normal']*weightnim + full['Current Ratio points normal']*weightcr + full['Weighted Average Shares (Diluted) points normal']*weightos + full['Payout Ratio points normal']*weightpr + full['Debt to Equity Ratio points normal']*weightdq + full['Enterprise Valuation points normal']*weightev + full['Total Assets points normal']*weightta + full['Total Liabilities points normal']*weighttl + full['Book Value Per Share points normal']*weightbv + full['Price To Book Value points normal']*weightpbv + full['Price To Earnings Ratio points normal']*weightpe + full['Total ratio points normal']*weighttr + full['Dividend Yield points normal']*weightdy + full['Market Capitalization size']*weightmp
+overallpoints = full['Revenues points normal']*weightrev + full['Dividend points normal']*weightdiv + full['Free Cash Flow points normal']*weightfcf + full['Net Income points normal']*weightni + full['Net Income Margin points normal']*weightnim + full['Current Ratio points normal']*weightcr + full['Weighted Average Shares (Diluted) points normal']*weightos + full['Payout Ratio points normal']*weightpr + full['Debt to Equity Ratio points normal']*weightdq + full['Enterprise Valuation points normal']*weightev + full['Total Assets points normal']*weightta + full['Total Liabilities points normal']*weighttl + full['Book Value Per Share points normal']*weightbv + full['Price To Book Value points normal']*weightpbv + full['Price To Earnings Ratio points normal']*weightpe + full['Total ratio points normal']*weighttr + full['Dividend Yield points normal']*weightdy + full['Market Capitalization size']*weightmp
 
 full = full.sort_values(by=['Overall points'], ascending=False)
 full = full.reset_index(drop=True)
