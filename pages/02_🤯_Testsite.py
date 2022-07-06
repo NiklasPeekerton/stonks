@@ -36,7 +36,7 @@ def givestonks():
     df = df[['Market cap','Name', 'Ticker', 'Dividend points normal', 'Revenues points normal', 'Free Cash Flow points normal', 'Net Income points normal',
              'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 'Payout Ratio points normal',
              'Debt to Equity Ratio points normal', 'Enterprise Valuation points normal', 'Total Assets points normal', 'Total Liabilities points normal', 'Book Value Per Share points normal',
-             'Price To Book Value points normal', 'Price To Earnings Ratio points normal', 'Total ratio points normal', 'Dividend Yield points normal'
+             'Price To Book Value points normal', 'Price To Earnings Ratio points normal', 'Total ratio points normal', 'Dividend Yield points normal', 'Market Capitalization size'
         ]]
 
     #df = df.loc[df[' Industry'] == industry]
@@ -115,7 +115,7 @@ styledf = full.style.format({"Market cap": '${:20,.0f}', "Overall points": "🏆
                          }, hyperlinks='html')\
                  .hide_index()\
                  .bar(subset=["Overall points"], color='1B2432')\
-                 .bar(subset=["Market Capitalization size"], color='lightgreen')\
+                 .bar(subset=["Market cap"], color='lightgreen')\
                  .bar(subset=["Revenues points normal"], color='#EF553B')\
                  .bar(subset=["Dividend points normal"], color='#646FFB')\
                  .bar(subset=["Free Cash Flow points normal"], color='#00CC96')\
