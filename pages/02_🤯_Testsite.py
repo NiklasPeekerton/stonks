@@ -149,7 +149,9 @@ df20 = df20.sort_values(by=['Overall points'], ascending=True)
 
 fig = px.bar(df20, x=["Dividend points normal", "Revenues points normal", "Free Cash Flow points normal", 'Net Income points normal', 
                     'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 
-                    'Payout Ratio points normal'], y="Name", title="Stocks sorted by average overall points broken down my metric",
+                    'Payout Ratio points normal', 'Debt to Equity Ratio points normal', 'Enterprise Valuation points normal', 'Total Assets points normal', 'Total Liabilities points normal', 'Book Value Per Share points normal',
+             'Price To Book Value points normal', 'Price To Earnings Ratio points normal', 'Total ratio points normal', 'Dividend Yield points normal', 'Market Capitalization size']
+             , y="Name", title="Stocks sorted by average overall points broken down my metric",
             labels=dict(value="Average overall points", variable="Metrics"), height=600
             )
 st.plotly_chart(fig, use_container_width=True)
