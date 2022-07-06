@@ -63,14 +63,14 @@ top25 = givestonks()[1]
 #df = df.drop(columns=['   CIK'])
 #df = df.astype({" IPO Date": str})
 
-weightrev = st.slider('Weight for Revenue', 0.5, 10.0, 1.0)
-weightdiv = st.slider('Weight for Dividends', 0.5, 10.0, 1.0)
-weightfcf = st.slider('Weight for FCF', 0.5, 10.0, 1.0)
-weightni = st.slider('Weight for Net Income', 0.5, 10.0, 1.0)
-weightnim = st.slider('Weight for Net Income Margin', 0.5, 10.0, 1.0)
-weightcr = st.slider('Weight for Current Ratio', 0.5, 10.0, 1.0)
-weightos = st.slider('Weight for Outstanding shares', 0.5, 10.0, 1.0)
-weightpr = st.slider('Weight for Payout Ratio', 0.5, 10.0, 1.0)
+weightrev = st.slider('Weight for Revenue', 0.0, 10.0, 1.0)
+weightdiv = st.slider('Weight for Dividends', 0.0, 10.0, 1.0)
+weightfcf = st.slider('Weight for FCF', 0.0, 10.0, 1.0)
+weightni = st.slider('Weight for Net Income', 0.0, 10.0, 1.0)
+weightnim = st.slider('Weight for Net Income Margin', 0.0, 10.0, 1.0)
+weightcr = st.slider('Weight for Current Ratio', 0.0, 10.0, 1.0)
+weightos = st.slider('Weight for Outstanding shares', 0.0, 10.0, 1.0)
+weightpr = st.slider('Weight for Payout Ratio', 0.0, 10.0, 1.0)
 
 full['Revenues points normal'] = full['Revenues points normal']*weightrev
 full['Dividend points normal'] = full['Dividend points normal']*weightdiv
@@ -82,6 +82,7 @@ full['Weighted Average Shares (Diluted) points normal'] = full['Weighted Average
 full['Payout Ratio points normal'] = full['Payout Ratio points normal']*weightpr
 
 full['Overall points'] = full['Overall points']+(full['Revenues points normal']-(full['Revenues points normal']/weightrev)) + (full['Dividend points normal']-(full['Dividend points normal']/weightdiv)) + (full['Free Cash Flow points normal']-(full['Free Cash Flow points normal']/weightfcf)) + (full['Net Income points normal']-(full['Net Income points normal']/weightni)) + (full['Net Income Margin points normal']-(full['Net Income Margin points normal']/weightnim)) + (full['Current Ratio points normal']-(full['Current Ratio points normal']/weightcr)) + (full['Weighted Average Shares (Diluted) points normal']-(full['Weighted Average Shares (Diluted) points normal']/weightos)) + (full['Payout Ratio points normal']-(full['Payout Ratio points normal']/weightpr))
+full['Overall points2'] = full['Revenues points normal']*weightrev + full['Dividend points normal']*weightdiv + full['Free Cash Flow points normal']*weightfcf + full['Net Income points normal']*weightni + full['Net Income Margin points normal']*weightnim + full['Current Ratio points normal']*weightcr + full['Weighted Average Shares (Diluted) points normal']*weightos + full['Payout Ratio points normal']*weightpr
 
 full = full.sort_values(by=['Overall points'], ascending=False)
 full = full.reset_index(drop=True)
@@ -91,7 +92,7 @@ full = full.reset_index(drop=True)
 #+ df3['Weighted Average Shares (Diluted) points normal'] + df3['Payout Ratio points normal']
 
 df20 = full.head(20)
-df20 = df20.sort_values(by=['Overall points'], ascending=True)
+df20 = df20.sort_values(by=['Overall points2'], ascending=True)
 
 fig = px.bar(df20, x=["Dividend points normal", "Revenues points normal", "Free Cash Flow points normal", 'Net Income points normal', 
                     'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 
