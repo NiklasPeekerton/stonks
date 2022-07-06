@@ -105,7 +105,7 @@ st.plotly_chart(fig, use_container_width=True)
 
 #st.dataframe(df20)
 
-styledf = full.style.format({"Market cap": '${:20,.0f}', "Overall points": "🏆{:20,.0f}"
+styledf = full.style.format({"Market Capitalization size": '${:20,.0f}', "Overall points": "🏆{:20,.0f}"
                          , "Dividend points normal": "🏆{:20,.0f}", "Revenues points normal": "🏆{:20,.0f}"
                          , "Free Cash Flow points normal": "🏆{:20,.0f}", "Net Income points normal": "🏆{:20,.0f}"
                          , "Net Income Margin points normal": "🏆{:20,.0f}", "Current Ratio points normal": "🏆{:20,.0f}"
@@ -115,7 +115,7 @@ styledf = full.style.format({"Market cap": '${:20,.0f}', "Overall points": "🏆
                          }, hyperlinks='html')\
                  .hide_index()\
                  .bar(subset=["Overall points"], color='1B2432')\
-                 .bar(subset=["Market cap"], color='lightgreen')\
+                 .bar(subset=["Market Capitalization size"], color='lightgreen')\
                  .bar(subset=["Revenues points normal"], color='#EF553B')\
                  .bar(subset=["Dividend points normal"], color='#646FFB')\
                  .bar(subset=["Free Cash Flow points normal"], color='#00CC96')\
