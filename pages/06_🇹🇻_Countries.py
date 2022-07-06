@@ -31,7 +31,7 @@ def industries():
     df = df.drop(columns=['_id'])
     df = df.astype({" Country": str})
     logdf = df.sort_values(by=['Market Capitalization size'], ascending=False)
-    logdf = logdf[:-6]
+    logdf = logdf
     df = df.sort_values(by=['Overall points'], ascending=False)
     #st.dataframe(df)
 
