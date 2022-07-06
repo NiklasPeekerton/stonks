@@ -36,7 +36,7 @@ def givestonks():
     df = df[['Market Capitalization size','Name', 'Ticker', 'Dividend points normal', 'Revenues points normal', 'Free Cash Flow points normal', 'Net Income points normal',
              'Net Income Margin points normal', 'Current Ratio points normal', 'Weighted Average Shares (Diluted) points normal', 'Payout Ratio points normal',
              'Debt to Equity Ratio points normal', 'Enterprise Valuation points normal', 'Total Assets points normal', 'Total Liabilities points normal', 'Book Value Per Share points normal',
-             'Price To Book Value points normal', 'Price To Earnings Ratio points normal', 'Total ratio points normal'
+             'Price To Book Value points normal', 'Price To Earnings Ratio points normal', 'Total ratio points normal', 'Dividend Yield points normal'
         ]]
 
     #df = df.loc[df[' Industry'] == industry]
